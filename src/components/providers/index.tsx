@@ -1,16 +1,25 @@
+"use client"
+
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ReactQueryProvider from "./components/react-query.provider";
+import { ThemeProvider } from "./components/theme-provider";
 
 type ProvidersProps = {
-    children: React.ReactNode;
+  children: React.ReactNode;
 };
 
 export default function Providers({ children }: ProvidersProps) {
-
-    return (
-        <ReactQueryProvider>
-            <ReactQueryDevtools initialIsOpen={false} />
-            {children}
-        </ReactQueryProvider>
-    );
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <ReactQueryProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+        {children}
+      </ReactQueryProvider>
+    </ThemeProvider>
+  );
 }
