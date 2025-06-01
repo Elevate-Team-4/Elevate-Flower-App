@@ -20,7 +20,7 @@ interface TitleWithBarsProps {
 
 export default function BarTitle({
     title,
-    mainBarWidth = 'w-[70%]',
+    mainBarWidth = 'w-2/3',
     highlightBarWidth = 'w-1/4',
     titleClassName = 'text-4xl',
 }: TitleWithBarsProps) {
@@ -37,7 +37,7 @@ export default function BarTitle({
                     )}
                 />
                 <div
-                    className={cn('bg-soft-pink-600 h-0.5 absolute -top-0.5', highlightBarWidth)}
+                    className={cn('bg-soft-pink-600  h-0.5 absolute -top-0.5', highlightBarWidth)}
                 />
                 <div />
             </div>

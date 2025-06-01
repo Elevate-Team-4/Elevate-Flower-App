@@ -5,11 +5,13 @@ import Gallery from './_components/gallery-sectoin';
 export default function Home() {
     return (
         <main className="py-10">
-            {/*About Sectoin*/}
+            {/*About sectoin*/}
             <AboutUs />
-            {/*Gallery Sectoin*/}
+
+            {/*Gallery sectoin*/}
             <Gallery />
-            {/*Companie Sectoin*/}
+
+            {/*Companie sectoin*/}
             <Companie />
         </main>
     );
