@@ -6,23 +6,33 @@ import { Upload } from "lucide-react"
 const FileInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, ...props }, ref) => {
     return (
-      <label htmlFor="FileInput" className="relative flex items-center justify-center  ">
-        {/* FileInput */}
+      <div className="flex border gap-2 shadow-sm rounded-[10px] border-zinc-300 bg-[#FFFFFF] dark:border-zinc-600 dark:bg-zinc-700 ">
         <input
-          type={'file'}
           id="FileInput"
+          type="file"
           className={cn(
-            "flex h-12 w-full peer rounded-[10px] text-transparent border border-zinc-300 bg-zinc-300 p-4 text-[14px] shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-transparent placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400 disabled:cursor-not-allowed disabled:border-0  disabled:bg-zinc-100 md:text-sm dark:disabled:bg-transparent dark:disabled:border-2 dark:border-zinc-600 dark:bg-zinc-700  dark:file:text-transparent dark:placeholder:text-zinc-400 dark:focus-visible:ring-zinc-500",
+            "flex peer rounded-[10px] file:w-0 file:opacity-0 h-12 w-full text-[14px] bg-transparent  file:border-0 file:h-full file:text-sm file:font-medium file:text-zinc-800 placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400 disabled:bg-zinc-100 disabled:text-zinc-400   md:text-sm dark:file:text-zinc-50 dark:placeholder:text-zinc-400 dark:focus-visible:ring-zinc-500",
             className
           )}
           ref={ref}
           {...props}
         />
-        <span className="text-sm peer-disabled:bg-zinc-100 dark:peer-disabled:bg-transparent peer-disabled:text-zinc-400 dark:peer-disabled:text-zinc-600 text-maroon-500 absolute end-0 p-2 flex flex-wrap gap-2 justify-center items-center bg-transparent"> <Upload size={'18px'} /> Upload file</span>
-      </label>
+        <label htmlFor="FileInput" className="group flex items-center justify-center gap-2 rounded-[10px] border-zinc-300 bg-[#FFFFFF] dark:border-zinc-600 dark:bg-zinc-700 peer-disabled:cursor-not-allowed peer-disabled:bg-zinc-100 peer-disabled:text-zinc-400  dark:peer-disabled:bg-zinc-700 dark:peer-disabled:text-zinc-400 ">
+          <span className="flex gap-4 w-[150px] justify-center items-center text-sm dark:peer-disabled:bg-transparent  text-maroon-500 bg-transparent dark:text-soft-pink-400">
+            <Upload size={'18px'} />
+            <p>Upload file</p>
+          </span>
+        </label>
+      </div>
     )
   }
 )
 FileInput.displayName = "FileInput"
 
 export { FileInput }
+
+
+
+
+
+

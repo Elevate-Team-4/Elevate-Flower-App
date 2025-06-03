@@ -5,16 +5,16 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 dark:focus-visible:ring-zinc-300",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-[14px] font-[600px] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 dark:focus-visible:ring-zinc-300",
   {
     variants: {
       variant: {
         default:
-          "w-[181px] bg-zinc-900 text-zinc-50 shadow hover:bg-zinc-900/90 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-50/90",
+          "w-[181px] bg-maroon-600 dark:bg-soft-pink-300 hover:bg-maroon-700 dark:hover:bg-soft-pink-400 disabled:bg-zinc-300 dark:disabled:bg-zinc-700 text-zinc-50 dark:text-zinc-800 disabled:text-zinc-500  dark:disabled:text-zinc-600 shadow",
         destructive:
-          "w-[181px] bg-red-500 text-zinc-50 shadow-sm hover:bg-red-500/90 dark:bg-red-900 dark:text-zinc-50 dark:hover:bg-red-900/90",
+          "w-[181px] bg-maroon-50 dark:bg-zinc-700 hover:bg-maroon-100 dark:hover:bg-zinc-600 disabled:bg-zinc-300 dark:disabled:bg-zinc-700 text-maroon-600 dark:text-soft-pink-300 disabled:text-zinc-500 dark:disabled:text-zinc-600 shadow",
         outline:
-          "w-[181px] border border-zinc-200 bg-white shadow-sm hover:bg-zinc-100 hover:text-zinc-900 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
+          "w-[181px] bg-[#FFFFFF] dark:bg-zinc-800 hover:bg-maroon-50 dark:hover:bg-zinc-700 disabled:bg-zinc-100 dark:disabled:bg-zinc-800 text-maroon-600 dark:text-soft-pink-300 disabled:text-zinc-400 dark:disabled:text-zinc-600 shadow",
         secondary:
           "w-[181px] bg-zinc-100 text-zinc-900 shadow-sm hover:bg-zinc-100/80 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-800/80",
         ghost: "hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
