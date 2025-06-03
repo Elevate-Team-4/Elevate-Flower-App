@@ -19,13 +19,13 @@ import { cn } from "@/lib/cn";
  * - singleProduct: Pass Single Product (contains details like title, image, price, rateAvg, quantity, sold, createdAt)
  */
 
-// ? Params Single Product Type
+// Params Single Product Type
 interface SingleProduct {
   singleProduct: Product;
 }
 
-function SingleProduct({ singleProduct }: SingleProduct) {
-  // ? Variables
+export default function SingleProduct({ singleProduct }: SingleProduct) {
+  // Variables
   let title;
 
   const currentDate = Date.now();
@@ -33,7 +33,7 @@ function SingleProduct({ singleProduct }: SingleProduct) {
   const diffrence = currentDate - productDate;
   const durationInDays = Math.floor(diffrence / 1000 / 60 / 60 / 24); // Making Time By Day Instead Of Api Format
 
-  // ? Functions
+  // Functions
   // Slice Title
   const titleSliced = () => {
     if (singleProduct.title.split(" ").length > 3) {
@@ -103,9 +103,9 @@ function SingleProduct({ singleProduct }: SingleProduct) {
             <div className="flex mb-1">
               {Array.from({ length: 5 }, (_, i) =>
                 i < singleProduct.rateAvg ? (
-                  <Star fill="#FBA707" size={16} strokeWidth={0} />
+                  <Star fill="#FBA707" size={16} strokeWidth={0} key={i} />
                 ) : (
-                  <Star color="#FBA707" size={16} />
+                  <Star color="#FBA707" size={16} key={i} />
                 )
               )}
             </div>
@@ -125,10 +125,10 @@ function SingleProduct({ singleProduct }: SingleProduct) {
           {/* Cart Button */}
           <Button
             // TODO Change bg Color
-            className="rounded-full [&_svg]:size-6 bg-[#A6252A] hover:bg-[#A6252A]"
+            className="rounded-full [&_svg]:size-6 h-11 w-11 bg-[#A6252A] hover:bg-[#A6252A]"
             size="icon"
           >
-            <ShoppingCart />
+            <ShoppingCart strokeWidth={1.5} />
           </Button>
         </div>
       </div>
@@ -139,7 +139,7 @@ function SingleProduct({ singleProduct }: SingleProduct) {
           variant="destructive"
           className={cn(
             showNew() ? "block" : "hidden",
-            "bg-zinc-100 text-zinc-700 hover:bg-zinc-100"
+            "bg-zinc-100 text-zinc-700 hover:bg-zinc-100 py-1 px-2"
           )}
         >
           NEW
@@ -150,7 +150,7 @@ function SingleProduct({ singleProduct }: SingleProduct) {
           // TODO Change Text / Bg Color
           className={cn(
             showHot() ? "block" : "hidden",
-            "bg-[#FBEAEA] text-[#A6252A] hover:bg-[#FBEAEA]"
+            "bg-[#FBEAEA] text-[#A6252A] hover:bg-[#FBEAEA] py-1 px-2"
           )}
         >
           HOT
@@ -161,7 +161,7 @@ function SingleProduct({ singleProduct }: SingleProduct) {
           className={cn(
             showOutOfStock() ? "block" : "hidden",
             // TODO Change Text Color
-            "text-[#FFF1F5] bg-red-600 hover:bg-red-600"
+            "text-[#FFF1F5] bg-red-600 hover:bg-red-600 py-1 px-2"
           )}
         >
           OUT OF STOCK
@@ -170,5 +170,3 @@ function SingleProduct({ singleProduct }: SingleProduct) {
     </div>
   );
 }
-
-export default SingleProduct;

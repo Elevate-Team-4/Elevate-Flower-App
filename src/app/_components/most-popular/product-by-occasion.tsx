@@ -1,13 +1,13 @@
 import { getProducts } from "@/lib/apis/products.api";
 import SingleProduct from "../../../components/common/single-product";
 
-// ? OccasionId Type
+// OccasionId Type
 interface OccasionId {
   occasionId: string;
 }
 
-async function ProductsByOccasion({ occasionId }: OccasionId) {
-  // ? Functions
+export default async function ProductsByOccasion({ occasionId }: OccasionId) {
+  // Functions
   const response = await getProducts({ occasion: occasionId });
   if ("error" in response) {
     return <p>error</p>;
@@ -15,7 +15,7 @@ async function ProductsByOccasion({ occasionId }: OccasionId) {
 
   const { products } = response;
 
-  // ? If There Are No Products In Occasion
+  // If There Are No Products In Occasion
   if (products.length === 0) {
     return (
       <div className="min-h-52 flex justify-center items-center">
@@ -36,5 +36,3 @@ async function ProductsByOccasion({ occasionId }: OccasionId) {
     </div>
   );
 }
-
-export default ProductsByOccasion;

@@ -1,4 +1,4 @@
-// ? Single Product
+// Single Product
 export type Product = {
   rateAvg: number;
   rateCount: number;
@@ -17,12 +17,12 @@ export type Product = {
   id: string;
 } & DataBaseProbs;
 
-// ? Array of Products
+// Array of Products
 export type Products = {
   products: Product[];
 };
 
-// ? Product Search Params Type
+// Product Search Params Type
 export type SearchParamProduct = {
   // ! Product attributes (optional filters or exact match)
   rateAvg?: number; // Average rating (exact match)

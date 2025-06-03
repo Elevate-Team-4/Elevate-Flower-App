@@ -10,9 +10,10 @@ import SingleProduct from "@/components/common/single-product";
 import { getProducts } from "@/lib/apis/products.api";
 import { ArrowRight } from "lucide-react";
 
-async function BestSelleing() {
-  // ? Functions
+export default async function BestSelling() {
+  // Functions
   const response = await getProducts({ limit: 10, sort: "-sold" });
+
   if ("error" in response) {
     return <p>error</p>;
   }
@@ -71,11 +72,11 @@ async function BestSelleing() {
       {/* Carousel */}
       <div className="col-span-9">
         <Carousel>
-          <CarouselContent className="-ml-[24px]">
+          <CarouselContent className="-ml-6">
             {products.map((product) => (
               <CarouselItem
                 key={product._id}
-                className="basis-1/3 mx-auto flex justify-center pl-[24px]"
+                className="basis-1/3 mx-auto flex justify-center pl-6"
               >
                 <SingleProduct singleProduct={product} />
               </CarouselItem>
@@ -94,5 +95,3 @@ async function BestSelleing() {
     </div>
   );
 }
-
-export default BestSelleing;

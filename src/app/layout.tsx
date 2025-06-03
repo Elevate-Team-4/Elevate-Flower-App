@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Sarabun } from "next/font/google";
 import "./globals.css";
 
-// Configure Poppins
+// Configure Sarabun
 const sarabun = Sarabun({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],

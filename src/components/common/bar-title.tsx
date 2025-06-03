@@ -20,7 +20,7 @@ interface TitleWithBarsProps {
 
 export default function BarTitle({
   title,
-  mainBarWidth = "w-[70%]",
+  mainBarWidth = "w-2/3",
   highlightBarWidth = "w-1/4",
   titleClassName = "text-4xl",
 }: TitleWithBarsProps) {

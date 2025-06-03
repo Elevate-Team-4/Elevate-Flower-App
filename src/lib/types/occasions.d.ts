@@ -1,5 +1,5 @@
 import { occasion } from "./occasions.d";
-// ? Single occasion
+// Single occasion
 export type occasion = {
   name: string;
   slug: string;
@@ -8,12 +8,12 @@ export type occasion = {
   productsCount: number;
 } & DataBaseProbs;
 
-// ? array of occasion
+// array of occasion
 export type occasions = {
   occasions: occasion[];
 };
 
-// ? Ocassions Search Param Type
+// Ocassions Search Param Type
 declare type SearchParamOcassion = {
   name?: string;
   slug?: string;
