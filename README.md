@@ -1,43 +1,99 @@
 # 🌹 Rose App
 
-تطبيق ويب مبني باستخدام [Next.js](https://nextjs.org/) يقدم واجهات تفاعلية باستخدام Tailwind CSS، React Query، و ShadCN UI.
+A web application built with [Next.js](https://nextjs.org/) that provides interactive user interfaces using Tailwind CSS, React Query, and ShadCN UI.
 
 ---
 
-## 🚀 المحتوى
+## 🚀 Contents
 
-- [المقدمة](#المقدمة)
-- [الميزات](#الميزات)
-- [التثبيت](#التثبيت)
-- [الأوامر](#الأوامر)
-- [البنية](#البنية)
-- [التقنيات المستخدمة](#التقنيات-المستخدمة)
-- [لقطات شاشة](#لقطات-شاشة)
-- [ملاحظات](#ملاحظات)
-- [الرخصة](#الرخصة)
-
----
-
-## 📌 المقدمة
-
-Rose App هو مشروع واجهات أمامية يهدف إلى تقديم تجربة مستخدم أنيقة ومبسطة. يدعم الوضع الليلي، الاستجابة لجميع الأجهزة، والتحميل الآمن للملفات.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Commands](#commands)
+- [Structure](#structure)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+- [Notes](#notes)
+- [License](#license)
 
 ---
 
-## ✨ الميزات
+## 📌 Introduction
 
-- تصميم متجاوب باستخدام Tailwind CSS.
-- إدارة state وبيانات الشبكة عبر React Query.
-- تكامل مع مكتبة ShadCN UI لإنشاء مكونات قابلة لإعادة الاستخدام.
-- دعم لـ React Hook Form و Zod للتحقق من القيم.
-- تجربة تحميل ملفات مخصصة وأنيقة.
+**Rose App** is a frontend project designed to deliver a sleek and simplified user experience. It supports dark mode, responsive design for all devices, and secure file uploads.
 
 ---
 
-## 🧑‍💻 التثبيت
+## ✨ Features
+
+- Responsive design with Tailwind CSS.
+- State and network data management using React Query.
+- Integration with ShadCN UI for reusable components.
+- Support for React Hook Form and Zod for form validation.
+- Elegant and customizable file upload experience.
+
+---
+
+## 🧑‍💻 Installation
 
 ```bash
 git clone https://github.com/your-username/rose-app.git
 cd rose-app
 yarn install
 ```
+
+---
+
+## 📦 Commands
+
+```bash
+yarn dev       # Run the development server
+yarn build     # Build for production
+yarn start     # Start the production server
+yarn lint      # Lint the codebase
+```
+
+---
+
+## 🧾 Structure
+
+```
+rose-app/
+├── app/                # App router and pages
+├── components/         # Reusable UI components
+├── lib/                # Utility functions and config
+├── styles/             # Global styles (Tailwind)
+├── public/             # Static assets
+├── types/              # TypeScript types
+└── ...
+```
+
+---
+
+## 🛠️ Technologies Used
+
+- **Next.js**
+- **Tailwind CSS**
+- **React Query**
+- **ShadCN UI**
+- **React Hook Form**
+- **Zod**
+- **TypeScript**
+
+---
+
+## 📸 Screenshots
+
+> _Add screenshots here if available._
+
+---
+
+## 📝 Notes
+
+> _Add any additional notes or important instructions here._
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).

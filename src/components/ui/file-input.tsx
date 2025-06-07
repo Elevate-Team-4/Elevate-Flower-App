@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils/cn"
 import { Upload } from "lucide-react"
 
 const FileInput = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
