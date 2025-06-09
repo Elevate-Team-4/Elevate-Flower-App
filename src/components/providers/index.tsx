@@ -1,16 +1,22 @@
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import ReactQueryProvider from "./components/react-query.provider";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import ReactQueryProvider from './components/react-query.provider';
+import NextIntlProvider from './components/next-intl-provider';
 
-type ProvidersProps = {
-    children: React.ReactNode;
-};
-
-export default function Providers({ children }: ProvidersProps) {
+export default function Providers({
+    children,
+    locale,
+    messages,
+    now,
+    timeZone,
+}: NextIntlProviderProps) {
+    console.log('Messages:', messages, typeof messages);
 
     return (
         <ReactQueryProvider>
-            <ReactQueryDevtools initialIsOpen={false} />
-            {children}
-        </ReactQueryProvider>
+            <ReactQueryDevtools initialIsOpen={false} /> 
+            <NextIntlProvider locale={locale} messages={messages}  timeZone={timeZone} now={now}>
+                {children}
+            </NextIntlProvider>
+      </ReactQueryProvider> 
     );
 }
