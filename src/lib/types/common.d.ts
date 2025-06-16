@@ -8,5 +8,3 @@ declare type RouteProps = {
 declare type LayoutProps = {
     children: React.ReactNode;
 } & Pick<RouteProps, 'params'>;
-
-

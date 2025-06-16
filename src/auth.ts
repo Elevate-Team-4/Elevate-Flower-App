@@ -1,15 +1,16 @@
 import { NextAuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import { JSON_HEADER } from './lib/constants/api.constant';
 
 export const authOptions: NextAuthOptions = {
     //todo pages
 
-    //~ Authentication providers
+    // Authentication providers
     providers: [
         Credentials({
             name: 'Credentials',
             credentials: {
-                //~ Input fields expected from the login form
+                // Input fields expected from the login form
                 email: {},
                 password: {},
             },
@@ -20,12 +21,14 @@ export const authOptions: NextAuthOptions = {
                         email: credentials?.email,
                         password: credentials?.password,
                     }),
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        ...JSON_HEADER,
+                    },
                 });
 
                 const payload: APIResponse<LoginResponse> = await response.json();
 
-                //~ Validate credentials before API request to avoid unnecessary network calls
+                // Validate credentials before API request to avoid unnecessary network calls
                 if (!credentials?.email) {
                     throw new Error('"email" is not allowed to be empty');
                 }
@@ -47,14 +50,14 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         jwt: ({ token, user }) => {
             if (user) {
-                //~ Add user and token to JWT payload after successful login
+                // Add user and token to JWT payload after successful login
                 token.token = user.token;
                 token.user = user.user;
             }
             return token;
         },
         session: async ({ session, token }) => {
-            //~ Adding user data to session
+            // Adding user data to session
             session.user = token.user;
             return session;
         },

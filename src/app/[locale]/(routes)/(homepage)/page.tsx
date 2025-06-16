@@ -1,5 +1,3 @@
-import { Activity } from 'lucide-react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
@@ -13,6 +11,4 @@ export default function Home() {
             <p className="bg-soft-pink-500">{t('mahmoued')} </p>
         </main>
     );
-
-
 }

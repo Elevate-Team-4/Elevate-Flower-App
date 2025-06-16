@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlProviderProps } from '@/lib/types/providers';
 
 export default function NextIntlProvider({
     children,

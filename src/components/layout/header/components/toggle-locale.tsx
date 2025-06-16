@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import {
     DropdownMenu,
@@ -13,21 +14,21 @@ import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 
 export default function ToggleLocale() {
-    //~ Navigation
+    // Navigation
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const currentLocale = useLocale();
-    //~ Dropdown Menu languages
-    const languages = {
+    // Dropdown Menu languages
+    const languages:(typeof routing)['locales'][number] = {
         en: 'English',
         ar: 'العربية',
     };
     return (
         <DropdownMenu>
-            {/* //~ Trigger */}
+            {/* // Trigger */}
             <DropdownMenuTrigger>{languages[currentLocale]}</DropdownMenuTrigger>
 
-            {/* //~ Content */}
+            {/* // Content */}
             <DropdownMenuContent>
                 {routing.locales.map((locale) => (
                     <Link

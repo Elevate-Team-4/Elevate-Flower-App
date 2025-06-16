@@ -1,10 +1,12 @@
+import { Messages } from 'next-intl';
+
 declare type ProvidersProps = {
     children: React.ReactNode;
 };
 
 declare type NextIntlProviderProps = {
     locale: string;
-    messages: any;
+    messages: Messages;
     now: Date;
     timeZone: string;
-}& ProvidersProps ;
+} & ProvidersProps;

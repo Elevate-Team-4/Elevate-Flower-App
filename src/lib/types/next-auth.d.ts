@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import NextAuth, { User } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 

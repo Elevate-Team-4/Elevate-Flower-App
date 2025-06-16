@@ -14,12 +14,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
             number: {
                 'currency-int': {
                     style: 'currency',
-                    currency: 'USA',
+                    currency: 'EGP',
                     maximumFractionDigits: 0,
                 },
                 'currency-float': {
                     style: 'currency',
-                    currency: 'USA',
+                    currency: 'EGP',
                 },
                 'percentage-int': {
                     style: 'percent',
