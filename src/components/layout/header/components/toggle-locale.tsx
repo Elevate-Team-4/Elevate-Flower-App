@@ -19,7 +19,7 @@ export default function ToggleLocale() {
     const searchParams = useSearchParams();
     const currentLocale = useLocale();
     // Dropdown Menu languages
-    const languages:(typeof routing)['locales'][number] = {
+    const languages: (typeof routing)['locales'][number] = {
         en: 'English',
         ar: 'العربية',
     };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 declare type SuccessfulResponse<T> = {
     message: 'success';
 } & T;
