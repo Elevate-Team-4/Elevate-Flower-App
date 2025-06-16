@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ReactQueryProvider from "./components/react-query.provider";
@@ -10,12 +10,7 @@ type ProvidersProps = {
 
 export default function Providers({ children }: ProvidersProps) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
       <ReactQueryProvider>
         <ReactQueryDevtools initialIsOpen={false} />
         {children}

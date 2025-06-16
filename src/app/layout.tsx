@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Providers from "@/components/providers";
 import { Sarabun } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
+import Providers from "@/components/providers";
 import Footer from "./components/footer";
 import Header from "./components/header";
-
 
 // Sarabun font
 const sarabun = Sarabun({
@@ -36,6 +36,9 @@ export default function RootLayout({
 
             {/* Main content */}
             {children}
+
+            {/* Toast notifications */}
+            <Toaster />
 
             {/* Footer */}
             <Footer />

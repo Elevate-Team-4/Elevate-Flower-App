@@ -1,4 +1,6 @@
 // Since QueryClientProvider relies on useContext under the hood, we have to put 'use client' on top
+"use client";
+
 import { isServer, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function makeQueryClient() {
