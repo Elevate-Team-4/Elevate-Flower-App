@@ -1,4 +1,7 @@
-import { Messages } from 'next-intl';
+// import { Messages } from 'next-intl';
+declare type Messages = {
+    [key: string]: string | Messages;
+};
 
 declare type ProvidersProps = {
     children: React.ReactNode;
