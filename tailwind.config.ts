@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        primary: ["var(--font-primary)"],
+      },
       keyframes: {
         "caret-blink": {
           "0%,70%,100%": { opacity: "1" },
