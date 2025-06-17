@@ -73,9 +73,9 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
 
   return (
     <div className="relative flex flex-col">
-      {/* Cover & Title */}
+      {/* Cover & title */}
       <div>
-        {/* Product Cover */}
+        {/* Product cover */}
         <Image
           src={singleProduct.imgCover}
           width={302}
@@ -96,7 +96,7 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
 
       {/* Product descreption */}
       <div>
-        {/* price , Review & cart button*/}
+        {/* Price , Review & Cart button*/}
         <div className="flex justify-between font-medium">
           <div>
             {/* Review */}
@@ -128,7 +128,7 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
             className="rounded-full [&_svg]:size-6 h-11 w-11 bg-[#A6252A] hover:bg-[#A6252A]"
             size="icon"
           >
-            <ShoppingCart strokeWidth={1.5} />
+            <ShoppingCart strokeWidth={1} />
           </Button>
         </div>
       </div>

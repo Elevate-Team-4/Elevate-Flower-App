@@ -1,10 +1,10 @@
 import { occasions, SearchParamOcassion } from "../types/occasions";
 
 export const getOccasions = async (params: SearchParamOcassion | undefined) => {
-  // Declareing Occasion API
+  // Declareing occasion API
   const url = new URL(`${process.env.API}/occasions`);
 
-  // If No Params Are Given
+  // If no params are given
   if (!params) {
     const response = await fetch(url.toString());
 
@@ -14,15 +14,15 @@ export const getOccasions = async (params: SearchParamOcassion | undefined) => {
     return payload;
   }
 
-  // If Params Are Gevin (this handle any given params included in the param type)
+  // If params are gevin (this handle any given params included in the param type)
   Object.entries(params).forEach((param) => {
     url.searchParams.append(param[0].toString(), param[1].toString());
   });
 
-  // Extracting Only The API Link
+  // Extracting only the aPI Link
   const response = await fetch(url.toString());
 
-  // Reaturning The Occasion Results
+  // Reaturning the occasion results
   const payload: APIResponse<PaginatedResponse<occasions>> =
     await response.json();
 

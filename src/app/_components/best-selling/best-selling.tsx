@@ -54,9 +54,9 @@ export default async function BestSelling() {
             Not sure what to choose?
             <br />
             Start with our best sellers, these are the gifts our customers keep
-            coming back for. Whether you're celebrating a birthday, anniversary
-            or wedding, our top picks are guaranteed to leave a lasting
-            impression.
+            coming back for. Whether you&apos;re celebrating a birthday,
+            anniversary or wedding, our top picks are guaranteed to leave a
+            lasting impression.
           </p>
         </div>
 

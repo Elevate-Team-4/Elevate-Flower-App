@@ -1,10 +1,10 @@
 import { Products, SearchParamProduct } from "../types/products";
 
 export const getProducts = async (params: SearchParamProduct | undefined) => {
-  // Declareing Products API
+  // Declareing products API
   const url = new URL(`${process.env.API}/Products`);
 
-  // If No Params Are Given (Undefined)
+  // If no params are given (undefined)
   if (!params) {
     const response = await fetch(url.toString());
 
@@ -14,15 +14,15 @@ export const getProducts = async (params: SearchParamProduct | undefined) => {
     return payload;
   }
 
-  // If Params Are Gevin (this handle any given params included in the type)
+  // If params are gevin (this handle any given params included in the type)
   Object.entries(params).forEach((param) => {
     url.searchParams.append(param[0].toString(), param[1].toString());
   });
 
-  // Extracting Only The API Link
+  // Extracting only the aPI link
   const response = await fetch(url.toString());
 
-  // Reaturning The Products Results
+  // Reaturning the products results
   const payload: APIResponse<PaginatedResponse<Products>> =
     await response.json();
 

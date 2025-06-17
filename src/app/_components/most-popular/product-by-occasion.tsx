@@ -3,7 +3,7 @@ import SingleProduct from "../../../components/common/single-product";
 
 // OccasionId Type
 interface OccasionId {
-  occasionId: string;
+  occasionId?: string;
 }
 
 export default async function ProductsByOccasion({ occasionId }: OccasionId) {
@@ -15,7 +15,7 @@ export default async function ProductsByOccasion({ occasionId }: OccasionId) {
 
   const { products } = response;
 
-  // If There Are No Products In Occasion
+  // If there are no products in occasion
   if (products.length === 0) {
     return (
       <div className="min-h-52 flex justify-center items-center">
