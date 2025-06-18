@@ -14,8 +14,8 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import Link from "next/link";
-import { SearchInput } from "@/components/ui/search-input";
 import logo from "@assets/images/logo 1.png";
+import { Input } from "@/components/ui/input";
 
 export default function Header() {
   // Navbar object
@@ -72,7 +72,11 @@ export default function Header() {
           </div>
 
           {/* input search */}
-          <SearchInput className="w-full" placeholder="What awesome gift are you looking for?" />
+          <Input
+            type="search"
+            className="w-full"
+            placeholder="What awesome gift are you looking for?"
+          />
 
           {/* action */}
           <div className="flex items-center gap-4 p-4">
