@@ -1,13 +1,18 @@
-import React from "react";
-import { ModeToggle } from "@/components/ui/mode-toggle";
-import { Input } from "@/components/ui/input";
+import AboutUs from "./_components/about-us-sectoin";
+import Companie from "./_components/companie-sectoin";
+import Gallery from "./_components/gallery-sectoin";
 
 export default function Home() {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl ">Welcome to My App</h1>
-      <Input placeholder="placeholder..." />
-      <ModeToggle />
-    </div>
+    <main className="py-10">
+      {/*About sectoin*/}
+      <AboutUs />
+
+      {/*Gallery sectoin*/}
+      <Gallery />
+
+      {/*Companie sectoin*/}
+      <Companie />
+    </main>
   );
 }
