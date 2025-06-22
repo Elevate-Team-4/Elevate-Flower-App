@@ -1,9 +1,8 @@
-'use client';
+"use client";
 
-import { ProvidersProps } from '@/lib/types/providers';
-import { SessionProvider } from 'next-auth/react';
-import React from 'react';
+import { SessionProvider } from "next-auth/react";
+import React from "react";
 
 export default function SessionClientProvider({ children }: ProvidersProps) {
-    return <SessionProvider>{children}</SessionProvider>;
+  return <SessionProvider>{children}</SessionProvider>;
 }
