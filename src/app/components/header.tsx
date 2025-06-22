@@ -16,6 +16,7 @@ import {
 import Link from "next/link";
 import logo from "@assets/logo 1.png";
 import { Input } from "@/components/ui/input";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Header() {
   // Navbar object
@@ -110,6 +111,12 @@ export default function Header() {
                 <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-semibold rounded-full w-4 h-4 flex items-center justify-center">
                   2
                 </span>
+              </div>
+            </div>
+
+            <div className="flex-1 self-stretch flex items-center gap-2">
+              <div className="relative">
+                <ModeToggle />
               </div>
             </div>
 
