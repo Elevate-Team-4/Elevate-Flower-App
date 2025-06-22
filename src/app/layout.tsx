@@ -25,29 +25,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${sarabun.variable} antialiased transition-colors duration-300 dark:bg-zinc-800`}
-      >
-        {/* Providers */}
-        <Providers>
-          {/* Header  */}
-          <Header />
-
-          {/* Main content */}
-          <main className="font-sarabun container mx-auto  w-full min-h-[calc(100vh-200px)] px-20">
-            {/* Main children components */}
-            {children}
-
-            {/* Toast notifications */}
-            <Toaster />
-          </main>
-
-          {/* Footer */}
-          <Footer />
-        </Providers>
-      </body>
-    </html>
-  );
+  return children;
 }
