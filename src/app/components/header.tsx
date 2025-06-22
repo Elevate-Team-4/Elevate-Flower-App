@@ -14,7 +14,7 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import Link from "next/link";
-import logo from "@assets/images/logo 1.png";
+import logo from "@assets/logo 1.png";
 import { Input } from "@/components/ui/input";
 
 export default function Header() {
