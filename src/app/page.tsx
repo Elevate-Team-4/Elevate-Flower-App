@@ -1,6 +1,6 @@
-import AboutUs from "./_components/about-us-sectoin";
-import Companie from "./_components/companie-sectoin";
-import Gallery from "./_components/gallery-sectoin";
+import AboutUs from "./_components/about-us-section";
+import CompaniesSection from "./_components/companies-section";
+import Gallery from "./_components/gallery-section";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Gallery />
 
       {/*Companie sectoin*/}
-      <Companie />
+      <CompaniesSection />
     </main>
   );
 }
