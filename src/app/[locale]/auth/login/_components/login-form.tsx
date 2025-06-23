@@ -107,7 +107,7 @@ export default function LoginForm() {
         <div className="flex flex-col">
           <Link
             className="no-underline text-end -mt-2 text-maroon-700 dark:text-pink-300 font-semibold"
-            href="/auth/password/email"
+            href="/auth/forget-password"
           >
             {t("forgot_password")}
           </Link>

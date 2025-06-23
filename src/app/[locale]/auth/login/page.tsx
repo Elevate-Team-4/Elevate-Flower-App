@@ -18,7 +18,7 @@ export default function Page() {
       {/** Login form */}
       <LoginForm />
 
-      <Link className="pt-5 text-sm font-medium" href="/register">
+      <Link className="pt-5 text-sm font-medium" href="/signup">
         {t("no_account")}{" "}
         <span className="text-maroon-700 dark:text-pink-300 font-bold">{t("create_account")}</span>
       </Link>
