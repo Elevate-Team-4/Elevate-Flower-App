@@ -21,6 +21,23 @@ const config: Config = {
           "20%,50%": { opacity: "0" },
         },
       },
+      maxWidth: {
+        1.5: "630px",
+      },
+      height: {
+        84: "21rem",
+        85: "22rem",
+        86: "23rem",
+      },
+      rotate: {
+        "custom-1": "-3.09deg",
+      },
+      letterSpacing: {
+        title: "0.4em",
+      },
+      screens: {
+        "2xl": "1440px",
+      },
       animation: {
         "caret-blink": "caret-blink 1.25s ease-out infinite",
       },
