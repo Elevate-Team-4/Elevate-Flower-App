@@ -13,6 +13,10 @@ const config: Config = {
     extend: {
       fontFamily: {
         primary: ["var(--font-primary)"],
+        "geist-sans": ["var(--font-geist-sans)"],
+        edwardian: ["var(--font-edwardian)"],
+        "geist-mono": ["var(--font-geist-mono)"],
+        zain: ["var(--font-zain)"],
       },
       keyframes: {
         "caret-blink": {

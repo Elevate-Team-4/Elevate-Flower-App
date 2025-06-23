@@ -1,4 +1,30 @@
 {
-    "mahmoued": "محمود",
-    "page-is-not-found": "لم يتم العثور على هذه الصفحة 🤕"
+  "auth": {
+    "welcome_back": "مرحباً بعودتك!",
+    "no_account": "ليس لديك حساب بعد؟",
+    "create_account": "أنشئ واحداً الآن!",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgot_password": "نسيت كلمة المرور؟",
+    "login_button": "تسجيل الدخول",
+    "logging_in": "جاري تسجيل الدخول...",
+    "placeholders": {
+      "email": "user@example.com",
+      "password": "********"
+    },
+    "errors": {
+      "incorrect_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+      "login_failed": "فشل في تسجيل الدخول"
+    },
+    "success": {
+      "login_successful": "تم تسجيل الدخول بنجاح"
+    }
+  },
+  "validation": {
+    "email_required": "عنوان البريد الإلكتروني مطلوب",
+    "email_invalid": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+    "password_required": "كلمة المرور مطلوبة",
+    "password_min_length": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
+    "password_complexity": "كلمة المرور يجب أن تحتوي على حرف كبير واحد على الأقل، وحرف صغير واحد، ورقم واحد، ورمز خاص واحد، وأن تكون 8 أحرف على الأقل"
+  }
 }

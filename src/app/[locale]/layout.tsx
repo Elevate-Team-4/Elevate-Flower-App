@@ -6,8 +6,6 @@ import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "./../../components/providers/index";
-import Footer from "../components/footer";
-import Header from "../components/header";
 
 // Fonts
 const geistSans = localFont({
@@ -24,6 +22,11 @@ const geistMono = localFont({
 const zain = localFont({
   src: "./fonts/Zain-Regular.ttf",
   variable: "--font-zain",
+  weight: "100 900",
+});
+const edwardian = localFont({
+  src: "./fonts/Edwardian.ttf",
+  variable: "--font-edwardian",
   weight: "100 900",
 });
 
@@ -47,23 +50,16 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${zain.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} antialiased`}
+      >
         {/* Providers */}
         <Providers>
-          {/* Header  */}
-          <Header />
+          {/* Main children  */}
+          {children}
 
-          {/* Main content */}
-          <main className="font-sarabun container mx-auto  w-full min-h-[calc(100vh-200px)] px-20">
-            {/* Main children components */}
-            {children}
-
-            {/* Toast notifications */}
-            <Toaster />
-          </main>
-
-          {/* Footer */}
-          <Footer />
+          {/* Toast notifications */}
+          <Toaster />
         </Providers>
       </body>
     </html>
