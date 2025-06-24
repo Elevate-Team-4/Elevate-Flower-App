@@ -1,4 +1,26 @@
 {
-    "mahmoued": "mahmoued",
-    "page-is-not-found": "This page is not found 🤕"
+  "mahmoued": "ali",
+  "page-is-not-found": "This page is not found 🤕",
+  "headings-signup": "Become part of our family!",
+  "frist-name": "Frist name",
+  "last-name": "Last name",
+  "email": "Email",
+  "phone": "Phone",
+  "gender": "Gender",
+  "password": "Password",
+  "confirm-password": "Confirm Password",
+  "create-account": "Create Account",
+  "already-have-an-account": "Already have an account?",
+  "login": "Login",
+  "male": "male",
+  "female": "female",
+  "firstname-required": "First name is required",
+  "lastname-required": "Last name is required",
+  "phone-required": "Phone number is required",
+  "email-required": "Email is required",
+  "email-invalid": "Please enter a valid email address",
+  "password-required": "Password is required",
+  "password-min": "Password must be at least {min, number, digit} characters.",
+  "password-mismatch": "Passwords do not match",
+  "gender-required": "Gender is required"
 }

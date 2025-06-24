@@ -1,5 +1,7 @@
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
+import { Sarabun } from "next/font/google";
+import { Pinyon_Script } from "next/font/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { setRequestLocale } from "next-intl/server";
@@ -26,6 +28,25 @@ const zain = localFont({
   variable: "--font-zain",
   weight: "100 900",
 });
+const diwany = localFont({
+  src: "./fonts/FS_Diwany.ttf",
+  variable: "--font-diwany",
+  weight: "100vh 200px 406px",
+});
+// Sarabun font
+const sarabun = Sarabun({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-sarabun",
+});
+// Pinyon_Script font
+const pinyon = Pinyon_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"],
+  variable: "--font-pinyon",
+});
 
 //Metadata
 export const metadata: Metadata = {
@@ -47,7 +68,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${zain.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${zain.variable} ${diwany.variable} ${pinyon.variable} ${sarabun.variable} antialiased`}
+      >
         {/* Providers */}
         <Providers>
           {/* Header  */}
