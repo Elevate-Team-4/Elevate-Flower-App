@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Sarabun } from "next/font/google";
 import "./globals.css";
 
-// Configure Sarabun
-const sarabun = Sarabun({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-sarabun",
-});
-
+// Metadata for the application
 export const metadata: Metadata = {
   title: "Rose App",
-  description: "Rose Ecommerce",
+  description: "Rose App is a modern web application.",
 };
 
 export default function RootLayout({
@@ -21,13 +12,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={`${sarabun.variable} antialiased`}>
-        <main className="max-w-[1441px] m-auto  px-20 py-7 font-sarabun">
-          {children}
-        </main>
-      </body>
-    </html>
-  );
+  return children;
 }

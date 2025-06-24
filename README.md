@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌹 Rose App
 
-## Getting Started
+A web application built with [Next.js](https://nextjs.org/) that provides interactive user interfaces using Tailwind CSS, React Query, and ShadCN UI.
 
-First, run the development server:
+---
+
+## 🚀 Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Commands](#commands)
+- [Structure](#structure)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+- [Notes](#notes)
+- [License](#license)
+
+---
+
+## 📌 Introduction
+
+**Rose App** is a frontend project designed to deliver a sleek and simplified user experience. It supports dark mode, responsive design for all devices, and secure file uploads.
+
+---
+
+## ✨ Features
+
+- Responsive design with Tailwind CSS.
+- State and network data management using React Query.
+- Integration with ShadCN UI for reusable components.
+- Support for React Hook Form and Zod for form validation.
+- Elegant and customizable file upload experience.
+
+---
+
+## 🧑‍💻 Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/rose-app.git
+cd rose-app
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+yarn dev       # Run the development server
+yarn build     # Build for production
+yarn start     # Start the production server
+yarn lint      # Lint the codebase
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧾 Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+rose-app/
+├── app/                # App router and pages
+├── components/         # Reusable UI components
+├── lib/                # Utility functions and config
+├── styles/             # Global styles (Tailwind)
+├── public/             # Static assets
+├── types/              # TypeScript types
+└── ...
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js**
+- **Tailwind CSS**
+- **React Query**
+- **ShadCN UI**
+- **React Hook Form**
+- **Zod**
+- **TypeScript**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📸 Screenshots
+
+> _Add screenshots here if available._
+
+---
+
+## 📝 Notes
+
+> _Add any additional notes or important instructions here._
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
