@@ -2,7 +2,13 @@ import { Link } from "@/i18n/navigation";
 import ForgetPasswordForm from "./forget-password-form";
 import { useTranslations } from "next-intl";
 
-export default function ForgetPassword() {
+// Forget password props type
+interface ForgetPasswordProps {
+  setStep: (arg: number) => void;
+  setEmail: (arg: string) => void;
+}
+
+export default function ForgetPassword({ setStep, setEmail }: ForgetPasswordProps) {
   // Translation
   const t = useTranslations();
 
@@ -15,14 +21,8 @@ export default function ForgetPassword() {
         <p>{t("forgot-password-descreption")}</p>
       </div>
 
-      {/* Line */}
-      <hr className="mt-4 mb-6" />
-
       {/* Forget password form */}
-      <ForgetPasswordForm />
-
-      {/* Line */}
-      <hr className="mt-9 mb-5" />
+      <ForgetPasswordForm setStep={setStep} setEmail={setEmail} />
 
       {/* Link to sign up page */}
       <p className="font-bold text-center">

@@ -5,10 +5,12 @@ export default function Gallery() {
   return (
     <section>
       <div className="flex justify-center items-center flex-col pb pt-32">
-        <h2 className="main-title mb-2">Gallery</h2>
+        <h2 className="font-bold leading-8 tracking-title align-middle uppercase text-soft-pink-500">
+          Gallery
+        </h2>
         <BarTitle
           title="Check Out our Wonderful Gallery"
-          highlightBarWidth="w-1/3"
+          highlightBarWidth="w-auto"
           mainBarWidth="w-3/4"
         />
       </div>

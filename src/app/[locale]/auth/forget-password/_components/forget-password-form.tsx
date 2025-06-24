@@ -2,9 +2,7 @@
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ForgetPasswordFields, forgetPasswordSchema } from "@/lib/schemes/forget-password.schema";
-import { useRouter } from "next/navigation";
 import useForgetPassword from "../_hooks/use-forget-password";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,10 +19,15 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { toast } from "@/hooks/use-toast";
 
-export default function ForgetPasswordForm() {
+// Probs type
+interface ForgetPasswordProps {
+  setStep: (arg: number) => void;
+  setEmail: (arg: string) => void;
+}
+
+export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPasswordProps) {
   // Hooks
   const { isPending, forgetPassword } = useForgetPassword();
-  const router = useRouter();
 
   // Translation
   const t = useTranslations();
@@ -41,13 +44,20 @@ export default function ForgetPasswordForm() {
   const onSubmit: SubmitHandler<ForgetPasswordFields> = (values) => {
     forgetPassword(values, {
       onSuccess: () => {
-        console.log("success", values);
+        // On success toest
         toast({
           title: t("otp-sent"),
           description: t("descreption-toast-forgetpassword"),
         });
+
+        // Go to OTP (step 1 => OTP)
+        setStep(1);
+
+        // Set email
+        setEmail(values.email);
       },
       onError: () => {
+        // On Error toest
         toast({
           title: t("email-not-found-error-toast"),
           description: t("descreption-error-toast-forgetpassword"),
@@ -60,7 +70,10 @@ export default function ForgetPasswordForm() {
   return (
     <>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-7 border-t-2 border-b-2 pt-6 pb-9 mb-5 mt-4"
+        >
           {/* Email field */}
           <FormField
             control={form.control}
@@ -71,14 +84,7 @@ export default function ForgetPasswordForm() {
               return (
                 <FormItem>
                   {/* Label */}
-                  <FormLabel
-                    className={cn(
-                      hasError
-                        ? "border-maroon-600 focus-visible:ring-red-600 dark:border-soft-pink-600 dark:focus-visible:ring-red-500"
-                        : "",
-                      "",
-                    )}
-                  >
+                  <FormLabel className={cn(hasError && "dark:text-red-500")}>
                     {t("email")}
                   </FormLabel>
 
@@ -97,12 +103,13 @@ export default function ForgetPasswordForm() {
                   </FormControl>
                   <FormDescription></FormDescription>
 
-                  {/* Feedback */}
-                  <FormMessage />
+                  {/* Error message */}
+                  <FormMessage className={cn(hasError && "dark:text-red-500")} />
                 </FormItem>
               );
             }}
           />
+          {/* Continue Button */}
           <Button
             className="mt-9 w-full"
             disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}

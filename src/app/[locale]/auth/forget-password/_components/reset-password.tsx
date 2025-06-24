@@ -2,7 +2,11 @@ import { Link } from "@/i18n/navigation";
 import ResetPasswordForm from "./reset-password-form";
 import { useTranslations } from "next-intl";
 
-export default function ResetPassword() {
+interface ResetPasswordProps {
+  email: string;
+}
+
+export default function ResetPassword({ email }: ResetPasswordProps) {
   // Translation
   const t = useTranslations();
 
@@ -15,14 +19,8 @@ export default function ResetPassword() {
         <p>{t("descreption-reset-password")}</p>
       </div>
 
-      {/* Line */}
-      <hr className="mt-4 mb-6" />
-
       {/* Reset password form */}
-      <ResetPasswordForm />
-
-      {/* Line */}
-      <hr className="mt-9 mb-5" />
+      <ResetPasswordForm  email={email} />
 
       {/* Link to sign up page */}
       <p className="font-bold text-center">

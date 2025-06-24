@@ -20,9 +20,11 @@ import { useTranslations } from "next-intl";
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils/cn";
 
-export default function ResetPasswordForm() {
-  const email = "ahmedhassan99fg@gmail.com";
+interface ResetPasswordProps {
+  email: string;
+}
 
+export default function ResetPasswordForm({ email }: ResetPasswordProps) {
   // Hooks
   const { isPending, resetPassword } = useResetPassword();
   const router = useRouter();
@@ -48,13 +50,16 @@ export default function ResetPasswordForm() {
       },
       {
         onSuccess: () => {
-          console.log("success", values);
+          // On success toest
           toast({
             description: t("your-password-has-been-successfully-reset"),
           });
-          router.push("/auth/signup");
+
+          // Redirect to log in page
+          router.push("/auth/login");
         },
         onError: () => {
+          // On error toast
           toast({
             description: t("something-went-wrong-while-resetting-your-password-please-try-again"),
             variant: "destructive",
@@ -67,7 +72,11 @@ export default function ResetPasswordForm() {
   return (
     <>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-7 border-t-2 border-b-2 pt-6 pb-9 mb-5 mt-4"
+        >
+          {/* New password field */}
           <FormField
             control={form.control}
             name="newPassword"
@@ -75,7 +84,12 @@ export default function ResetPasswordForm() {
               const hasError = form.formState.errors.newPassword;
               return (
                 <FormItem>
-                  <FormLabel>{t("password-reset-password")}</FormLabel>
+                  {/* Label */}
+                  <FormLabel className={cn(hasError && "dark:text-red-500")}>
+                    {t("password-reset-password")}
+                  </FormLabel>
+
+                  {/* Input */}
                   <FormControl>
                     <Input
                       type="password"
@@ -90,12 +104,15 @@ export default function ResetPasswordForm() {
                     />
                   </FormControl>
                   <FormDescription></FormDescription>
-                  <FormMessage />
+
+                  {/* Error message */}
+                  <FormMessage className={cn(hasError && "dark:text-red-500")} />
                 </FormItem>
               );
             }}
           />
 
+          {/* New re password field */}
           <FormField
             control={form.control}
             name="newRePassword"
@@ -104,26 +121,33 @@ export default function ResetPasswordForm() {
 
               return (
                 <FormItem>
-                  <FormLabel>{t("confirm-password-reset-password")}</FormLabel>
+                  {/* Label */}
+                  <FormLabel className={cn(hasError && "dark:text-red-500")}>
+                    {t("confirm-password-reset-password")}
+                  </FormLabel>
+
+                  {/* Input */}
                   <FormControl>
                     <Input
                       type="password"
                       placeholder="********"
                       {...field}
                       className={cn(
-                        hasError
-                          ? "border-maroon-600 focus-visible:ring-red-600 dark:border-soft-pink-600 dark:focus-visible:ring-red-500"
-                          : "",
-                        "",
+                        hasError &&
+                          "border-maroon-600 focus-visible:ring-red-600 dark:border-soft-pink-600 dark:focus-visible:ring-red-500",
                       )}
                     />
                   </FormControl>
                   <FormDescription></FormDescription>
-                  <FormMessage />
+
+                  {/* Error message */}
+                  <FormMessage className={cn(hasError && "dark:text-red-500")} />
                 </FormItem>
               );
             }}
           />
+
+          {/* Reset password button */}
           <Button
             type="submit"
             className="mt-9 w-full"
