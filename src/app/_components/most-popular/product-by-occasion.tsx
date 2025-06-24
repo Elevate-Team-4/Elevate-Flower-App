@@ -19,9 +19,7 @@ export default async function ProductsByOccasion({ occasionId }: OccasionId) {
   if (products.length === 0) {
     return (
       <div className="min-h-52 flex justify-center items-center">
-        <p className="font-bold text-center text-4xl text-[#A6252A]">
-          Coming soon...
-        </p>
+        <p className="font-bold text-center text-4xl text-[#A6252A]">Coming soon...</p>
       </div>
     );
   }
@@ -29,7 +27,10 @@ export default async function ProductsByOccasion({ occasionId }: OccasionId) {
   return (
     <div className="grid grid-cols-12 gap-6">
       {products.map((product) => (
-        <div key={product._id} className="col-span-3">
+        <div
+          key={product._id}
+          className="col-span-3"
+        >
           <SingleProduct singleProduct={product} />
         </div>
       ))}

@@ -5,12 +5,7 @@ import BarTitle from "@/components/common/bar-title";
 import { Suspense } from "react";
 import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
 import TabsTitle from "./tabs-title";
-export default async function MostPopular({
-  searchParams,
-}: {
-  searchParams: { occasion?: string };
-}) {
-  
+export default async function MostPopular({ searchParams }: { searchParams: { occasion?: string } }) {
   // Functions
   const response = await getOccasions({ limit: 4 });
 
@@ -21,9 +16,7 @@ export default async function MostPopular({
   const { occasions } = response;
 
   // Variables
-  let selectedOccasion = occasions.find(
-    (occasion) => occasion._id == searchParams.occasion
-  );
+  let selectedOccasion = occasions.find((occasion) => occasion._id == searchParams.occasion);
 
   // If search params are empty (default search param)
   if (!searchParams.occasion) {
@@ -54,23 +47,24 @@ export default async function MostPopular({
         </div>
 
         {/* Products based on occasion */}
-        <Suspense fallback={<p className="text-black">"loading"</p>}>
-          <TabsContent
-            defaultValue={selectedOccasion._id}
-            key={selectedOccasion._id}
-            value={selectedOccasion._id}
-            // TODO Change text Color
-            className="mt-10"
+        <TabsContent
+          defaultValue={selectedOccasion._id}
+          key={selectedOccasion._id}
+          value={selectedOccasion._id}
+          // TODO Change text Color
+          className="mt-10"
+        >
+          <Suspense
+            fallback={
+              <SingleProductSkeleton
+                count={4}
+                key={selectedOccasion._id}
+              />
+            }
           >
-            <Suspense
-              fallback={
-                <SingleProductSkeleton count={4} key={selectedOccasion._id} />
-              }
-            >
-              <ProductsByOccasion occasionId={selectedOccasion._id} />
-            </Suspense>
-          </TabsContent>
-        </Suspense>
+            <ProductsByOccasion occasionId={selectedOccasion._id} />
+          </Suspense>
+        </TabsContent>
       </Tabs>
     </>
   );
