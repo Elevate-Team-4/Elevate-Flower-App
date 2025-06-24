@@ -5,6 +5,27 @@ declare type DataBaseProbs = {
   __v: number;
 };
 
+//^ the user response after a successful login
+declare type ApplicationUser = {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  phone: string;
+  photo?: string;
+  role: string;
+  wishlist: string[];
+  addresses: string[];
+  createdAt: string;
+};
+
+declare type LoginResponse = {
+  message?: string;
+  user: ApplicationUser;
+  token: string;
+};
+
 declare type ErrorResponse = {
   error: string;
 };
@@ -22,6 +43,7 @@ declare type PaginatedResponse<T> = {
     nextPage?: number;
   };
 } & T;
+
 
 declare type CommonSearchParams = {
   // ! Pagination and projection

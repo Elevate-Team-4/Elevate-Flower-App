@@ -1,5 +1,5 @@
+import SingleProduct from "@/components/common/single-product";
 import { getProducts } from "@/lib/apis/products.api";
-import SingleProduct from "../../../components/common/single-product";
 
 // OccasionId Type
 interface OccasionId {
@@ -27,10 +27,7 @@ export default async function ProductsByOccasion({ occasionId }: OccasionId) {
   return (
     <div className="grid grid-cols-12 gap-6">
       {products.map((product) => (
-        <div
-          key={product._id}
-          className="col-span-3"
-        >
+        <div key={product._id} className="col-span-3">
           <SingleProduct singleProduct={product} />
         </div>
       ))}

@@ -5,7 +5,12 @@ import BarTitle from "@/components/common/bar-title";
 import { Suspense } from "react";
 import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
 import TabsTitle from "./tabs-title";
-export default async function MostPopular({ searchParams }: { searchParams: { occasion?: string } }) {
+
+export default async function MostPopular({
+  searchParams,
+}: {
+  searchParams: { occasion?: string };
+}) {
   // Functions
   const response = await getOccasions({ limit: 4 });
 
@@ -16,7 +21,7 @@ export default async function MostPopular({ searchParams }: { searchParams: { oc
   const { occasions } = response;
 
   // Variables
-  let selectedOccasion = occasions.find((occasion) => occasion._id == searchParams.occasion);
+  let selectedOccasion = occasions.find((occasion) => occasion._id === searchParams.occasion);
 
   // If search params are empty (default search param)
   if (!searchParams.occasion) {
@@ -34,11 +39,7 @@ export default async function MostPopular({ searchParams }: { searchParams: { oc
         {/* Heading */}
         <div className="flex justify-between items-center">
           {/* Title */}
-          <BarTitle
-            title="Most Popular"
-            highlightBarWidth="w-[27%]"
-            mainBarWidth="w-9/12"
-          />
+          <BarTitle title="Most Popular" highlightBarWidth="w-[27%]" mainBarWidth="w-9/12" />
 
           {/* Taps list titles */}
           <TabsList className="bg-transparent gap-6">
@@ -54,14 +55,7 @@ export default async function MostPopular({ searchParams }: { searchParams: { oc
           // TODO Change text Color
           className="mt-10"
         >
-          <Suspense
-            fallback={
-              <SingleProductSkeleton
-                count={4}
-                key={selectedOccasion._id}
-              />
-            }
-          >
+          <Suspense fallback={<SingleProductSkeleton count={4} key={selectedOccasion._id} />}>
             <ProductsByOccasion occasionId={selectedOccasion._id} />
           </Suspense>
         </TabsContent>
