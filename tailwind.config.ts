@@ -13,6 +13,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         primary: ["var(--font-primary)"],
+        sarabun: ["var(--font-sarabun)"],
       },
       keyframes: {
         "caret-blink": {
@@ -45,6 +46,7 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
