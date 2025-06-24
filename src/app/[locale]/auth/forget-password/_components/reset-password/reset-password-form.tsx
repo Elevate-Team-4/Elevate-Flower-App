@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import useResetPassword from "../_hooks/use-reset-password";
+import useResetPassword from "../../_hooks/use-reset-password";
 import { ResetPasswordFields, resetPasswordSchema } from "@/lib/schemes/reset-password.schema";
 import { useTranslations } from "next-intl";
 import { toast } from "@/hooks/use-toast";

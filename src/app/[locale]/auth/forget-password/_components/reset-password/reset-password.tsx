@@ -20,7 +20,7 @@ export default function ResetPassword({ email }: ResetPasswordProps) {
       </div>
 
       {/* Reset password form */}
-      <ResetPasswordForm  email={email} />
+      <ResetPasswordForm email={email} />
 
       {/* Link to sign up page */}
       <p className="font-bold text-center">

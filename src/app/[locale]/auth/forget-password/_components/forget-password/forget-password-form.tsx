@@ -2,7 +2,7 @@
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ForgetPasswordFields, forgetPasswordSchema } from "@/lib/schemes/forget-password.schema";
-import useForgetPassword from "../_hooks/use-forget-password";
+import useForgetPassword from "../../_hooks/use-forget-password";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import {

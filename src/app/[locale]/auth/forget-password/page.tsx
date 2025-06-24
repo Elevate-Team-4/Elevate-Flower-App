@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import ForgetPassword from "./_components/forget-password";
-import ResetPassword from "./_components/reset-password";
-import OTP from "./_components/otp";
+import ForgetPassword from "./_components/forget-password/forget-password";
+import ResetPassword from "./_components/reset-password/reset-password";
+import OTP from "./_components/OTP/otp";
 
 export default function Page() {
   // Hooks
