@@ -3,8 +3,8 @@ import BarTitle from "@/components/common/bar-title";
 
 export default function Gallery() {
   return (
-    <section>
-      <div className="flex justify-center items-center flex-col pb pt-32">
+    <section className="my-9">
+      <div className="flex justify-center items-center flex-col">
         <h2 className="font-bold leading-8 tracking-title align-middle uppercase text-soft-pink-500">
           Gallery
         </h2>
@@ -15,7 +15,7 @@ export default function Gallery() {
         />
       </div>
       <div className="max-w-screen-2xl pt-11 px-4 sm:px-6 md:px-12 lg:px-20 mx-auto">
-        <div className="grid grid-cols-12 grid-rows-12 gap-3">
+        <div className="grid grid-cols-12 grid-rows-10 gap-3">
           {/* Left Column - Tall image with gift boxes */}
           <div className="col-span-4 row-span-6">
             <Image
