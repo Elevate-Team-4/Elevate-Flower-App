@@ -1,42 +1,26 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 // React & Next.js
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 // Libraries
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Link } from "@/i18n/navigation";
 
 // UI Components
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 // Schemas & Types
 import { LoginFields, useLoginSchema } from "@/lib/schemas/auth.schema";
 
-// Hooks
+// Hooks & Utils
+import { cn } from "@/lib/utils/cn";
 import { toast } from "@/hooks/use-toast";
 import useLogin from "../_hooks/use-login";
-
-// Local Components
-import TextField from "../../_components/text-field";
-import PasswordField from "../../_components/password-field";
-
-// Error message mapping function
-const getTranslatedErrorMessage = (errorMessage: string, t: any) => {
-  // Convert to lowercase for case-insensitive matching
-  const lowerCaseError = errorMessage.toLowerCase();
-
-  // Check if it's the specific error we want to translate
-  if (lowerCaseError.includes("incorrect email or password")) {
-    return t("errors.incorrect_credentials");
-  }
-
-  // Return original message for all other errors
-  return errorMessage;
-};
 
 export default function LoginForm() {
   // Hooks
@@ -70,15 +54,13 @@ export default function LoginForm() {
         // Show error notification with translated message
         toast({
           title: t("errors.login_failed") || "Login Failed",
-          description: translatedError || "An error occurred during login",
+          description: error?.message || "An error occurred during login",
           variant: "destructive",
         });
       },
     });
   }
 
-  // Get translated error message if error exists
-  const translatedError = error?.message ? getTranslatedErrorMessage(error.message, t) : null;
   return (
     <Form {...form}>
       <form
@@ -86,36 +68,65 @@ export default function LoginForm() {
         className="space-y-4 w-full pt-6 pb-9 border-y border-zinc-200 dark:border-zinc-600"
       >
         {/* Email Input field */}
-        <TextField
+        <FormField
           control={form.control}
-          name="email"
-          autoComplete="email"
-          placeholder={t("placeholders.email")}
-          label={t("email")}
+          name={"email"}
+          render={({ field, fieldState }) => (
+            <FormItem>
+              <FormLabel>{t("email")}</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  placeholder={t("placeholders.email")}
+                  autoComplete="email"
+                  className={cn(
+                    fieldState.error ? "border-red-500 focus:border-none" : "border-borderGray",
+                    "rounded-lg h-12 placeholder:text-neutralGray bg-lightGray shadow-secondary",
+                  )}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
 
         {/* Password Input field */}
-        <PasswordField
+        <FormField
           control={form.control}
           name="password"
-          autoComplete="new-password"
-          placeholder={t("placeholders.password")}
-          label={t("password")}
+          render={({ field, fieldState }) => (
+            <FormItem>
+              <FormLabel>{t("password")}</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  autoComplete="new-password"
+                  placeholder={t("placeholders.password")}
+                  type="password"
+                  className={cn(
+                    fieldState.error ? "border-red-500 focus:border-none" : "border-borderGray",
+                    "rounded-lg h-12 placeholder:text-neutralGray bg-lightGray shadow-secondary",
+                  )}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
 
         {/* Form actions & links */}
         <div className="flex flex-col">
           <Link
-            className="no-underline text-end -mt-2 text-maroon-700 dark:text-pink-300 font-semibold"
+            className="no-underline text-end -mt-2 text-maroon-700 dark:text-soft-pink-300 font-semibold"
             href="/auth/forget-password"
           >
             {t("forgot_password")}
           </Link>
 
-          {translatedError && <p className="text-red-500 text-sm mt-2">{translatedError}</p>}
+          {error?.message && <p className="text-red-500 text-sm mt-2">{error?.message}</p>}
           <Button
             type="submit"
-            className="w-full h-10 mt-8 rounded-xl bg-maroon-600 text-white hover:bg-maroon-800"
+            className="w-full h-10 font-semibold mt-8 rounded-xl bg-maroon-600 text-white hover:bg-maroon-800"
             disabled={isPending}
           >
             {isPending ? t("logging_in") : t("login_button")}

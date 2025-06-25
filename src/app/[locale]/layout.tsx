@@ -11,23 +11,23 @@ import Providers from "./../../components/providers/index";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
-  weight: "100 900",
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
-  weight: "100 900",
 });
 
 const zain = localFont({
   src: "./fonts/Zain-Regular.ttf",
   variable: "--font-zain",
-  weight: "100 900",
+});
+const diwany = localFont({
+  src: "./fonts/FS_Diwany.ttf",
+  variable: "--font-diwany",
 });
 const edwardian = localFont({
-  src: "./fonts/Edwardian.ttf",
+  src: "./fonts/edwardianscriptitc.ttf",
   variable: "--font-edwardian",
-  weight: "100 900",
 });
 
 //Metadata
@@ -51,7 +51,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} antialiased`}
+        className={`${geistSans.variable} ${diwany.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} antialiased`}
       >
         {/* Providers */}
         <Providers>

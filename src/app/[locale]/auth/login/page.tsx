@@ -11,17 +11,19 @@ export default function Page() {
 
   return (
     <>
-      <h2 className="font-edwardian w-full text-center text-maroon-700 dark:text-pink-300 text-5xl pb-5">
+      <h2 className=" ltr:font-edwardian rtl:font-diwany w-full text-center text-maroon-700 dark:text-soft-pink-300 text-5xl pb-5">
         {t("welcome_back")}
       </h2>
 
       {/** Login form */}
       <LoginForm />
 
-      <Link className="pt-5 text-sm font-medium" href="/signup">
+      <p className="pt-5 text-sm font-medium">
         {t("no_account")}{" "}
-        <span className="text-maroon-700 dark:text-pink-300 font-bold">{t("create_account")}</span>
-      </Link>
+        <Link className="text-maroon-700 dark:text-soft-pink-300 font-bold" href="/auth/signup">
+          {t("create_account")}
+        </Link>
+      </p>
     </>
   );
 }

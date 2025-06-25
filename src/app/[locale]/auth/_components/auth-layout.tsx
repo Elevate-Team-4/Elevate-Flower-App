@@ -3,14 +3,16 @@ import Image from "next/image";
 
 // Local Components
 import ToggleLocale from "@/components/layout/header/components/toggle-locale";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="grid min-h-svh lg:grid-cols-2 ">
       {/* Left-side form area */}
       <div className="flex flex-col lg:px-20 md:px-16 px-10 xl:px-36 items-center justify-center py-10">
-        <div className="self-end pb-10">
+        <div className="self-end pb-10 flex items-center gap-3">
           <ToggleLocale />
+          <ModeToggle />
         </div>
         <>
           {/* Light mode top separator image */}
@@ -60,7 +62,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           alt="Auth page cover"
           width={700}
           height={0}
-          className="absolute inset-0 h-full w-full object-cover "
+          className="absolute inset-0 h-full w-full  "
         />
       </div>
     </main>

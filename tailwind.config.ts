@@ -14,8 +14,9 @@ const config: Config = {
       fontFamily: {
         primary: ["var(--font-primary)"],
         "geist-sans": ["var(--font-geist-sans)"],
-        edwardian: ["var(--font-edwardian)"],
         "geist-mono": ["var(--font-geist-mono)"],
+        edwardian: ["var(--font-edwardian)"],
+        diwany: ["var(--font-diwany)"],
         zain: ["var(--font-zain)"],
       },
       keyframes: {
@@ -82,7 +83,7 @@ const config: Config = {
           50: "#fff1f5",
           100: "#ffe0e7",
           200: "#ffc2d0",
-          300: "#ffa3b9",
+          300: "#FFA3B9",
           400: "#ff85a2",
           500: "#ff668b",
           600: "#e65073",
