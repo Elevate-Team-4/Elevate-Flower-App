@@ -26,7 +26,7 @@ interface ResetPasswordProps {
 
 export default function ResetPasswordForm({ email }: ResetPasswordProps) {
   // Hooks
-  const { isPending, resetPassword } = useResetPassword();
+  const { isPending, resetPassword, error } = useResetPassword();
   const router = useRouter();
 
   // Translation
@@ -52,7 +52,7 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
         onSuccess: () => {
           // On success toest
           toast({
-            description: t("your-password-has-been-successfully-reset"),
+            description: t("reset-success"),
           });
 
           // Redirect to log in page
@@ -61,7 +61,7 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
         onError: () => {
           // On error toast
           toast({
-            description: t("something-went-wrong-while-resetting-your-password-please-try-again"),
+            description: t("reset-error"),
             variant: "destructive",
           });
         },
@@ -85,9 +85,7 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
               return (
                 <FormItem>
                   {/* Label */}
-                  <FormLabel className={cn(hasError && "dark:text-red-500")}>
-                    {t("password-reset-password")}
-                  </FormLabel>
+                  <FormLabel>{t("password-reset-password")}</FormLabel>
 
                   {/* Input */}
                   <FormControl>
@@ -106,7 +104,7 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
                   <FormDescription></FormDescription>
 
                   {/* Error message */}
-                  <FormMessage className={cn(hasError && "dark:text-red-500")} />
+                  <FormMessage />
                 </FormItem>
               );
             }}
@@ -122,9 +120,7 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
               return (
                 <FormItem>
                   {/* Label */}
-                  <FormLabel className={cn(hasError && "dark:text-red-500")}>
-                    {t("confirm-password-reset-password")}
-                  </FormLabel>
+                  <FormLabel>{t("confirm-password-reset-password")}</FormLabel>
 
                   {/* Input */}
                   <FormControl>
@@ -141,7 +137,12 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
                   <FormDescription></FormDescription>
 
                   {/* Error message */}
-                  <FormMessage className={cn(hasError && "dark:text-red-500")} />
+                  <FormMessage />
+                  {error && (
+                    <p className="font-medium text-destructive dark:text-red-500 text-sm mt-2">
+                      {error.message}
+                    </p>
+                  )}
                 </FormItem>
               );
             }}
@@ -151,6 +152,7 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
           <Button
             type="submit"
             className="mt-9 w-full"
+            isLoading={isPending}
             disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
           >
             {t("reset-password-button")}

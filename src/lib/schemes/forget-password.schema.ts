@@ -7,9 +7,9 @@ export const forgetPasswordSchema = () => {
 
   return z.object({
     email: z
-      .string({ required_error: t("please-enter-youre-email-zod-error") })
-      .email(t("please-enter-a-valid-email-zod-error"))
-      .min(1, t("please-enter-your-email-zod-error")),
+      .string({ required_error: t("email-required") })
+      .email(t("email-invalid"))
+      .min(1, t("email-zod-error")),
   });
 };
 

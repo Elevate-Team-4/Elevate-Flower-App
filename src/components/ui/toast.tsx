@@ -29,9 +29,9 @@ const toastVariants = cva(
     variants: {
       variant: {
         default:
-          "border border-emerald-700 bg-emerald-50 text-zinc-800 dark:bg-emerald-300 dark:text-zinc-800",
+          "border-emerald-700 bg-emerald-50 text-zinc-800 dark:bg-emerald-300 dark:text-zinc-800",
         destructive:
-          "destructive group border-red-500 bg-red-500 text-zinc-50 dark:border-red-900 dark:bg-red-900 dark:text-zinc-50",
+          "destructive group border-red-700  bg-red-50 text-zinc-800 dark:border-zinc-800 dark:bg-red-300 dark:text-zinc-800",
       },
     },
     defaultVariants: {
@@ -109,7 +109,8 @@ const ToastDescription = React.forwardRef<
     {...props}
   >
     {/* Icon placed before the description content */}
-    <Check className="h-4 w-4 text-emerald-700 dark:text-zinc-800" />
+    <Check className="h-4 w-4 text-emerald-700 dark:text-zinc-800 group-[.destructive]:hidden" />
+    <X className="h-4 w-4 text-red-700 dark:text-zinc-800 hidden group-[.destructive]:block" />
     {children}
   </ToastPrimitives.Description>
 ));

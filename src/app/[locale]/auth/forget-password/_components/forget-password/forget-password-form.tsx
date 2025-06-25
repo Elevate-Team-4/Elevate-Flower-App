@@ -27,7 +27,7 @@ interface ForgetPasswordProps {
 
 export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPasswordProps) {
   // Hooks
-  const { isPending, forgetPassword } = useForgetPassword();
+  const { isPending, forgetPassword, error } = useForgetPassword();
 
   // Translation
   const t = useTranslations();
@@ -80,13 +80,10 @@ export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPassword
             name="email"
             render={({ field }) => {
               const hasError = form.formState.errors.email;
-
               return (
                 <FormItem>
                   {/* Label */}
-                  <FormLabel className={cn(hasError && "dark:text-red-500")}>
-                    {t("email")}
-                  </FormLabel>
+                  <FormLabel>{t("email")}</FormLabel>
 
                   {/* Input */}
                   <FormControl>
@@ -94,17 +91,20 @@ export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPassword
                       placeholder="user@example.com"
                       {...field}
                       className={cn(
-                        hasError
-                          ? "border-maroon-600 focus-visible:ring-red-600 dark:border-soft-pink-600 dark:focus-visible:ring-red-500"
-                          : "",
-                        "",
+                        hasError &&
+                          "border-maroon-600 focus-visible:ring-red-600 dark:border-soft-pink-600 dark:focus-visible:ring-red-500",
                       )}
                     />
                   </FormControl>
                   <FormDescription></FormDescription>
 
                   {/* Error message */}
-                  <FormMessage className={cn(hasError && "dark:text-red-500")} />
+                  <FormMessage />
+                  {error && (
+                    <p className="font-medium text-destructive dark:text-red-500 text-sm mt-2">
+                      {error.message}
+                    </p>
+                  )}
                 </FormItem>
               );
             }}
@@ -112,6 +112,7 @@ export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPassword
           {/* Continue Button */}
           <Button
             className="mt-9 w-full"
+            isLoading={isPending}
             disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
             type="submit"
           >

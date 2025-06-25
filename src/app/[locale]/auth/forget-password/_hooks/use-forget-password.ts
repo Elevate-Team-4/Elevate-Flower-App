@@ -15,12 +15,8 @@ export default function useForgetPassword() {
       return payload;
     },
 
-    onSuccess: (data) => {
-      console.log(data);
-    },
-    onError: (error) => {
-      console.log(error.message);
-    },
+    onSuccess: (data) => {},
+    onError: (error) => {},
   });
 
   return { isPending, error, forgetPassword: mutate };
