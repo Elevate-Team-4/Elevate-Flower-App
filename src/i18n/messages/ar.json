@@ -21,5 +21,9 @@
   "phone-required": "رقم الهاتف مطلوب",
   "password-required": "كلمة المرور مطلوبة",
   "password-min": "يجب أن تكون كلمة المرور على الأقل {8 احرف}.",
-  "password-mismatch": "كلمات المرور لا تتطابق"
+  "password-mismatch": "كلمات المرور لا تتطابق",
+  "placeholder-frist-name": "جوناثان",
+  "select-gender": "حدد الجنس",
+  "placeholder-last-name": "أدريان",
+  "register": "تسجيل"
 }

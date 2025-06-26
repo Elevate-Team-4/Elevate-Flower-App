@@ -2,6 +2,7 @@ import * as React from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
+import { useLocale } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -35,15 +36,6 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> = React.forwa
       inputComponent={InputComponent}
       smartCaret={false}
       value={value || undefined}
-      /**
-       * Handles the onChange event.
-       *
-       * react-phone-number-input might trigger the onChange event as undefined
-       * when a valid phone number is not entered. To prevent this,
-       * the value is coerced to an empty string.
-       *
-       * @param {E164Number | undefined} value - The entered value
-       */
       onChange={(value) => onChange?.(value || ("" as RPNInput.Value))}
       {...props}
     />
@@ -52,13 +44,19 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> = React.forwa
 PhoneInput.displayName = "PhoneInput";
 
 const InputComponent = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
-  ({ className, ...props }, ref) => (
-    <Input
-      className={cn("rounded-e-lg rounded-s-none h-10 px-3", className)}
-      {...props}
-      ref={ref}
-    />
-  ),
+  ({ className, ...props }, ref) => {
+    const locale = useLocale();
+    const isRTL = locale === "ar";
+
+    return (
+      <Input
+        className={cn("rounded-e-lg rounded-s-none h-10 px-3", isRTL && "text-right", className)}
+        dir={isRTL ? "rtl" : "ltr"}
+        {...props}
+        ref={ref}
+      />
+    );
+  },
 );
 InputComponent.displayName = "InputComponent";
 

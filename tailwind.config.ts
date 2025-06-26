@@ -13,7 +13,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         primary: ["var(--font-primary)"],
-        pinyon: ["var(--font-pinyon)", "cursive"],
+        pinyon: ["var(--font-pinyon)"],
+        diwany: ["var(--font-diwany)"],
       },
       keyframes: {
         "caret-blink": {

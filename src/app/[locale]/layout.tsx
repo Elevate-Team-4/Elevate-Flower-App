@@ -22,16 +22,22 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-
 const zain = localFont({
   src: "./fonts/Zain-Regular.ttf",
   variable: "--font-zain",
   weight: "100 900",
 });
-const diwany = localFont({
-  src: "./fonts/FS_Diwany.ttf",
+// Diwany font
+export const diwany = localFont({
+  src: [
+    {
+      path: "./fonts/FS_Diwany.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
   variable: "--font-diwany",
-  weight: "100vh 200px 406px",
+  display: "swap",
 });
 // Sarabun font
 const sarabun = Sarabun({

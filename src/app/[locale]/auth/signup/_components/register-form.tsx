@@ -1,6 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Info } from "lucide-react";
 import { useTranslations } from "next-intl";
 import {
   Form,
@@ -21,6 +22,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { RegistrationFields, useRegisterSchema } from "@/lib/schemes/auth.schema";
+import { Link } from "@/i18n/navigation";
 import useRegister from "../_hook/use-register";
 
 export default function RegisterForm() {
@@ -28,7 +30,7 @@ export default function RegisterForm() {
   const t = useTranslations();
 
   // Hooks
-  const { register } = useRegister();
+  const { register, isPending, error } = useRegister();
   const registerSchema = useRegisterSchema();
 
   // Form
@@ -39,7 +41,7 @@ export default function RegisterForm() {
       lastName: "",
       email: "",
       phone: "",
-      gender: "male",
+      gender: undefined,
       password: "",
       rePassword: "",
     },
@@ -62,10 +64,15 @@ export default function RegisterForm() {
               name="firstName"
               render={({ field }) => (
                 <FormItem>
+                  {/* Label */}
                   <FormLabel>{t("frist-name")}</FormLabel>
+
+                  {/* Field */}
                   <FormControl>
-                    <Input placeholder="Jonathan" {...field} />
+                    <Input placeholder={t("placeholder-frist-name")} {...field} />
                   </FormControl>
+
+                  {/* Feedback */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -79,10 +86,15 @@ export default function RegisterForm() {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
+                  {/* Label */}
                   <FormLabel>{t("last-name")}</FormLabel>
+
+                  {/* Field */}
                   <FormControl>
-                    <Input placeholder="Adrian" {...field} />
+                    <Input placeholder={t("placeholder-last-name")} {...field} />
                   </FormControl>
+
+                  {/* Feedback */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -96,10 +108,15 @@ export default function RegisterForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
+                  {/* Label */}
                   <FormLabel>{t("email")}</FormLabel>
+
+                  {/* Field */}
                   <FormControl>
                     <Input placeholder="user@example.com" {...field} />
                   </FormControl>
+
+                  {/* Feedback */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -113,10 +130,15 @@ export default function RegisterForm() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
+                  {/* Label */}
                   <FormLabel>{t("phone")}</FormLabel>
+
+                  {/* Field */}
                   <FormControl>
                     <PhoneInput placeholder="(123) 456-7890" {...field} />
                   </FormControl>
+
+                  {/* Feedback */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -130,11 +152,15 @@ export default function RegisterForm() {
               name="gender"
               render={({ field }) => (
                 <FormItem>
+                  {/* Label */}
+
                   <FormLabel>{t("gender")}</FormLabel>
+
+                  {/* Field */}
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select a gender" />
+                        <SelectValue placeholder={t("select-gender")} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -142,6 +168,8 @@ export default function RegisterForm() {
                       <SelectItem value="female">{t("female")}</SelectItem>
                     </SelectContent>
                   </Select>
+
+                  {/* Feedback */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -155,10 +183,15 @@ export default function RegisterForm() {
               name="password"
               render={({ field }) => (
                 <FormItem>
+                  {/* Label */}
                   <FormLabel>{t("password")}</FormLabel>
+
+                  {/* Field */}
                   <FormControl>
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
+
+                  {/* Feedback */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -172,25 +205,45 @@ export default function RegisterForm() {
               name="rePassword"
               render={({ field }) => (
                 <FormItem>
+                  {/* Label */}
                   <FormLabel>{t("confirm-password")}</FormLabel>
+
+                  {/* Field */}
                   <FormControl>
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
+
+                  {/* Feedback */}
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
         </div>
-        {/* submit button */}
-        <Button type="submit" className="w-full">
-          {t("create-account")}
+
+        {/* Error Message */}
+        {error && (
+          <div className="flex items-center gap-2 bg-red-100 text-red-800 p-3 rounded-md">
+            <Info className="w-4 h-4" />
+            <span>{error.message}</span>
+          </div>
+        )}
+
+        {/* Submit */}
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={isPending || (form.formState.isSubmitted && !form.formState.isValid)}
+        >
+          {t("register")}
         </Button>
 
         {/*  */}
         <p className="font-primary font-medium text-sm text-center">
-          {t("already-have-an-account")}{" "}
-          <span className="text-maroon-500 font-bold">{t("login")}</span>
+          {t("already-have-an-account")}
+          <span className="text-maroon-500 font-bold">
+            <Link href={"auth/login"}>{t("login")}</Link>
+          </span>
           {/* we use Link from next-intl when we marge github code */}
         </p>
       </form>

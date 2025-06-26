@@ -22,5 +22,9 @@
   "password-required": "Password is required",
   "password-min": "Password must be at least {min, number, digit} characters.",
   "password-mismatch": "Passwords do not match",
-  "gender-required": "Gender is required"
+  "gender-required": "Gender is required",
+  "placeholder-last-name": "Adrian",
+  "placeholder-frist-name": "jonathan",
+  "select-gender": "Select a gender",
+  "register": "register"
 }
