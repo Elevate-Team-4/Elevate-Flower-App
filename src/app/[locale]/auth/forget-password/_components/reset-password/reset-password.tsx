@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import ResetPasswordForm from "./reset-password-form";
 import { useTranslations } from "next-intl";
 
+// Reset password probs type
 interface ResetPasswordProps {
   email: string;
 }

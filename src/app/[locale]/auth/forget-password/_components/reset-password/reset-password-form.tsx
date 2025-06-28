@@ -17,7 +17,6 @@ import { Input } from "@/components/ui/input";
 import useResetPassword from "../../_hooks/use-reset-password";
 import { ResetPasswordFields, resetPasswordSchema } from "@/lib/schemes/reset-password.schema";
 import { useTranslations } from "next-intl";
-import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils/cn";
 
 interface ResetPasswordProps {
@@ -33,8 +32,9 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
   const t = useTranslations();
 
   // Initializing react hook form
+  const schema = resetPasswordSchema();
   const form = useForm<ResetPasswordFields>({
-    resolver: zodResolver(resetPasswordSchema()),
+    resolver: zodResolver(schema),
     defaultValues: {
       newPassword: "",
       newRePassword: "",
@@ -50,21 +50,10 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
       },
       {
         onSuccess: () => {
-          // On success toest
-          toast({
-            description: t("reset-success"),
-          });
-
           // Redirect to log in page
           router.push("/auth/login");
         },
-        onError: () => {
-          // On error toast
-          toast({
-            description: t("reset-error"),
-            variant: "destructive",
-          });
-        },
+        // onError , onSuccess handled in hook (use-reset-password)
       },
     );
   };

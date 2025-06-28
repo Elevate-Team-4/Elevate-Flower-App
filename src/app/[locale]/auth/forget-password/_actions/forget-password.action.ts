@@ -1,5 +1,6 @@
 "use server";
 
+import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { ForgetPasswordFields } from "@/lib/schemes/forget-password.schema";
 import { ForgetPassword } from "@/lib/types/forget-password";
 
@@ -9,7 +10,7 @@ export default async function forgetPasswordAction(fileds: ForgetPasswordFields)
     method: "POST",
     body: JSON.stringify(fileds),
     headers: {
-      "Content-Type": "application/json",
+      ...JSON_HEADER,
     },
   });
 

@@ -17,12 +17,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import { toast } from "@/hooks/use-toast";
 
 // Probs type
 interface ForgetPasswordProps {
-  setStep: (arg: number) => void;
-  setEmail: (arg: string) => void;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPasswordProps) {
@@ -33,8 +32,9 @@ export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPassword
   const t = useTranslations();
 
   // Initializing react hook form
+  const schema = forgetPasswordSchema();
   const form = useForm<ForgetPasswordFields>({
-    resolver: zodResolver(forgetPasswordSchema()),
+    resolver: zodResolver(schema),
     defaultValues: {
       email: "",
     },
@@ -44,26 +44,13 @@ export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPassword
   const onSubmit: SubmitHandler<ForgetPasswordFields> = (values) => {
     forgetPassword(values, {
       onSuccess: () => {
-        // On success toest
-        toast({
-          title: t("otp-sent"),
-          description: t("descreption-toast-forgetpassword"),
-        });
-
         // Go to OTP (step 1 => OTP)
         setStep(1);
 
         // Set email
         setEmail(values.email);
       },
-      onError: () => {
-        // On Error toest
-        toast({
-          title: t("email-not-found-error-toast"),
-          description: t("descreption-error-toast-forgetpassword"),
-          variant: "destructive",
-        });
-      },
+      // onError , onSuccess handled in hook (use-reset-password)
     });
   };
 

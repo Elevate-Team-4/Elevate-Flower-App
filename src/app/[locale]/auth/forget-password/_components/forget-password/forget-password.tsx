@@ -4,8 +4,8 @@ import { useTranslations } from "next-intl";
 
 // Forget password props type
 interface ForgetPasswordProps {
-  setStep: (arg: number) => void;
-  setEmail: (arg: string) => void;
+  setStep: React.Dispatch<React.SetStateAction<number>>;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function ForgetPassword({ setStep, setEmail }: ForgetPasswordProps) {

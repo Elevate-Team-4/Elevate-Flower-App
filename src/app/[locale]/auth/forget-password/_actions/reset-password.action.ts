@@ -1,5 +1,6 @@
 "use server";
 
+import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { ResetPassword } from "@/lib/types/rest-password";
 
 export default async function resetPasswordAction(fileds: ResetPassword) {
@@ -8,7 +9,7 @@ export default async function resetPasswordAction(fileds: ResetPassword) {
     method: "PUT",
     body: JSON.stringify(fileds),
     headers: {
-      "Content-Type": "application/json",
+      ...JSON_HEADER,
     },
   });
 
