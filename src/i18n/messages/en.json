@@ -1,30 +1,21 @@
 {
-  "auth": {
-    "welcome_back": "Welcome back!",
-    "no_account": "Don't have an account yet?",
-    "create_account": "Create one now!",
-    "email": "Email",
-    "password": "Password",
-    "forgot_password": "Forgot your password?",
-    "login_button": "Login",
-    "logging_in": "Logging in...",
-    "placeholders": {
-      "email": "user@example.com",
-      "password": "********"
-    },
-    "errors": {
-      "incorrect_credentials": "Incorrect email or password",
-      "login_failed": "Login failed"
-    },
-    "success": {
-      "login_successful": "Login successful"
-    }
-  },
-  "validation": {
-    "email_required": "Email address is required",
-    "email_invalid": "Please enter a valid email address",
-    "password_required": "Password is required",
-    "password_min_length": "Password must be at least 8 characters",
-    "password_complexity": "Password must include at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long"
-  }
+  "welcome_back": "Welcome back!",
+  "no_account": "Don't have an account yet?",
+  "create_account": "Create one now!",
+  "email": "Email",
+  "password": "Password",
+  "forgot_password": "Forgot your password?",
+  "login_button": "Login",
+  "logging_in": "Logging in...",
+  "email_placeholder": "user@example.com",
+  "password_placeholder": "********",
+  "incorrect_credentials": "Incorrect email or password",
+  "login_failed": "Login failed",
+  "login_successful": "Login successful",
+
+  "email_required": "Email address is required",
+  "email_invalid": "Please enter a valid email address",
+  "password_required": "Password is required",
+  "password_min_length": "Password must be at least 8 characters",
+  "password_complexity": "Password must include at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long"
 }

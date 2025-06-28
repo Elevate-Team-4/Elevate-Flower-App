@@ -5,7 +5,7 @@ import Image from "next/image";
 import ToggleLocale from "@/components/layout/header/components/toggle-locale";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 
-const AuthLayout = ({ children }: { children: React.ReactNode }) => {
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <main className="grid min-h-svh lg:grid-cols-2 ">
       {/* Left-side form area */}
@@ -62,11 +62,9 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           alt="Auth page cover"
           width={700}
           height={0}
-          className="absolute inset-0 h-full w-full  "
+          className="absolute inset-0 h-full w-full object-cover "
         />
       </div>
     </main>
   );
-};
-
-export default AuthLayout;
+}

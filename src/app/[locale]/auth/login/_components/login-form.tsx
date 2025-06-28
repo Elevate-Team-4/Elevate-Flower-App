@@ -24,7 +24,7 @@ import useLogin from "../_hooks/use-login";
 
 export default function LoginForm() {
   // Hooks
-  const t = useTranslations("auth");
+  const t = useTranslations();
   const LoginSchema = useLoginSchema();
   const { login, error, isPending } = useLogin();
 
@@ -43,7 +43,7 @@ export default function LoginForm() {
       onSuccess: (data) => {
         // Show success notification
         toast({
-          title: t("success.login_successful") || "Login Successful",
+          title: t("login_successful") || "Login Successful",
           description: t("welcome_back") || "Welcome back! You have been logged in successfully.",
         });
 
@@ -53,7 +53,7 @@ export default function LoginForm() {
       onError: () => {
         // Show error notification with translated message
         toast({
-          title: t("errors.login_failed") || "Login Failed",
+          title: t("login_failed") || "Login Failed",
           description: error?.message || "An error occurred during login",
           variant: "destructive",
         });
@@ -70,14 +70,14 @@ export default function LoginForm() {
         {/* Email Input field */}
         <FormField
           control={form.control}
-          name={"email"}
+          name="email"
           render={({ field, fieldState }) => (
             <FormItem>
               <FormLabel>{t("email")}</FormLabel>
               <FormControl>
                 <Input
                   {...field}
-                  placeholder={t("placeholders.email")}
+                  placeholder={t("email_placeholder")}
                   autoComplete="email"
                   className={cn(
                     fieldState.error ? "border-red-500 focus:border-none" : "border-borderGray",
@@ -101,7 +101,7 @@ export default function LoginForm() {
                 <Input
                   {...field}
                   autoComplete="new-password"
-                  placeholder={t("placeholders.password")}
+                  placeholder={t("password_placeholder")}
                   type="password"
                   className={cn(
                     fieldState.error ? "border-red-500 focus:border-none" : "border-borderGray",
@@ -124,6 +124,7 @@ export default function LoginForm() {
           </Link>
 
           {error?.message && <p className="text-red-500 text-sm mt-2">{error?.message}</p>}
+
           <Button
             type="submit"
             className="w-full h-10 font-semibold mt-8 rounded-xl bg-maroon-600 text-white hover:bg-maroon-800"

@@ -7,11 +7,11 @@ import LoginForm from "./_components/login-form";
 
 export default function Page() {
   // Hooks
-  const t = useTranslations("auth");
+  const t = useTranslations();
 
   return (
     <>
-      <h2 className=" ltr:font-edwardian rtl:font-diwany w-full text-center text-maroon-700 dark:text-soft-pink-300 text-5xl pb-5">
+      <h2 className="ltr:font-edwardian rtl:font-diwany w-full text-center text-maroon-700 dark:text-soft-pink-300 text-5xl pb-5">
         {t("welcome_back")}
       </h2>
 

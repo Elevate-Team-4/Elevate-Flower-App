@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 
 // Login schema for validating login form inputs
 export const useLoginSchema = () => {
-  const t = useTranslations("validation");
+  const t = useTranslations();
 
   return z.object({
     email: z.string({ required_error: t("email_required") }).email({ message: t("email_invalid") }),
