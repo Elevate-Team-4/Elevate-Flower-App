@@ -1,19 +1,3 @@
-import { occasion } from "./occasions.d";
-// Single occasion
-export type occasion = {
-  name: string;
-  slug: string;
-  image: string;
-  isSuperAdmin: boolean;
-  productsCount: number;
-} & DataBaseProbs;
-
-// array of occasion
-export type occasions = {
-  occasions: occasion[];
-};
-
-// Ocassions Search Param Type
 declare type SearchParamOcassion = {
   name?: string;
   slug?: string;
@@ -21,3 +5,27 @@ declare type SearchParamOcassion = {
   isSuperAdmin?: boolean;
   productsCount?: number;
 } & CommonSearchParams;
+
+export interface Occasions {
+  message: string;
+  metadata: Metadata;
+  occasions: Occasion[];
+}
+
+export interface Metadata {
+  currentPage: number;
+  limit: number;
+  totalPages: number;
+  totalItems: number;
+}
+
+export interface Occasion {
+  _id: string;
+  name: string;
+  slug: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+  isSuperAdmin: boolean;
+  productsCount: number;
+}

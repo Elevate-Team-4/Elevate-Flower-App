@@ -44,7 +44,6 @@ declare type PaginatedResponse<T> = {
   };
 } & T;
 
-
 declare type CommonSearchParams = {
   // ! Pagination and projection
   limit?: number; // Number of items per page (for pagination)

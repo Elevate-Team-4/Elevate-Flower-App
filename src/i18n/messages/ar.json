@@ -29,5 +29,13 @@
   "home-features-item-four-title": "دعم ٢٤/٧",
   "home-features-item-four-desc": "تواصل معنا في أي وقت",
   "home-features-item-one-desc": "للطلبات اللتي تزيد عن {price, number, currency-no-digits}",
-  "home-carousel-badge": "بدءا من {price, number, currency-base}"
+  "home-carousel-badge": "بدءا من {price, number, currency-base}",
+  "Products": {
+    "product": {
+      "to": "الي",
+      "from": "من"
+    }
+  },
+  "error-message": "حدث خطأ ما!",
+  "reset": "إعادة ضبط"
 }

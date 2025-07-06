@@ -1,8 +1,8 @@
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { NextIntlClientProvider, useLocale, useMessages, useNow, useTimeZone } from "next-intl";
 import ReactQueryProvider from "./components/react-query.provider";
 import SessionClientProvider from "./components/session-client-provider";
 import { ThemeProvider } from "./components/theme-provider";
-import { NextIntlClientProvider, useLocale, useMessages, useNow, useTimeZone } from "next-intl";
 
 export default function Providers({ children }: ProvidersProps) {
   const locale = useLocale();

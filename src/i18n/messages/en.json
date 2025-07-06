@@ -29,5 +29,9 @@
   "home-features-item-four-title": "24/7 Support",
   "home-features-item-four-desc": "Contact us at any time",
   "home-features-item-one-desc": "For orders above {price, number, currency-no-digits}",
-  "home-carousel-badge": "Starting from {price, number, currency-base}"
+  "home-carousel-badge": "Starting from {price, number, currency-base}",
+  "error-message": "Something went wrong!",
+  "from": "from",
+  "to": "to",
+  "reset": "Reset"
 }
