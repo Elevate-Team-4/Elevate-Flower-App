@@ -4,10 +4,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { Toaster } from "@/components/ui/toaster";
 import Providers from "./../../components/providers/index";
 import Footer from "../components/footer";
 import Header from "../components/header";
+// import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "sonner";
 
 // Fonts
 const geistSans = localFont({
