@@ -1,7 +1,7 @@
 "use client";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useFormatter, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetchProductReview } from "../../_hooks/use-fetch-product-review";
 import AddProductReviewForm from "./add-product-review-form";
 import RateUser from "./rate-user";

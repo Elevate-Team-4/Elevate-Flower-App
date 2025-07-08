@@ -17,7 +17,7 @@ export default function useAddProductReview() {
 
     onSuccess: (data) => {
       toast.success("Review added successfully");
-      console.log(data);
+      localStorage.removeItem("pendingReview");
     },
 
     onError: (error) => {

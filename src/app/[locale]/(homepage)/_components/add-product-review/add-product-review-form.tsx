@@ -4,7 +4,7 @@ import {
   useAddProductReviewSchema,
 } from "@/lib/schema/add-product-review.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useEffect } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import useAddProductReview from "../../_hooks/use-add-productReview";
 import { Button } from "@/components/ui/button";
@@ -38,8 +38,19 @@ export default function AddProductReviewForm({
   const addProductReviewSchema = useAddProductReviewSchema();
 
   // Session
-  const { data } = useSession();
+  const { data: session } = useSession();
 
+  // Effects
+  useEffect(() => {
+    if (session?.user?._id) {
+      const storedReview = localStorage.getItem("stoppedReview");
+
+      if (storedReview) {
+        const { values, productId } = JSON.parse(storedReview);
+        addProductReviewFn({ values, productId });
+      }
+    }
+  }, [session?.user._id]);
   //   navigation
   const router = useRouter();
 
@@ -58,12 +69,19 @@ export default function AddProductReviewForm({
 
   //   Submit
   const onSubmit: SubmitHandler<ProductReviewField> = (values) => {
-    if (data?.user._id) {
+    if (session?.user._id) {
       setCheckLogin(true);
       addProductReviewFn({ values, productId });
       form.reset();
     } else {
       setCheckLogin(false);
+      localStorage.setItem(
+        "stoppedReview",
+        JSON.stringify({
+          productId,
+          values,
+        }),
+      );
       //   router.push("/login");
     }
   };
@@ -116,7 +134,7 @@ export default function AddProductReviewForm({
               {/* field */}
               <FormControl>
                 <Textarea
-                  className="min-h-36 resize-none"
+                  className="min-h-36 resize-none  dark:border-zinc-600 dark:bg-zinc-700"
                   {...field}
                   placeholder={t("what-do-you-think-of-this-product")}
                 />
