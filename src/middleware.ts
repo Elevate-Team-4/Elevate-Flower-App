@@ -5,7 +5,7 @@ import { routing } from "./i18n/routing";
 import { getToken } from "next-auth/jwt";
 
 const publicAuthPages = ["/auth/login", "/auth/signup", "/auth/forget-password"];
-const publicPages = ["/", ...publicAuthPages, "/products"];
+const publicPages = ["/", ...publicAuthPages, "/products", "/products/[productId]"];
 
 const handleI18nRouting = createMiddleware(routing);
 
@@ -30,7 +30,11 @@ const authMiddleware = withAuth(
 const routesRegex = (routes: string[]) => {
   return RegExp(
     `^(/(${routing.locales.join("|")}))?(${routes
-      .flatMap((p) => (p === "/" ? ["", "/"] : p))
+      .flatMap((p) => {
+        if (p === "/") return ["", "/"];
+        // Replace dynamic segments with wildcard regex
+        return p.replace(/\[.*?\]/g, "[^/]+");
+      })
       .join("|")})/?$`,
     "i",
   );
@@ -52,8 +56,7 @@ export default async function middleware(req: NextRequest) {
     return handleI18nRouting(req);
   } else {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // return (authMiddleware as any)(req);
-    return handleI18nRouting(req); // Skip auth, keep i18n middleware
+    return (authMiddleware as any)(req);
   }
 }
 
