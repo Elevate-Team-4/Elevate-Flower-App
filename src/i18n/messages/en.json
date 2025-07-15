@@ -29,9 +29,7 @@
   "home-features-item-four-title": "24/7 Support",
   "home-features-item-four-desc": "Contact us at any time",
   "home-features-item-one-desc": "For orders above {price, number, currency-no-digits}",
-  "home-carousel-badge": "Starting from {price, number, currency-base}"
-  "mahmoued": "mahmoued",
-  "page-is-not-found": "This page is not found 🤕",
+  "home-carousel-badge": "Starting from {price, number, currency-base}",
   "forgot-password-title": "Forgot Password?",
   "forgot-password-descreption": "Worry not, we'll send you instructions to help you reset it.",
   "do-not-have-an-account": "Don't have an account yet?",
