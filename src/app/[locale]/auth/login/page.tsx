@@ -1,3 +1,9 @@
+"use client";
+
+import { signIn } from "next-auth/react";
+
 export default function Page() {
-  return <>Sign In</>;
+  signIn("credentials");
+
+  return <>Sign in</>;
 }
