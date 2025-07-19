@@ -17,6 +17,7 @@ import Link from "next/link";
 import logo from "@assets/logo 1.png";
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import LocationHeader from "./location-header";
 
 export default function Header() {
   // Navbar object
@@ -62,15 +63,8 @@ export default function Header() {
           <Image src={logo} alt="Logo" className="w-[85px] h-[85px]" />
 
           {/* address */}
-          <div className="flex-1 text-center gap-2 flex flex-col items-center justify-center">
-            <p className="text-zinc-500 text-sm font-normal whitespace-nowrap font-primary">
-              Deliver to:
-            </p>
-            <div className="text-maroon-700 dark:text-soft-pink-200 flex flex-nowrap items-center gap-2 justify-center">
-              <LocationEdit size={"20px"} />
-              <p className=" font-medium text-base font-primary">Cairo</p>
-            </div>
-          </div>
+
+          <LocationHeader />
 
           {/* input search */}
           <Input
