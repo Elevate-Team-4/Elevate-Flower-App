@@ -55,5 +55,11 @@
   "add-address": "Add Address",
   "next": "Next",
   "update-address-info": "Update Address Info",
-  "cairo": "Cairo"
+  "cairo": "Cairo",
+  "city-is-required": "City is required",
+  "address-is-required": "Address is required",
+  "address-must-be-at-least-10-characters": "Address must be at least 10 characters",
+  "phone-number-must-be-at-least-10-digits": "Phone number must be at least 10 digits",
+  "phone-number-too-long": "Phone number too long",
+  "location-is-required": "Location is required"
 }

@@ -54,5 +54,11 @@
   "add-address": "أضف العنوان",
   "next": "التالي",
   "update-address-info": "تحديث معلومات العنوان",
-  "cairo": "القاهرة"
+  "cairo": "القاهرة",
+  "city-is-required": "يجب ادخال المدينة",
+  "address-must-be-at-least-10-characters": "يجب أن يكون العنوان 10 أحرف على الأقل",
+  "phone-number-must-be-at-least-10-digits": "يجب أن يكون رقم الهاتف 10 أرقام على الأقل",
+  "phone-number-too-long": "رقم الهاتف طويل جدًا",
+  "location-is-required": "يجب ادخال الموقع",
+  "address-is-required": "يجب ادخال العنوان"
 }

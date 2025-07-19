@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   const token = await getToken({ req });
+
   if (!token) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -16,6 +17,8 @@ export async function GET(req: NextRequest) {
       Authorization: `Bearer ${token}`,
     },
   });
+
   const payload = await response.json();
+  
   return NextResponse.json(payload);
 }

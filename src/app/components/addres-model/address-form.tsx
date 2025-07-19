@@ -19,7 +19,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   AddDressFormType,
-  addressFormSchema,
+  useAddressFormSchema,
 } from "@/lib/schema/address-model/address-form.schema";
 import useAddAddress from "@/hooks/address/use-add-address";
 import useUpdateAddress from "@/hooks/address/use-update-address";
@@ -69,6 +69,9 @@ export default function AdrdessForm({
   // Hooks
   const { addAddressFn, isPending } = useAddAddress();
   const { updateAddressFn, updateAddressPending } = useUpdateAddress();
+
+  // Schema
+  const addressFormSchema = useAddressFormSchema();
 
   // Form
   const form = useForm<AddDressFormType>({
