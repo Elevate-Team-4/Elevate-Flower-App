@@ -40,26 +40,7 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
   }, [checked, address]);
 
   return (
-    <div className="flex flex-col gap-6 h-3/5 py-3">
-      {/* Progress Bar */}
-      <div className="w-full relative bg-zinc-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
-        <div
-          className={cn(
-            "bg-maroon-600 h-1.5 rounded-full dark:bg-blue-500 transition-all duration-700",
-            step === 1 && "w-1/3",
-            step === 2 && "w-2/3",
-          )}
-        />
-        <div className="absolute inset-0 -top-[9px] flex justify-evenly">
-          <span className="bg-maroon-600 font-semibold text-sm rounded-full text-white w-5 h-5 flex justify-center items-center ">
-            1
-          </span>
-          <span className="bg-maroon-600 font-semibold text-sm rounded-full text-white w-5 h-5 flex justify-center items-center ">
-            2
-          </span>
-        </div>
-      </div>
-
+    <>
       {/* Title  Shipping Address */}
       <h3 className="font-primary font-semibold text-3xl flex items-center justify-start gap-4">
         <Button
@@ -68,7 +49,10 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
             if (step > 1) setStep(step - 1);
           }}
           disabled={step > 1 ? false : true}
-          className={cn("w-[80px] border-none text-sm font-semibold", step === 1 && "hidden")}
+          className={cn(
+            "w-auto flex justify-evenly border-none text-sm font-semibold dark:bg-soft-pink-400 dark:text-zinc-800 dark:hover:bg-soft-pink-500",
+            step === 1 && "hidden",
+          )}
         >
           <MoveLeft className="w-5 h-5 mr-2" />
           Back
@@ -87,7 +71,11 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
             }}
             className="col-span-1 flex flex-col justify-center items-center gap-3 border rounded-xl p-4 hover:bg-zinc-50 group"
           >
-            <Image src={CashImg} alt="Cash on Delivery" />
+            <Image
+              className="dark:bg-slate-500 dark:group-hover:bg-zinc-50 dark:rounded-2xl"
+              src={CashImg}
+              alt="Cash on Delivery"
+            />
             <h3
               className={cn(
                 "text-2xl font-semibold font-primary group-hover:text-maroon-600",
@@ -109,7 +97,11 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
             }}
             className="col-span-1 flex flex-col  justify-center items-center gap-3 border rounded-xl p-4 hover:bg-zinc-50 group"
           >
-            <Image src={CreditImg} alt="Cash on Delivery" />
+            <Image
+              src={CreditImg}
+              alt="Cash on Delivery"
+              className="dark:bg-slate-500 dark:group-hover:bg-zinc-50 dark:rounded-2xl"
+            />
             <h3
               className={cn(
                 "text-2xl font-semibold font-primary group-hover:text-maroon-600",
@@ -157,6 +149,6 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }

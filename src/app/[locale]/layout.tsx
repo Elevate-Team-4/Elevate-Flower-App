@@ -54,7 +54,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${zain.variable} ${mulish.className} antialiased selection:bg-maroon-600 selection:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${zain.variable} ${mulish.className} antialiased selection:bg-maroon-600 selection:text-white dark:bg-zinc-800`}
       >
         {/* Providers */}
         <Providers>

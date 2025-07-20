@@ -7,7 +7,7 @@ export default function Summary() {
   return (
     <div className="w-[458px] h-[605px] flex flex-col gap-6">
       <h4>Summary</h4>
-      <div className="flex flex-col gap-3 p-4 bg-zinc-50">
+      <div className="flex flex-col gap-3 p-4 bg-zinc-50 dark:rounded dark:bg-zinc-800">
         {/* Coupon */}
         <div className="flex gap-3">
           <Input placeholder="Coupon Code" />
@@ -18,32 +18,39 @@ export default function Summary() {
         </div>
 
         {/* Coupons */}
-        <div className="h-60 flex justify-center items-center rounded-lg border">
+        <div className="h-60 flex justify-center items-center rounded-lg border dark:border-zinc-500">
           <p className="text-zinc-400 text-base">No coupons applied</p>
         </div>
 
         {/* Total */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 ">
           <div className="flex justify-between">
-            <span className="font-medium text-lg text-zinc-800 font-primary">Subtotal</span>
-            <span className="font-semibold text-xl text-zinc-800 font-primary">250 Egp</span>
-          </div>
-
-          <div className="relative flex justify-center items-center">
-            <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-zinc-300"></span>
-            </div>
-            <span className="bg-white absolute -top-4 p-2 w-auto font-semibold text-base font-primary text-zinc-800">
-              50% Discount
+            <span className="font-medium text-lg text-zinc-800 font-primary dark:text-white">
+              Subtotal
+            </span>
+            <span className="font-semibold text-xl text-zinc-800 font-primary dark:text-white">
+              250 Egp
             </span>
           </div>
 
-          {/* total */}
-          <div className="flex justify-between">
-            <span className="font-medium text-lg text-zinc-800 font-primary">Total</span>
-            <span className="font-semibold text-xl text-zinc-800 font-primary">125 Egp</span>
+          <div className="relative flex justify-center items-center py-3">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-zinc-300"></span>
+            </div>
+            <span className="bg-zinc-50 absolute -top-4 p-2 w-auto font-semibold text-base font-primary text-zinc-800 dark:bg-zinc-800 dark:text-white">
+              50% Discount
+            </span>
           </div>
         </div>
+      </div>
+      {/* total */}
+      <div className="flex justify-between">
+        <span className="font-medium text-lg text-zinc-800 font-primary dark:text-white">
+          Total
+        </span>
+        <span className="font-semibold text-xl text-zinc-800 font-primary dark:text-white">
+          125 Egp
+        </span>
       </div>
     </div>
   );
