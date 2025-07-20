@@ -1,3 +1,4 @@
+import { Mulish } from "next/font/google";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -26,6 +27,11 @@ const zain = localFont({
   variable: "--font-zain",
   weight: "100 900",
 });
+const mulish = Mulish({
+  subsets: ["latin"],
+  variable: "--font-mulish",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 //Metadata
 export const metadata: Metadata = {
@@ -47,7 +53,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${zain.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${zain.variable} ${mulish.className} antialiased selection:bg-maroon-600 selection:text-white`}
+      >
         {/* Providers */}
         <Providers>
           {/* Header  */}

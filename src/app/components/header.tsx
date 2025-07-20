@@ -17,6 +17,7 @@ import Link from "next/link";
 import logo from "@assets/logo 1.png";
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import ToggleLocale from "@/components/layout/header/components/toggle-locale";
 
 export default function Header() {
   // Navbar object
@@ -122,7 +123,7 @@ export default function Header() {
 
             {/* language */}
             <div className="text-zinc-700 dark:text-white text-base font-normal">
-              <p>العربيه</p>
+              <ToggleLocale />
             </div>
           </div>
         </div>
