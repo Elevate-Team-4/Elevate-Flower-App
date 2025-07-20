@@ -17,11 +17,10 @@ import AddressSkeleton from "@/components/skeletons/address/address.skeleton";
 import Addresscard from "./addres-model/address-card";
 import FormSteps from "./addres-model/form-steps";
 import { useTranslations } from "next-intl";
-import { useSession } from "next-auth/react";
 
 export default function LocationHeader() {
   // Hooks
-  const { isLoading, payload } = useFetchAddresses();
+  const { isLoading, payload, error, isError } = useFetchAddresses();
 
   // States
   const [steps, setSteps] = useState(1);
@@ -29,9 +28,6 @@ export default function LocationHeader() {
 
   // Translations
   const t = useTranslations();
-
-  // session
-  const { data: seesion } = useSession();
 
   return (
     <Dialog>
@@ -46,7 +42,7 @@ export default function LocationHeader() {
           <div className="text-maroon-700 dark:text-soft-pink-200 flex flex-nowrap items-center gap-2 justify-center">
             <LocationEdit size={"20px"} />
             <p className=" font-medium text-base font-primary">
-              {seesion?.user.addresses[0].city || t("cairo")}
+              {payload?.addresses[0].city || t("cairo")}
             </p>
           </div>
         </Button>
@@ -83,15 +79,19 @@ export default function LocationHeader() {
               <AddressSkeleton />
               <AddressSkeleton />
             </>
-          ) : payload?.addresses.length === 0 ? (
+          ) : isError ? (
+            <div className="flex items-center justify-center h-96">
+              <p className="text-2xl font-semibold text-red-500">{error?.message}</p>
+            </div>
+          ) : payload?.addresses?.length === 0 ? (
             <div className="flex items-center justify-center h-96">
               <p className="text-2xl font-semibold text-zinc-800">{t("no-addresses-to-show")}</p>
             </div>
           ) : (
             payload?.addresses.map((address) => (
               <Addresscard
-                address={address}
                 key={address._id}
+                address={address}
                 setSteps={setSteps}
                 steps={steps}
                 setOpenDialog={setOpenDialog}

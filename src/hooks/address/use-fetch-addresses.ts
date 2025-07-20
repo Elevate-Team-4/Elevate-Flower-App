@@ -5,6 +5,7 @@ export default function useFetchAddresses() {
     isLoading,
     data: payload,
     error,
+    isError,
   } = useQuery({
     queryKey: ["user-addresses"],
     queryFn: async () => {
@@ -19,5 +20,7 @@ export default function useFetchAddresses() {
   return {
     isLoading,
     payload,
+    isError,
+    error,
   };
 }
