@@ -3,6 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { MoveRight, Phone } from "lucide-react";
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { Address } from "@/lib/types/addresses";
 import { cn } from "@/lib/utils";
 import LoadingSpin from "@/components/common/loading-spin";
@@ -27,6 +28,10 @@ export default function AddressStep1({ step, address, setStep, setAddress }: Add
     queryFn: getAddresses,
   });
 
+  // Formatter and translations
+  const t = useTranslations();
+  const locale = useLocale();
+
   // Handle loading and error states
   if (isLoading) return <LoadingSpin />;
   if (error) return <p>Error: {error.message}</p>;
@@ -34,7 +39,7 @@ export default function AddressStep1({ step, address, setStep, setAddress }: Add
   return (
     <>
       {/* Title  Shipping Address */}
-      <h3 className="font-primary font-semibold text-3xl">Shipping Address</h3>
+      <h3 className="font-primary font-semibold text-3xl">{t("checkout.shipping-address")}</h3>
 
       {/* content  */}
       <div className="flex flex-col gap-3 h-[675px] overflow-y-scroll">
@@ -103,14 +108,14 @@ export default function AddressStep1({ step, address, setStep, setAddress }: Add
       <div className="flex flex-col gap-5 py-5">
         {/* Or */}
         <div className="w-full relative bg-zinc-100 rounded-full h-[1px] dark:bg-gray-700 text-center">
-          <span className="absolute w-auto px-2 -top-3 bg-white text-lg font-semibold text-zinc-500 dark:text-white bg-zinc-800">
-            OR
+          <span className="absolute w-auto px-2 -top-3 bg-white text-lg font-semibold text-zinc-500 dark:text-white dark:bg-zinc-800">
+            {t("checkout.or")}
           </span>
         </div>
 
         {/* Button add address */}
         <Button variant={"secondary"} className="w-full">
-          Add a New Address
+          {t("checkout.add-new-address")}
         </Button>
       </div>
 
@@ -122,8 +127,8 @@ export default function AddressStep1({ step, address, setStep, setAddress }: Add
         disabled={isActive ? false : true}
         className={cn("self-end w-[152px] disabled:dark:bg-zinc-500 ", step === 2 && "hidden")}
       >
-        Next
-        <MoveRight className="w-5 h-5 ml-2" />
+        {t("checkout.next")}
+        {locale === "ar" ? <MoveRight className="rotate-180" /> : <MoveRight />}
       </Button>
     </>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -26,13 +27,16 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
   const [data, setData] = useState<APIResponse<CheckoutSessionTS> | APIResponse<ErrorResponse>>();
   const [isActive, setIsActive] = useState<boolean>(false);
 
+  // Formatter and translations
+  const t = useTranslations();
+  const locale = useLocale();
+
   const { toast } = useToast();
 
   useEffect(() => {
     // Fetch checkout session data
     const fetchCheckoutSession = async () => {
       const sessionData = await CheckCreditOrder(address);
-      console.log("Checkout Session Data:", sessionData);
       setData(sessionData);
     };
 
@@ -54,10 +58,14 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
             step === 1 && "hidden",
           )}
         >
-          <MoveLeft className="w-5 h-5 mr-2" />
-          Back
+          {locale === "ar" ? (
+            <MoveLeft className="w-5 h-5 mr-2 rotate-180" />
+          ) : (
+            <MoveLeft className="w-5 h-5 mr-2" />
+          )}
+          {t("checkout.back")}
         </Button>
-        Payment Method
+        {t("checkout.payment-method")}
       </h3>
 
       {/* content  */}
@@ -82,10 +90,10 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
                 isActive && checked === "cash" && "text-maroon-600",
               )}
             >
-              Cash on Delivery
+              {t("checkout.cash-delivery")}
             </h3>
             <p className="text-zinc-500 text-sm  font-semibold text-center">
-              You’ll pay in cash when your order is delivered.
+              {t("checkout.cash-title")}
             </p>
           </button>
 
@@ -108,19 +116,20 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
                 isActive && checked === "credit" && "text-maroon-600",
               )}
             >
-              Credit Card
+              {t("checkout.credit-card")}
             </h3>
             <p className="text-zinc-500 text-sm  font-semibold text-center">
-              You’ll be securely redirected to Stripe to complete your payment.
+              {t("checkout.credit-title")}
             </p>
           </button>
         </div>
+
         {/* Checkout */}
         <div className="border-t flex items-center justify-end pt-4">
           {data && "session" in data && data.session?.url ? (
             <Button
               disabled={isActive ? false : true}
-              className="w-[200px] flex flex-nowrap"
+              className="w-[200px] flex flex-nowrap justify-evenly "
               onClick={() => {
                 if (checked === "credit") {
                   window.location.href = data.session.url;
@@ -139,8 +148,12 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
                 }
               }}
             >
-              Checkout
-              <MoveRight className="w-5 h-5 ml-2" />
+              {t("checkout.checkout")}
+              {locale === "ar" ? (
+                <MoveRight className="w-5 h-5 ml-2 rotate-180" />
+              ) : (
+                <MoveRight className="w-5 h-5 ml-2" />
+              )}
             </Button>
           ) : (
             <Button disabled className="w-[200px] flex flex-nowrap">

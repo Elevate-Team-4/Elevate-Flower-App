@@ -33,5 +33,30 @@
   "error-message": "Something went wrong!",
   "from": "from",
   "to": "to",
-  "reset": "Reset"
+  "reset": "Reset",
+  "count": "This is <important><very>very</very> important</important>)",
+  "checkout": {
+    "shipping-address": "Shipping Address",
+    "or": "OR",
+    "add-new-address": "Add a New Address",
+    "next": "Next",
+    "back": "Back",
+    "payment-method": "Payment Method",
+    "cash-delivery": "Cash on Delivery",
+    "cash-title": "You'll pay in cash when your order is delivered.",
+    "credit-card": "Credit Card",
+    "credit-title": "You'll be securely redirected to Stripe to complete your payment.",
+    "checkout": "Checkout"
+  },
+  "summary": {
+    "summary": "Summary",
+    "apply-coupon": "Apply Coupon",
+    "coupon-code": "Coupon Code",
+    "no-coupons-applied": "No coupons applied",
+    "subtotal": "Subtotal",
+    "discount": "{number} Discount",
+    "total": "Total"
+  },
+  "number-discount": "{price} Discount",
+  "price-number-currency-discount": "{price , number , percentage-int} Discount"
 }

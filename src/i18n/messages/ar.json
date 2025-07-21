@@ -37,5 +37,30 @@
     }
   },
   "error-message": "حدث خطأ ما!",
-  "reset": "إعادة ضبط"
+  "reset": "إعادة ضبط",
+  "count": "",
+  "checkout": {
+    "shipping-address": "عنوان الشحن",
+    "or": "أو",
+    "add-new-address": "أضف عنوانًا جديدًا",
+    "next": "التالي",
+    "back": "رجوع",
+    "payment-method": "طريقة الدفع",
+    "cash-delivery": "النقد عند التسليم",
+    "cash-title": "ستدفع نقدًا عند تسليم طلبك.",
+    "credit-card": "بطاقة إئتمان",
+    "credit-title": "سيتم إعادة توجيهك بشكل آمن إلى الشريط لإكمال الدفع الخاص بك.",
+    "checkout": "الدفع"
+  },
+  "summary": {
+    "summary": "ملخص",
+    "apply-coupon": "تطبيق القسيمة",
+    "coupon-code": "رمز القسيمة",
+    "no-coupons-applied": "لم يتم تطبيق كوبونات",
+    "subtotal": "المبلغ إجمالي",
+    "discount": "{number} خصم",
+    "total": "المجموع"
+  },
+  "number-discount": "{price} خصم",
+  "price-number-currency-discount": "{price , number , percentage-int} خصم"
 }
