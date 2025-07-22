@@ -34,7 +34,6 @@
   "forgot-password-descreption": "لا تقلق، سنرسل إليك تعليمات لمساعدتك في إعادة تعيينه.",
   "do-not-have-an-account": "ليس لديك حساب حتى الآن؟",
   "sign-up-link": "أنشئ واحدا الآن!",
-  "email": "بريد إلكتروني",
   "continue": "المتابعة",
   "title-reset-passwprd": "إنشاء كلمة مرور جديدة",
   "descreption-reset-password": "قم بتعيين كلمة مرور قوية لتأمين حسابك.",
@@ -60,7 +59,7 @@
   "password-number": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
   "password-special": "يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل",
   "confirm-password-required": "الرجاء تأكيد كلمة المرور الخاصة بك",
-  "password-mismatch": "كلمات المرور غير متطابقة"
+  "password-mismatch": "كلمات المرور غير متطابقة",
   "welcome_back": "مرحباً بعودتك!",
   "no_account": "ليس لديك حساب بعد؟",
   "create_account": "أنشئ واحداً الآن!",

@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import "./globals.css";
 
 // Metadata for the application

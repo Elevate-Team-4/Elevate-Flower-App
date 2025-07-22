@@ -36,11 +36,6 @@ declare type LoginResponse = {
 declare type ErrorResponse = {
   error: string;
 };
-declare type DataBaseProbs = {
-  _id: string;
-  createdAt: string;
-  updatedAt: string;
-};
 
 declare type SuccessfulResponse<T> = {
   message: string;
