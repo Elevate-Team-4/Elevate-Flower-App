@@ -13,6 +13,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         primary: ["var(--font-primary)"],
+        sarabun: ["var(--font-sarabun)"],
         "geist-sans": ["var(--font-geist-sans)"],
         "geist-mono": ["var(--font-geist-mono)"],
         edwardian: ["var(--font-edwardian)"],
@@ -50,6 +51,7 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

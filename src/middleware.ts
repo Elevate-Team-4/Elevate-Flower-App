@@ -4,6 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 import { getToken } from "next-auth/jwt";
 
+const publicAuthPages = ["/auth/login", "/auth/signup", "/auth/forget-password"];
+const publicPages = ["/", ...publicAuthPages];
 const publicAuthPages = ["/auth/login", "/auth/signup"];
 const publicPages = ["/", ...publicAuthPages];
 
@@ -21,7 +23,7 @@ const authMiddleware = withAuth(
       authorized: ({ token }) => token != null,
     },
     pages: {
-      signIn: "/auth/signin",
+      signIn: "/auth/login",
     },
   },
 );
