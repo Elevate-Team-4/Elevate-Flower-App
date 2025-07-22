@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva, type VariantProps } from "class-variance-authority";
-import { X } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 
 const ToastProvider = ToastPrimitives.Provider;
@@ -28,9 +28,10 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "border bg-white text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50",
+        default:
+          "border-emerald-700 bg-emerald-50 text-zinc-800 dark:bg-emerald-300 dark:text-zinc-800",
         destructive:
-          "destructive group border-red-500 bg-red-500 text-zinc-50 dark:border-red-900 dark:bg-red-900 dark:text-zinc-50",
+          "destructive group border-red-700  bg-red-50 text-zinc-800 dark:border-zinc-800 dark:bg-red-300 dark:text-zinc-800",
       },
     },
     defaultVariants: {
@@ -101,12 +102,17 @@ ToastTitle.displayName = ToastPrimitives.Title.displayName;
 const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Description>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn("text-sm opacity-90", className)}
+    className={cn("text-sm opacity-90 flex items-center gap-2 font-semibold", className)}
     {...props}
-  />
+  >
+    {/* Icon placed before the description content */}
+    <Check className="h-4 w-4 text-emerald-700 dark:text-zinc-800 group-[.destructive]:hidden" />
+    <X className="h-4 w-4 text-red-700 dark:text-zinc-800 hidden group-[.destructive]:block" />
+    {children}
+  </ToastPrimitives.Description>
 ));
 ToastDescription.displayName = ToastPrimitives.Description.displayName;
 
