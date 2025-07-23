@@ -1,10 +1,10 @@
 import BarTitle from "@/components/common/bar-title";
 import { getProductDetails } from "@/lib/apis/products.api";
-import Image from "next/image";
 import { RealatedProductsCarousel } from "./_components/related-products-carousel";
 import ProductThumbnail from "./_components/product-thumbnail";
 import { Suspense } from "react";
 import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
+import { getTranslations } from "next-intl/server";
 
 interface ProductDetailsProbs {
   params: {
@@ -13,6 +13,9 @@ interface ProductDetailsProbs {
 }
 
 export default async function Page({ params }: ProductDetailsProbs) {
+  // Translation
+  const t = await getTranslations();
+
   // Extracting search params
   const { productId } = params;
 
@@ -53,7 +56,7 @@ export default async function Page({ params }: ProductDetailsProbs) {
       {/* Realated products */}
       <div className="mt-12">
         {/* Title */}
-        <BarTitle title="Related Products" highlightBarWidth="w-[27%]" mainBarWidth="w-9/12" />
+        <BarTitle title={t('related-products-heading')} highlightBarWidth="w-[27%]" mainBarWidth="w-9/12" />
 
         {/* Realated products carousel */}
         <Suspense

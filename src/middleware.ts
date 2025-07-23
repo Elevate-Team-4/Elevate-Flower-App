@@ -48,7 +48,23 @@ export default async function middleware(req: NextRequest) {
     const isAuthPublicPage = publicAuthPathnameRegex.test(req.nextUrl.pathname); // Check if the current page is a public auth page
     const token = await getToken({ req });
     const redirectUrl = new URL("/", req.nextUrl.origin);
+  const publicPathnameRegex = routesRegex(publicPages); // Add locale to public page paths dynamically
+  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname); // Check if the current page is public
+  if (isPublicPage) {
+    const publicAuthPathnameRegex = routesRegex(publicAuthPages); // Add locale to auth page paths (login, signup) dynamically
+    const isAuthPublicPage = publicAuthPathnameRegex.test(req.nextUrl.pathname); // Check if the current page is a public auth page
+    const token = await getToken({ req });
+    const redirectUrl = new URL("/", req.nextUrl.origin);
 
+    // Check if the user is logged in and trying to access a public auth page (login, signup) — if so, redirect to home page
+    if (token && isAuthPublicPage) {
+      return NextResponse.redirect(redirectUrl);
+    }
+    return handleI18nRouting(req);
+  } else {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (authMiddleware as any)(req);
+  }
     // Check if the user is logged in and trying to access a public auth page (login, signup) — if so, redirect to home page
     if (token && isAuthPublicPage) {
       return NextResponse.redirect(redirectUrl);

@@ -60,7 +60,7 @@ export default function ProductThumbnail({ thumbnailImages }: ThumbnailImagesPro
                   alt="Product Image"
                   fill={true}
                   className="object-cover rounded-xl"
-                  quality={100}
+                  quality={90}
                 />
               </div>
             </CarouselItem>
@@ -81,7 +81,7 @@ export default function ProductThumbnail({ thumbnailImages }: ThumbnailImagesPro
                   height={111}
                   className={cn(
                     index === selectedIndex ? "brightness-100" : "brightness-75",
-                    "w-[91px] h-[111px] rounded-lg object-cover  hover:brightness-90 ease-in-out duration-300",
+                    "w-24 h-28 rounded-lg object-cover hover:brightness-90 ease-in-out duration-300",
                   )}
                   onClick={() => scrollTo(index)}
                 />
