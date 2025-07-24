@@ -30,7 +30,7 @@ export default function TabsTitle({ occasions }: TabsTitleProps) {
       params.set("occasion", occasionId);
       router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     },
-    [pathname, router, searchParams]
+    [pathname, router, searchParams],
   );
 
   if (!occasions || occasions.length === 0) {
