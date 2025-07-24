@@ -38,7 +38,7 @@ export async function RealatedProductsCarousel({ productId }: ProductDetailsProb
     <>
       <Carousel opts={{ align: "start" }} className="mt-4 mb-12">
         <CarouselContent className="-ml-4">
-          {relatedProductsDetails.map((product) =>
+          {relatedProductsDetails.map((product, index) =>
             product ? (
               <CarouselItem
                 key={product._id}
@@ -47,7 +47,7 @@ export async function RealatedProductsCarousel({ productId }: ProductDetailsProb
                 <SingleProduct singleProduct={product} />
               </CarouselItem>
             ) : (
-              <p>something went wrong</p>
+              <p key={index}>something went wrong</p>
             ),
           )}
         </CarouselContent>

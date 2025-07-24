@@ -1,5 +1,4 @@
 import SingleProduct from "@/components/common/single-product";
-import { Link } from "@/i18n/navigation";
 import { getProducts } from "@/lib/apis/products.api";
 import { SearchParamProduct } from "@/lib/types/products";
 

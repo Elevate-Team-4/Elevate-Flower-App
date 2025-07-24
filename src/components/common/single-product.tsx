@@ -1,10 +1,10 @@
-import type { Product } from "@/lib/types/products";
 import Image from "next/image";
-import { Button } from "../ui/button";
 import { ShoppingCart, Star } from "lucide-react";
+import type { Product } from "@/lib/types/products";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/cn";
 import { Link } from "@/i18n/navigation";
+import { Button } from "../ui/button";
 /**
  * SingleProduct Component
  *

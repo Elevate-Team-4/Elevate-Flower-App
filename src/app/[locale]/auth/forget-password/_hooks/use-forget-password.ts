@@ -1,8 +1,8 @@
-import { ForgetPasswordFields } from "@/lib/schemes/forget-password.schema";
 import { useMutation } from "@tanstack/react-query";
-import forgetPasswordAction from "../_actions/forget-password.action";
-import { toast } from "@/hooks/use-toast";
 import { useTranslations } from "next-intl";
+import { ForgetPasswordFields } from "@/lib/schemes/forget-password.schema";
+import { toast } from "@/hooks/use-toast";
+import forgetPasswordAction from "../_actions/forget-password.action";
 
 export default function useForgetPassword() {
   // Translation

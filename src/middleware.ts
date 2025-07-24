@@ -1,8 +1,8 @@
 import { withAuth } from "next-auth/middleware";
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
-import { routing } from "./i18n/routing";
 import { getToken } from "next-auth/jwt";
+import { routing } from "./i18n/routing";
 
 const publicAuthPages = ["/auth/login", "/auth/signup", "/auth/forget-password"];
 const publicPages = ["/", ...publicAuthPages, "/products", "/products/[productId]"];
@@ -35,6 +35,12 @@ const routesRegex = (routes: string[]) => {
         // Replace dynamic segments with wildcard regex
         return p.replace(/\[.*?\]/g, "[^/]+");
       })
+      .join("|")})/?$`,
+    "i",
+  );
+  return RegExp(
+    `^(/(${routing.locales.join("|")}))?(${routes
+      .flatMap((p) => (p === "/" ? ["", "/"] : p))
       .join("|")})/?$`,
     "i",
   );

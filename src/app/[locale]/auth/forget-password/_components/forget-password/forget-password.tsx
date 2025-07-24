@@ -1,6 +1,6 @@
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import ForgetPasswordForm from "./forget-password-form";
-import { useTranslations } from "next-intl";
 
 // Forget password props type
 interface ForgetPasswordProps {

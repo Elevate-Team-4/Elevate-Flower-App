@@ -56,7 +56,11 @@ export default async function Page({ params }: ProductDetailsProbs) {
       {/* Realated products */}
       <div className="mt-12">
         {/* Title */}
-        <BarTitle title={t('related-products-heading')} highlightBarWidth="w-[27%]" mainBarWidth="w-9/12" />
+        <BarTitle
+          title={t("related-products-heading")}
+          highlightBarWidth="w-[27%]"
+          mainBarWidth="w-9/12"
+        />
 
         {/* Realated products carousel */}
         <Suspense
