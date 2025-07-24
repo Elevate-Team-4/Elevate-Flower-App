@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import { routing } from "./i18n/routing";
 
-const publicAuthPages = ["/auth/signin", "/auth/signup"];
+const publicAuthPages = ["/auth/login", "/auth/signup", "/auth/forget-password"];
 const publicPages = ["/", ...publicAuthPages];
 
 const handleI18nRouting = createMiddleware(routing);
@@ -28,6 +28,12 @@ const authMiddleware = withAuth(
 
 // Function to check if a page is public (reusable for routing)
 const routesRegex = (routes: string[]) => {
+  return RegExp(
+    `^(/(${routing.locales.join("|")}))?(${routes
+      .flatMap((p) => (p === "/" ? ["", "/"] : p))
+      .join("|")})/?$`,
+    "i",
+  );
   return RegExp(
     `^(/(${routing.locales.join("|")}))?(${routes
       .flatMap((p) => (p === "/" ? ["", "/"] : p))
