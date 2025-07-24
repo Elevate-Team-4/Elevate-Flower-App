@@ -61,5 +61,6 @@
   "address-must-be-at-least-10-characters": "Address must be at least 10 characters",
   "phone-number-must-be-at-least-10-digits": "Phone number must be at least 10 digits",
   "phone-number-too-long": "Phone number too long",
-  "location-is-required": "Location is required"
+  "location-is-required": "Location is required",
+  "set-delivery-address": "set delivery address"
 }

@@ -14,11 +14,11 @@ export async function GET(req: NextRequest) {
     },
     headers: {
       ...JSON_HEADER,
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token.token}`,
     },
   });
 
   const payload = await response.json();
-  
+
   return NextResponse.json(payload);
 }

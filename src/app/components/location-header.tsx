@@ -34,7 +34,7 @@ export default function LocationHeader() {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="border-0  text-center gap-2 flex flex-col items-center justify-center hover:bg-transparent"
+          className="border-0 text-center gap-2 flex flex-col items-center justify-center hover:bg-transparent dark:hover:bg-transparent"
         >
           <p className="text-zinc-500 text-sm font-normal whitespace-nowrap font-primary">
             {t("deliver-to")}
@@ -42,7 +42,7 @@ export default function LocationHeader() {
           <div className="text-maroon-700 dark:text-soft-pink-200 flex flex-nowrap items-center gap-2 justify-center">
             <LocationEdit size={"20px"} />
             <p className=" font-medium text-base font-primary">
-              {payload?.addresses[0].city || t("cairo")}
+              {payload?.addresses[0].city || t("set-delivery-address")}
             </p>
           </div>
         </Button>
@@ -72,6 +72,7 @@ export default function LocationHeader() {
         </div>
         <section className="py-2 space-y-6">
           {/* overflow-y-scroll */}
+
           {/* Addresses */}
           {isLoading ? (
             <>

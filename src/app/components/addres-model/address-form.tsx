@@ -163,7 +163,7 @@ export default function AdrdessForm({
   return (
     // Form
     <Form {...form}>
-      <form className="space-y-2 " onSubmit={form.handleSubmit(onsubmit)}>
+      <form className="space-y-4 " onSubmit={form.handleSubmit(onsubmit)}>
         {/* Step 1 form */}
         {steps === 1 && (
           <>
@@ -226,17 +226,19 @@ export default function AdrdessForm({
                 </FormItem>
               )}
             />
-            <Button
-              type="button"
-              className="w-full"
-              onClick={async () => {
-                if (await form.trigger(["city", "street", "phone"])) {
-                  setSteps((prev) => prev + 1);
-                }
-              }}
-            >
-              {t("next")}
-            </Button>
+            <div className="pt-4">
+              <Button
+                type="button"
+                className="w-full"
+                onClick={async () => {
+                  if (await form.trigger(["city", "street", "phone"])) {
+                    setSteps((prev) => prev + 1);
+                  }
+                }}
+              >
+                {t("next")}
+              </Button>
+            </div>
           </>
         )}
         {/* Step 2 form */}
@@ -304,16 +306,18 @@ export default function AdrdessForm({
                 {form.formState.errors.long.message}
               </p>
             )}
-            <Button
-              className="w-full"
-              disabled={
-                isPending ||
-                updateAddressPending ||
-                (form.formState.isSubmitted && !form.formState.isValid)
-              }
-            >
-              {t("add-address")}
-            </Button>
+            <div className="pt-4">
+              <Button
+                className="w-full"
+                disabled={
+                  isPending ||
+                  updateAddressPending ||
+                  (form.formState.isSubmitted && !form.formState.isValid)
+                }
+              >
+                {t("add-address")}
+              </Button>
+            </div>
           </>
         )}
       </form>

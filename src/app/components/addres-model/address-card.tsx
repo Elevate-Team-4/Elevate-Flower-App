@@ -30,7 +30,7 @@ export default function Addresscard({
 
   return (
     <section>
-      <div className="border border-zinc-300 pt-6 pb-5 pe-9 ps-4 space-y-4 rounded-md relative ">
+      <div className="border border-zinc-300 pt-6 pb-5 pe-9 ps-4 space-y-4 rounded-xl relative ">
         <div className="bg-white dark:bg-zinc-950 w-fit absolute -translate-y-1/2 top-0">
           <span className="font-semibold text-2xl text-maroon-600 dark:text-soft-pink-300">
             {t("work")}
@@ -59,7 +59,9 @@ export default function Addresscard({
               />
             </DialogContent>
           </Dialog>
+
           {/* Delete Dialog */}
+
           <Dialog>
             <DialogTrigger asChild>
               <Button className=" bg-red-600 dark:bg-soft-pink-300 size-9 rounded-full flex items-center justify-center top-20">
@@ -83,7 +85,7 @@ export default function Addresscard({
               width={33}
               height={33}
               fill="#fff"
-              className="bg-[#00BC7D] rounded-full p-[5px]"
+              className="bg-emerald-500 rounded-full p-[5px]"
             />
             <span className="font-semibold text-2xl text-zinc-800 dark:text-zinc-50">
               {address.city}

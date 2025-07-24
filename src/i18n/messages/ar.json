@@ -60,5 +60,6 @@
   "phone-number-must-be-at-least-10-digits": "يجب أن يكون رقم الهاتف 10 أرقام على الأقل",
   "phone-number-too-long": "رقم الهاتف طويل جدًا",
   "location-is-required": "يجب ادخال الموقع",
-  "address-is-required": "يجب ادخال العنوان"
+  "address-is-required": "يجب ادخال العنوان",
+  "set-delivery-address": "قم بتعين عنوان التسليم"
 }

@@ -18,8 +18,9 @@ import logo from "@assets/logo 1.png";
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import LocationHeader from "./location-header";
+import { getServerSession } from "next-auth";
 
-export default function Header() {
+export default async function Header() {
   // Navbar object
   const navbar = [
     {
@@ -54,6 +55,9 @@ export default function Header() {
     },
   ];
 
+  // Session
+  const session = await getServerSession();
+
   return (
     <header className="w-full flex flex-col ">
       {/* Main header */}
@@ -63,8 +67,7 @@ export default function Header() {
           <Image src={logo} alt="Logo" className="w-[85px] h-[85px]" />
 
           {/* address */}
-
-          <LocationHeader />
+          {session && <LocationHeader />}
 
           {/* input search */}
           <Input
