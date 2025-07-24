@@ -13,11 +13,11 @@ const config: Config = {
     extend: {
       fontFamily: {
         primary: ["var(--font-primary)"],
-        sarabun: ["var(--font-sarabun)"],
+        pinyon: ["var(--font-pinyon)"],
+        diwany: ["var(--font-diwany)"],
         "geist-sans": ["var(--font-geist-sans)"],
         "geist-mono": ["var(--font-geist-mono)"],
         edwardian: ["var(--font-edwardian)"],
-        diwany: ["var(--font-diwany)"],
         zain: ["var(--font-zain)"],
       },
       keyframes: {
