@@ -44,8 +44,12 @@ export default function ResetComponent({ paramKey, onResetFormValues }: ResetFil
     // Reset button
     <Button
       variant={"ghost"}
-      className="justify-end w-auto text-red-500 disabled:text-black"
-      disabled={!hasSearchParams}
+      className="justify-end w-auto hover:text-red-800 hover:bg-transparent text-red-500 mb-2 disabled:text-zinc-400 disabled:bg-transparent  dark:disabled:text-zinc-200 dark:hover:text-soft-pink-400"
+      disabled={
+        Array.isArray(paramKey)
+          ? !paramKey.some((key) => searchParams.has(key)) || !hasSearchParams
+          : !searchParams.has(paramKey) || !hasSearchParams
+      }
       onClick={handleReset}
     >
       <X className="size-4" />

@@ -33,5 +33,9 @@
   "error-message": "Something went wrong!",
   "from": "from",
   "to": "to",
-  "reset": "Reset"
+  "reset": "Reset",
+  "product": {
+    "occasion": "Occasion",
+    "price": "Price"
+  }
 }

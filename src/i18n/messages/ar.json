@@ -37,5 +37,9 @@
     }
   },
   "error-message": "حدث خطأ ما!",
-  "reset": "إعادة ضبط"
+  "reset": "إعادة ضبط",
+  "product": {
+    "occasion": "مناسبة",
+    "price": "سعر"
+  }
 }
