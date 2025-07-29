@@ -23,27 +23,27 @@ export default function Header() {
   const navbar = [
     {
       name: "Home",
-      href: "/en",
+      href: "/",
       icons: <House className="w-4 h-4" />,
     },
     {
       name: "Products",
-      href: "/en/products",
+      href: "/products",
       icons: <Gift className="w-5 h-5" />,
     },
     {
       name: "Categories",
-      href: "/en/categories",
+      href: "/categories",
       icons: <ClipboardList className="w-5 h-5" />,
     },
     {
       name: "Occasions",
-      href: "/en/occasions",
+      href: "/occasions",
       icons: <PartyPopper className="w-5 h-5" />,
     },
     {
       name: "Contact",
-      href: "/en/contact",
+      href: "/contact",
       icons: <Headset className="w-5 h-5" />,
     },
     {

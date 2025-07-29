@@ -4,7 +4,7 @@ import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 
-const publicAuthPages = ["/auth/signin", "/auth/signup"];
+const publicAuthPages = ["/auth/login", "/auth/signup"];
 const publicPages = ["/", "/products", ...publicAuthPages];
 
 const handleI18nRouting = createMiddleware(routing);
