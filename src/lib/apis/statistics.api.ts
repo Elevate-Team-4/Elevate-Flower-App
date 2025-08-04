@@ -16,19 +16,3 @@ export const getOverallStatistics = async () => {
 
   return payload;
 };
-
-export const getCategoryStatistics = async () => {
-  // Declaring categories statistics API
-  const url = new URL(`${process.env.API}/statistics/categories`);
-
-  const response = await fetch(url.toString(), {
-    headers: {
-      ...(await getAuthHeader()),
-    },
-  });
-
-  // Returning the results
-  const payload: APIResponse<CategoryStatistics> = await response.json();
-
-  return payload;
-};
