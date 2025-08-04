@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import FirstRow from "./_components/1st-row/first-overview-row";
 import { Suspense } from "react";
-import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
 import FstRowSkeleton from "@/components/skeletons/1st-row/fst-row-skelton";
 
 export default function Page() {

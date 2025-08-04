@@ -107,5 +107,6 @@
   "all-categories-title": "All Categories",
   "no-products": "no products",
   "products-after-number": "products",
-  "number-of-products": "{count} products"
+  "number-of-products": "{count} products",
+  "error-message": "Something Wrong Happened"
 }

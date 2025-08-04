@@ -105,5 +105,6 @@
   "all-categories-title": "جميع الفئات",
   "no-products": "لا يوجد منتجات",
   "products-after-number": "منتجات",
-  "number-of-products": "يوجد {count} منتجات "
+  "number-of-products": "يوجد {count} منتجات ",
+  "error-message": "لقد حدث شيء خاطئ"
 }

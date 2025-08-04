@@ -9,15 +9,15 @@ export default async function OverAllStat() {
   const format = useFormatter();
 
   // Functions
-  const respone = await getOverallStatistics();
-  if ("error" in respone) {
+  const response = await getOverallStatistics();
+  if ("error" in response) {
     return (
       <div className="col-span-5 bg-white p-6 rounded-2xl gap-4 text-maroon-500 flex justify-center items-center">
         <h2 className="text-center">Something Went Wrong!</h2>
       </div>
     );
   }
-  const { statistics } = respone;
+  const { statistics } = response;
 
   // Variables
   const totalProducts = format.number(statistics.totalProducts, "number-format");
