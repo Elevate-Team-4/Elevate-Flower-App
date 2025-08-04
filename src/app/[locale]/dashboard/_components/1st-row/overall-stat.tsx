@@ -11,7 +11,11 @@ export default async function OverAllStat() {
   // Functions
   const respone = await getOverallStatistics();
   if ("error" in respone) {
-    return <p>error</p>;
+    return (
+      <div className="col-span-5 bg-white p-6 rounded-2xl gap-4 text-maroon-500 flex justify-center items-center">
+        <h2 className="text-center">Something Went Wrong!</h2>
+      </div>
+    );
   }
   const { statistics } = respone;
 

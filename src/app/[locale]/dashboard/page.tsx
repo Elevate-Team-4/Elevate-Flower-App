@@ -1,5 +1,8 @@
 import { useTranslations } from "next-intl";
 import FirstRow from "./_components/1st-row/first-overview-row";
+import { Suspense } from "react";
+import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
+import FstRowSkeleton from "@/components/skeletons/1st-row/fst-row-skelton";
 
 export default function Page() {
   // Translation
@@ -14,13 +17,15 @@ export default function Page() {
       <div className="col-span-9 bg-zinc-50">
         {/* Page title */}
         <p className="text-gray-500 font-medium py-6 ps-4 mb-6 border border-b-zinc-200">
-          {t('dashboard-title')}
+          {t("dashboard-title")}
         </p>
 
         {/* Content */}
         <div className="ms-4 me-6">
           {/* 1st Row */}
-          <FirstRow />
+          <Suspense fallback={<FstRowSkeleton />}>
+            <FirstRow />
+          </Suspense>
 
           {/* 2nd Row */}
 

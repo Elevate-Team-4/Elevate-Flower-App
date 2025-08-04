@@ -10,7 +10,11 @@ export default async function AllCategories() {
   // Functions
   const response = await getCategoryStatistics();
   if ("error" in response) {
-    return <p>error</p>;
+    return (
+      <div className="col-span-7 bg-white p-6 rounded-2xl text-maroon-500 flex justify-center items-center">
+        <h2 className="text-center">Some Thing Went Wrong!</h2>
+      </div>
+    );
   }
 
   const { statistics } = response;
@@ -26,7 +30,7 @@ export default async function AllCategories() {
           {statistics.map((category) => (
             <li key={category._id} className="flex justify-between pb-2 border-b border-b-zinc-200">
               {/* Category name */}
-              <span className="capitalize text-zinc">{category.name}</span>
+              <span className="capitalize text-zinc-800">{category.name}</span>
 
               {/* Product number */}
               <span className="bg-zinc-100 rounded-lg px-2 py-1 text-sm font-medium">

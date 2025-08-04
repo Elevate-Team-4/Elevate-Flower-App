@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import AllCategories from "./all-categories";
 import OverAllStat from "./overall-stat";
 
