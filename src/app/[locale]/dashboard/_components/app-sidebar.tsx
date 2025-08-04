@@ -81,8 +81,8 @@ export function AppSidebar() {
     return `hsl(${hue}, 70%, 50%)`;
   }
   return (
-    <Sidebar className="w-80 p-6 ">
-      <SidebarContent className="bg-white">
+    <Sidebar className="w-80 p-6 dark:bg-zinc-800 ">
+      <SidebarContent className="bg-white dark:bg-zinc-800">
         <SidebarHeader className=" justify-center items-center">
           {/* Logo */}
           <Link className="size-28" href="/">
@@ -92,7 +92,7 @@ export function AppSidebar() {
           <Link
             href="/"
             role="button"
-            className="flex items-center justify-center bg-maroon-600 rounded-md p-[10px] w-full text-white gap-2 hover:bg-maroon-700 font-semibold text-base"
+            className="flex items-center justify-center bg-maroon-600 dark:bg-soft-pink-200 dark:text-zinc-800 rounded-md p-[10px] w-full text-white gap-2 hover:bg-maroon-700 font-semibold text-base"
           >
             <Flower size={25} />
             <span>{t("preview-website")}</span>
@@ -121,7 +121,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="border-t bg-white py-4">
+      <SidebarFooter className="border-t bg-white dark:bg-zinc-800 py-4">
         <div>
           <div className="flex items-center justify-between">
             {/* User Photo */}
@@ -146,10 +146,12 @@ export function AppSidebar() {
 
             <div className="flex flex-col">
               <div className="space-x-1">
-                <span className="font-bold text-zinc-800 text-sm ">{fullName}</span>
+                <span className="font-bold text-zinc-800 dark:text-zinc-50 text-sm ">
+                  {fullName}
+                </span>
               </div>
               {/* User Email */}
-              <span className="font-semibold text-zinc-800 text-xs text-opacity-50">
+              <span className="font-semibold text-zinc-800 dark:text-zinc-50 text-xs text-opacity-50">
                 {session?.user.email ?? "mohamedali86@gmail.com"}
               </span>
             </div>
@@ -164,7 +166,7 @@ export function AppSidebar() {
                 className="shadow-[0 4px 9px 0 #00000040] rounded-xl border w-56 border-zinc-100 p-[5px]  dark:bg-zinc-700"
               >
                 {/* User full name */}
-                <DropdownMenuItem className="flex cursor-pointer gap-2  py-[11px] px-[13px] border-b text-maroon-700 text-sm font-semibold">
+                <DropdownMenuItem className="flex cursor-pointer gap-2  py-[11px] px-[13px] border-b text-maroon-700 dark:text-soft-pink-200 text-sm font-semibold">
                   {fullName}
                 </DropdownMenuItem>
                 <DropdownMenuItem className="flex cursor-pointer gap-2 p-[5px] border-b">
