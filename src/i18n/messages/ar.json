@@ -105,5 +105,10 @@
   "preview-website": "استعراض الموقع",
   "account": "حساب",
   "logout": "تسجيل الخروج",
-  "log-out": "تسجيل الخروج"
+  "log-out": "تسجيل الخروج",
+  "dashboard-occassions": "Dashboard-occasions",
+  "dashboard-occasions": "لوحة التحكم - المناسبات",
+  "dashboard": "لوحة التحكم ",
+  "dashboard-categories": "لوحة التحكم - الفئات",
+  "dashboard-products": "لوحة التحكم - المنتجات"
 }

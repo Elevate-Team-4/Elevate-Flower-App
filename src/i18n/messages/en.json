@@ -106,6 +106,9 @@
   "products": "Products",
   "preview-website": "Preview Website",
   "account": "Account",
-  "logout": "LogOut",
-  "log-out": "Log out"
+  "log-out": "Log out",
+  "dashboard-occasions": "dashboard-occasions",
+  "dashboard": "Dashboard",
+  "dashboard-categories": "Dashboard-Categories",
+  "dashboard-products": "Dashboard-Products"
 }

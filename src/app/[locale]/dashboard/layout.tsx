@@ -8,8 +8,11 @@ export default function dashboardLayout({ children }: { children: React.ReactNod
       <section className="w-80 ">
         <AppSidebar />
       </section>
+
       {/* DashBoard Pages */}
-      <section className=" h-screen w-3/4">{children}</section>
+      <section dir="" className=" h-screen w-3/4 ">
+        {children}
+      </section>
     </main>
   );
 }

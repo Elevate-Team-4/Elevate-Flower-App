@@ -7,7 +7,7 @@ export default function page() {
 
   return (
     <div className="text-center p-6 text-5xl font-bold text-maroon-600 dark:text-soft-pink-200">
-      <h1>{t("dashboard")}</h1>
+      <h1>{t("dashboard-occasions")}</h1>
     </div>
   );
 }
