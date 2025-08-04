@@ -32,10 +32,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTranslations } from "next-intl";
 
 export function AppSidebar() {
   // session
   const { data: session } = useSession();
+  // Translations
+  const t = useTranslations();
 
   // Variables
   const firstName = session?.user.firstName ?? "Mohamed";
@@ -44,22 +47,22 @@ export function AppSidebar() {
   // Menu items.
   const items = [
     {
-      title: "Overview",
+      title: t("overview"),
       url: "/dashboard",
       icon: LayoutDashboard,
     },
     {
-      title: "Categories",
+      title: t("categories"),
       url: "/dashboard/categories",
       icon: ClipboardList,
     },
     {
-      title: "Ocasions",
-      url: "/dashboard/ocasions",
+      title: t("occasions"),
+      url: "/dashboard/occasions",
       icon: CalendarHeart,
     },
     {
-      title: "Products",
+      title: t("products"),
       url: "/dashboard/products",
       icon: Package,
     },
@@ -92,7 +95,7 @@ export function AppSidebar() {
             className="flex items-center justify-center bg-maroon-600 rounded-md p-[10px] w-full text-white gap-2 hover:bg-maroon-700 font-semibold text-base"
           >
             <Flower size={25} />
-            <span>Preview Website</span>
+            <span>{t("preview-website")}</span>
           </Link>
         </SidebarHeader>
         <SidebarGroup>
@@ -170,7 +173,7 @@ export function AppSidebar() {
                     href={"/dashboard/account"}
                     className="flex items-center py-2 px-[6px] justify-center gap-2 font-medium"
                   >
-                    <User width={16} height={16} /> Account
+                    <User width={16} height={16} /> {t("account")}
                   </Link>
                 </DropdownMenuItem>
                 {/* Logout Btn */}
@@ -182,7 +185,7 @@ export function AppSidebar() {
                       signOut();
                     }}
                   >
-                    <LogOut /> LogOut
+                    <LogOut /> {t("log-out")}
                   </Button>
                 </DropdownMenuItem>
               </DropdownMenuContent>

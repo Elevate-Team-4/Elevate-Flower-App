@@ -98,5 +98,14 @@
   "placeholder-last-name": "Adrian",
   "placeholder-frist-name": "jonathan",
   "select-gender": "Select a gender",
-  "register": "register"
+  "register": "register",
+  "overview": "Overview",
+  "categories": "Categories",
+  "ocasions": "Ocasions\",",
+  "occasions": "occasions",
+  "products": "Products",
+  "preview-website": "Preview Website",
+  "account": "Account",
+  "logout": "LogOut",
+  "log-out": "Log out"
 }
