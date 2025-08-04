@@ -96,5 +96,14 @@
   "email_invalid": "يرجى إدخال عنوان بريد إلكتروني صحيح",
   "password_required": "كلمة المرور مطلوبة",
   "password_min_length": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
-  "password_complexity": "كلمة المرور يجب أن تحتوي على حرف كبير واحد على الأقل، وحرف صغير واحد، ورقم واحد، ورمز خاص واحد، وأن تكون 8 أحرف على الأقل"
+  "password_complexity": "كلمة المرور يجب أن تحتوي على حرف كبير واحد على الأقل، وحرف صغير واحد، ورقم واحد، ورمز خاص واحد، وأن تكون 8 أحرف على الأقل",
+  "total-products-label": "إجمالي المنتجات",
+  "dashboard-title": "لوحة القيادة",
+  "total-orders-label": "إجمالي الطلبات",
+  "total-categories-label": "مجموع الفئات",
+  "total-revenue-label": "إجمالي الإيرادات",
+  "all-categories-title": "جميع الفئات",
+  "no-products": "لا يوجد منتجات",
+  "products-after-number": "منتجات",
+  "number-of-products": "يوجد {count} منتجات "
 }
