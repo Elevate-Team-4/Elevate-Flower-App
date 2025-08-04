@@ -1,4 +1,4 @@
-import {CategoryStatistics,Overall} from "../types/statistics";
+import { Overall } from "../types/statistics";
 import { getAuthHeader } from "../utils/auth-header";
 
 export const getOverallStatistics = async () => {
