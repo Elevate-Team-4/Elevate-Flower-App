@@ -98,5 +98,13 @@
   "placeholder-last-name": "Adrian",
   "placeholder-frist-name": "jonathan",
   "select-gender": "Select a gender",
-  "register": "register"
+  "register": "register",
+  "2nd-row": {
+    "orders-status": "Orders Status",
+    "revenue": "Revenue",
+    "months": "Months"
+  },
+  "last-2nd-row": {
+    "week": "Last Week"
+  }
 }
