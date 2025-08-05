@@ -26,11 +26,10 @@ export function RevenueChart({ monthlyRevenue }: { monthlyRevenue: MonthlyRevenu
 
     return {
       month: monthName,
-      revenue: item.revenue, // ✅ Convert to millions
+      revenue: item.revenue,
       count: item.count,
     };
   });
-
   // Translations
   const t = useTranslations();
 
@@ -75,11 +74,16 @@ export function RevenueChart({ monthlyRevenue }: { monthlyRevenue: MonthlyRevenu
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              domain={[0, "auto"]}
+              domain={["dataMax", "dataMax"]}
             />
 
             <ChartTooltip content={<ChartTooltipContent indicator="line" />} />
-            <Area dataKey="revenue" type="natural" fill="url(#gradient-revenue)" stroke="#A6252A" />
+            <Area
+              dataKey="revenue"
+              type="monotoneX"
+              fill="url(#gradient-revenue)"
+              stroke="#A6252A"
+            />
           </AreaChart>
         </ChartContainer>
       </CardContent>
