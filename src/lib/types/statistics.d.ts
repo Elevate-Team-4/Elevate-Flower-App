@@ -8,7 +8,7 @@ export interface Statistics {
   monthlyRevenue: MonthlyRevenue[];
 }
 
-export interface OrdersByStatu {
+export interface OrdersByStatus {
   _id?: string;
   count: number;
 }

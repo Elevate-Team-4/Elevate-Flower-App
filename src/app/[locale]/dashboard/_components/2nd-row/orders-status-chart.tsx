@@ -6,7 +6,7 @@ import { Pie, PieChart } from "recharts";
 import { useTranslations } from "next-intl";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { OrdersByStatu } from "@/lib/types/statistics";
+import { OrdersByStatus } from "@/lib/types/statistics";
 
 /**
  * OrdersStatusChart Component
@@ -29,11 +29,11 @@ const statusColors: Record<string, string> = {
   inProgress: "#2B7FFF",
   canceled: "#DC2626",
 };
-export function OrdersStatusChart({ ordersByStatus }: { ordersByStatus: OrdersByStatu[] }) {
+export function OrdersStatusChart({ ordersByStatus }: { ordersByStatus: OrdersByStatus[] }) {
   // Hook
   // chartData this is new ordersByStatus
   const [chartData, setChartData] = useState<
-    (OrdersByStatu & { fill: string; percentage: number })[]
+    (OrdersByStatus & { fill: string; percentage: number })[]
   >([]);
 
   // Prepare chart data:
@@ -62,7 +62,7 @@ export function OrdersStatusChart({ ordersByStatus }: { ordersByStatus: OrdersBy
   const t = useTranslations();
 
   return (
-    <Card>
+    <Card className="shadow-none border-none h-full">
       {/* Header of the card */}
       <CardHeader className="items-center pb-0">
         <CardTitle>{t("2nd-row.orders-status")}</CardTitle>
@@ -70,7 +70,7 @@ export function OrdersStatusChart({ ordersByStatus }: { ordersByStatus: OrdersBy
 
       {/* Main content of the card (Chart) */}
       <CardContent>
-        <ChartContainer config={{}} className="mx-auto aspect-square max-h-[250px]">
+        <ChartContainer config={{}} className="mx-auto aspect-square">
           {/* Pie Chart to visualize order status distribution */}
           <PieChart>
             {/* Tooltip displayed when hovering over a slice */}
@@ -93,21 +93,41 @@ export function OrdersStatusChart({ ordersByStatus }: { ordersByStatus: OrdersBy
                 const circleRadius = 16;
 
                 return (
-                  <g>
-                    {/* White background circle for better readability */}
-                    <circle cx={x} cy={y} r={circleRadius} fill="#FAFAFA" />
-                    <text
-                      x={x}
-                      y={y}
-                      fill="black"
-                      textAnchor="middle"
-                      dominantBaseline="central"
-                      fontSize={10}
-                      fontWeight="bold"
-                    >
-                      {`${payload.percentage} %`}
-                    </text>
-                  </g>
+                  <svg>
+                    <defs>
+                      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow
+                          dx="0"
+                          dy="0"
+                          stdDeviation="1"
+                          floodColor="#000000"
+                          floodOpacity="0.25"
+                        />
+                      </filter>
+                    </defs>
+
+                    <g>
+                      <circle
+                        cx={x}
+                        cy={y}
+                        r={circleRadius}
+                        fill="#FAFAFA"
+                        strokeWidth={1.5}
+                        filter="url(#shadow)"
+                      />
+                      <text
+                        x={x}
+                        y={y}
+                        fill="black"
+                        textAnchor="middle"
+                        dominantBaseline="central"
+                        fontSize={10}
+                        fontWeight="bold"
+                      >
+                        {`${payload.percentage} %`}
+                      </text>
+                    </g>
+                  </svg>
                 );
               }}
             />
@@ -117,7 +137,7 @@ export function OrdersStatusChart({ ordersByStatus }: { ordersByStatus: OrdersBy
 
       {/* Footer: Displaying a legend showing label, color, and count */}
       <CardFooter className="flex-col gap-2 text-sm">
-        {chartData.map((item: OrdersByStatu & { fill: string; percentage: number }) => {
+        {chartData.map((item: OrdersByStatus & { fill: string; percentage: number }) => {
           return (
             <>
               {item._id !== null && (

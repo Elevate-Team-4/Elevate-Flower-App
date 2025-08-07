@@ -13,7 +13,7 @@ export async function getOrders() {
     },
   });
 
-  if ("code" in response) {
+  if ("error" in response) {
     throw new Error("Error");
   }
   const payload: SuccessfulResponse<OrderStatus> = await response.json();
