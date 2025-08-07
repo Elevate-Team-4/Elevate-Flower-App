@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
-import FirstRow from "./_components/1st-row/first-overview-row";
 import { Suspense } from "react";
 import FstRowSkeleton from "@/components/skeletons/1st-row/fst-row-skelton";
+import FirstRow from "./_components/1st-row/first-overview-row";
 
 export default function Page() {
   // Translation
