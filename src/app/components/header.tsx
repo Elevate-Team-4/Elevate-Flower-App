@@ -32,6 +32,7 @@ import logo from "@assets/logo 1.png";
 
 // Locale Components
 import UserDropdown from "./user-dropdown";
+import ToggleLocale from "../[locale]/(homepage)/_components/toggle-locale";
 
 export default async function Header() {
   // Get user Session
@@ -145,7 +146,7 @@ export default async function Header() {
 
             {/* language */}
             <div className="text-zinc-700 dark:text-white text-base font-normal">
-              <p>العربيه</p>
+              <ToggleLocale />
             </div>
           </div>
         </div>
