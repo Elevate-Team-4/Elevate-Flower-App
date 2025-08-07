@@ -1,4 +1,4 @@
-import Overview2ndRow from "./components/2nd-row/overview-2nd-row";
+import Overview2ndRow from "./_components/2nd-row/overview-2nd-row";
 
 export default async function dashboard() {
   return (
