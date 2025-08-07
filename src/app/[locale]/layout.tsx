@@ -74,7 +74,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         <Providers>
           {/* Main children  */}
           <SidebarProvider>
-            <main>{children}</main>
+            <main className="w-full">{children}</main>
           </SidebarProvider>
 
           {/* Toast notifications */}

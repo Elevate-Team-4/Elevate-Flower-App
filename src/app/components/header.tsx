@@ -75,9 +75,9 @@ export default async function Header() {
     },
   ];
   return (
-    <header className="w-full flex flex-col ">
+    <header className=" flex flex-col w-full">
       {/* Main header */}
-      <div className="bg-white dark:bg-zinc-800">
+      <div className="bg-white dark:bg-zinc-800 w-full">
         <div className="text-lg py-5 px-9 flex items-center justify-between gap-4 container mx-auto">
           {/* image logo */}
           <Image src={logo} alt="Logo" className="w-[85px] h-[85px]" />
