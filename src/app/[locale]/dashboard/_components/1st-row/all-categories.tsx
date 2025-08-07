@@ -1,9 +1,9 @@
 "use client";
 
-import { AllCategory, Categories } from "@/lib/types/category";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useFormatter, useTranslations } from "next-intl";
+import { AllCategory, Categories } from "@/lib/types/category";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function AllCategories() {

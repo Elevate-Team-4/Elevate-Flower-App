@@ -5,7 +5,7 @@ export const getOverallStatistics = async () => {
   // Declaring overall API
   const url = new URL(`${process.env.API}/statistics/overall`);
 
-  const response = await fetch(url.toString(), {
+  const response = await fetch(url, {
     headers: {
       ...(await getAuthHeader()),
     },

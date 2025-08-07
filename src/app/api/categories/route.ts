@@ -1,5 +1,5 @@
-import { AllCategory } from "@/lib/types/category";
 import { NextResponse, NextRequest } from "next/server";
+import { AllCategory } from "@/lib/types/category";
 
 export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
   });
 
   // Extracting only the API link
-  const response = await fetch(url.toString());
+  const response = await fetch(url);
 
   // Reaturning the Category results
   const payload: APIResponse<PaginatedResponse<AllCategory>> = await response.json();

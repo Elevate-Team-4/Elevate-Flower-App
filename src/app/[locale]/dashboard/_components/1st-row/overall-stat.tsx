@@ -1,12 +1,12 @@
 import { CircleDollarSign, ClipboardList, Package, ReceiptText } from "lucide-react";
-import { StatisticsCard } from "./overall-stat-card";
+import { getFormatter, getTranslations } from "next-intl/server";
 import { getOverallStatistics } from "@/lib/apis/statistics.api";
-import { useFormatter, useTranslations } from "next-intl";
+import { StatisticsCard } from "./overall-stat-card";
 
 export default async function OverAllStat() {
   // Translation
-  const t = useTranslations();
-  const format = useFormatter();
+  const t = await getTranslations();
+  const format = await getFormatter();
 
   // Functions
   const response = await getOverallStatistics();
