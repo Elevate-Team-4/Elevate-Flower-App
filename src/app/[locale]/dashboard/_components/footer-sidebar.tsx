@@ -29,35 +29,33 @@ export default function FooterSidebar({
   }
 
   return (
-    <div>
-      <div className="flex items-center justify-between">
-        {/* User Photo */}
-        {photo ? (
-          <div className="size-14 rounded-full ">
-            <Image src={photo} alt={firstName} width={56} height={0} />
-          </div>
-        ) : (
-          // user First Letter
-          <div
-            className="size-14 flex items-center justify-center text-white  rounded-full"
-            style={{ backgroundColor: stringToHslColor(fullName) }}
-          >
-            {firstName?.slice(0, 1)}
-          </div>
-        )}
-
-        <div className="flex flex-col">
-          <div className="space-x-1">
-            <span className="font-bold text-zinc-800 dark:text-zinc-50 text-sm ">{fullName}</span>
-          </div>
-          {/* User Email */}
-          <span className="font-semibold text-zinc-800 dark:text-zinc-50 text-xs text-opacity-50">
-            {email}
-          </span>
+    <div className="flex items-center justify-between">
+      {/* User Photo */}
+      {photo ? (
+        <div className="size-14 rounded-full ">
+          <Image src={photo} alt={firstName} width={56} height={0} />
         </div>
-        {/* Menu */}
-        <MenuItem fullName={fullName} />
+      ) : (
+        // user First Letter
+        <div
+          className="size-14 flex items-center justify-center text-white  rounded-full"
+          style={{ backgroundColor: stringToHslColor(fullName) }}
+        >
+          {firstName?.slice(0, 1)}
+        </div>
+      )}
+
+      <div className="flex flex-col">
+        <div className="space-x-1">
+          <span className="font-bold text-zinc-800 dark:text-zinc-50 text-sm ">{fullName}</span>
+        </div>
+        {/* User Email */}
+        <span className="font-semibold text-zinc-800 dark:text-zinc-50 text-xs text-opacity-50">
+          {email}
+        </span>
       </div>
+      {/* Menu */}
+      <MenuItem fullName={fullName} />
     </div>
   );
 }
