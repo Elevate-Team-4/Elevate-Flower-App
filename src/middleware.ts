@@ -1,10 +1,10 @@
 import { withAuth } from "next-auth/middleware";
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
-import { routing } from "./i18n/routing";
 import { getToken } from "next-auth/jwt";
+import { routing } from "./i18n/routing";
 
-const publicAuthPages = ["/auth/login", "/auth/signup"];
+const publicAuthPages = ["/auth/login", "/auth/signup", "/auth/forget-password"];
 const publicPages = ["/", ...publicAuthPages];
 
 const handleI18nRouting = createMiddleware(routing);
@@ -18,7 +18,7 @@ const authMiddleware = withAuth(
   },
   {
     callbacks: {
-      authorized: ({ token }) => token != null,
+      authorized: ({ token }) => token !== null,
     },
     pages: {
       signIn: "/auth/signin",
@@ -28,6 +28,12 @@ const authMiddleware = withAuth(
 
 // Function to check if a page is public (reusable for routing)
 const routesRegex = (routes: string[]) => {
+  return RegExp(
+    `^(/(${routing.locales.join("|")}))?(${routes
+      .flatMap((p) => (p === "/" ? ["", "/"] : p))
+      .join("|")})/?$`,
+    "i",
+  );
   return RegExp(
     `^(/(${routing.locales.join("|")}))?(${routes
       .flatMap((p) => (p === "/" ? ["", "/"] : p))

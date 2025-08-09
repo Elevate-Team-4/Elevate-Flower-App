@@ -1,5 +1,5 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { cn } from "@/lib/cn";
 
 /**
  * TitleWithBars
@@ -12,35 +12,32 @@ import { cn } from '@/lib/utils';
  */
 
 interface TitleWithBarsProps {
-    title: string;
-    mainBarWidth?: string;
-    highlightBarWidth?: string;
-    titleClassName?: string;
+  title: string;
+  mainBarWidth?: string;
+  highlightBarWidth?: string;
+  titleClassName?: string;
 }
 
 export default function BarTitle({
-    title,
-    mainBarWidth = 'w-2/3',
-    highlightBarWidth = 'w-1/4',
-    titleClassName = 'text-4xl',
+  title,
+  mainBarWidth = "w-2/3",
+  highlightBarWidth = "w-1/4",
+  titleClassName = "text-4xl",
 }: TitleWithBarsProps) {
-    return (
-        <div className="relative w-fit">
-            <p className={cn('font-inter relative z-20 font-bold text-maroon-700', titleClassName)}>
-                {title}
-            </p>
-            <div className="relative w-full z-0">
-                <div
-                    className={cn(
-                        'bg-soft-pink-100 h-4 rounded-e-full absolute -top-[18px]',
-                        mainBarWidth
-                    )}
-                />
-                <div
-                    className={cn('bg-soft-pink-600  h-0.5 absolute -top-0.5', highlightBarWidth)}
-                />
-                <div />
-            </div>
-        </div>
-    );
+  return (
+    <p
+      className={cn(
+        // TODO Change text Color
+        "font-inter relative font-bold text-[#741C21]",
+        titleClassName,
+        // Pseudo-element styles for decorative bars
+        "before:content-[''] before:absolute before:z-0 before:bg-[#FFE0E7] before:h-4 before:w-40 before:rounded-e-full before:bottom-0 before:left-0",
+        mainBarWidth === "w-2/3" ? "before:w-2/3" : mainBarWidth,
+        "after:content-[''] after:absolute after:z-10 after:bg-[#E65073] after:h-0.5 after:w-16 after:bottom-0 after:left-0",
+        highlightBarWidth === "w-1/4" ? "after:w-1/4" : highlightBarWidth
+      )}
+    >
+      <span className="relative z-20">{title}</span>
+    </p>
+  );
 }

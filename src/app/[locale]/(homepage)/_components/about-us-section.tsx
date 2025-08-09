@@ -4,7 +4,7 @@ import AboutImage from "./about-image";
 
 export default function AboutUs() {
   return (
-    <section className="max-w-screen-2xl px-4 sm:px-6 md:px-12 lg:px-20 mx-auto flex items-center gap-12 xl:gap-20">
+    <section className="max-w-screen-2xl my-14 px-4 sm:px-6 md:px-12 lg:px-20 mx-auto flex items-center gap-12 xl:gap-20">
       <AboutImage />
       <div className="max-w-xl">
         <h3 className="font-bold leading-8 tracking-title align-middle uppercase text-soft-pink-500">
