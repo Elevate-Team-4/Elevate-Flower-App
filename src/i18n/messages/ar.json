@@ -110,5 +110,15 @@
   "dashboard-occasions": "لوحة التحكم - المناسبات",
   "dashboard": "لوحة التحكم ",
   "dashboard-categories": "لوحة التحكم - الفئات",
-  "dashboard-products": "لوحة التحكم - المنتجات"
+  "dashboard-products": "لوحة التحكم - المنتجات",
+  "total-products-label": "إجمالي المنتجات",
+  "dashboard-title": "لوحة القيادة",
+  "total-orders-label": "إجمالي الطلبات",
+  "total-categories-label": "مجموع الفئات",
+  "total-revenue-label": "إجمالي الإيرادات",
+  "all-categories-title": "جميع الفئات",
+  "no-products": "لا يوجد منتجات",
+  "products-after-number": "منتجات",
+  "number-of-products": "يوجد {count} منتجات ",
+  "error-message": "لقد حدث شيء خاطئ"
 }

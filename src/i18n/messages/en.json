@@ -110,5 +110,15 @@
   "dashboard-occasions": "dashboard-occasions",
   "dashboard": "Dashboard",
   "dashboard-categories": "Dashboard-Categories",
-  "dashboard-products": "Dashboard-Products"
+  "dashboard-products": "Dashboard-Products",
+  "dashboard-title": "Dashboard",
+  "total-products-label": "total-products-label",
+  "total-orders-label": "Total orders",
+  "total-categories-label": "Total categories",
+  "total-revenue-label": "Total Revenue",
+  "all-categories-title": "All Categories",
+  "no-products": "no products",
+  "products-after-number": "products",
+  "number-of-products": "{count} products",
+  "error-message": "Something Wrong Happened"
 }

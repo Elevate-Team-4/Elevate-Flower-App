@@ -32,7 +32,7 @@ export default function FooterSidebar({
     <div className="flex items-center justify-between">
       {/* User Photo */}
       {photo ? (
-        <div className="size-14 rounded-full ">
+        <div className="size-14 rounded-full overflow-hidden">
           <Image src={photo} alt={firstName} width={56} height={0} />
         </div>
       ) : (
