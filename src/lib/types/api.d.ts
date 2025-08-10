@@ -2,8 +2,15 @@ declare type DataBaseProbs = {
   _id: string;
   createdAt: string;
   updatedAt: string;
-  __v: number;
+  __v?: number;
 };
+declare type ErrorResponse = {
+  error: string;
+  code?: string;
+  message?: string;
+};
+
+declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
 
 //^ the user response after a successful login
 declare type ApplicationUser = {
