@@ -1,6 +1,10 @@
 "use client";
 
 import { CalendarHeart, ClipboardList, Flower, LayoutDashboard, Package } from "lucide-react";
+import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -12,12 +16,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import Image from "next/image";
-import logo from "../../../../../public/assets/Images/logo 1.png";
-import { Link, usePathname } from "@/i18n/navigation";
-import { useSession } from "next-auth/react";
-import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import logo from "../../../../../public/assets/Images/logo 1.png";
 import FooterSidebar from "./footer-sidebar";
 
 export function AppSidebar() {
@@ -61,7 +61,7 @@ export function AppSidebar() {
   return (
     <Sidebar
       side={locale === "ar" ? "right" : "left"}
-      className="w-[360px] p-6 dark:bg-zinc-800 dark:border-zinc-600"
+      className="w-[360px] p-6 dark:bg-zinc-800 dark:border-zinc-600 border-none"
     >
       <SidebarContent className="bg-white dark:bg-zinc-800">
         <SidebarHeader className=" justify-center items-center">
