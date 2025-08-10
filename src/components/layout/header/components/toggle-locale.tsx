@@ -1,7 +1,5 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { useLocale } from "next-intl";
 import React from "react";
 import {
   DropdownMenu,
@@ -12,6 +10,8 @@ import {
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { Link, usePathname } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
+import { useLocale } from "next-intl";
 
 export default function ToggleLocale() {
   // Navigation
@@ -19,7 +19,7 @@ export default function ToggleLocale() {
   const searchParams = useSearchParams();
   const currentLocale = useLocale();
   // Dropdown Menu languages
-  const languages: Record<string, string> = {
+  const languages: (typeof routing)["locales"][number] = {
     en: "English",
     ar: "العربية",
   };
@@ -32,7 +32,7 @@ export default function ToggleLocale() {
       <DropdownMenuContent>
         {routing.locales.map((locale) => (
           <Link key={locale} locale={locale} href={`${pathname}?${searchParams.toString()}`}>
-            <DropdownMenuItem className={cn(locale === "ar" ? "font-zain" : "", " text-zinc-700")}>
+            <DropdownMenuItem className={cn(locale == "ar" ? "font-zain" : "", " text-zinc-700")}>
               {languages[locale]}
             </DropdownMenuItem>
           </Link>

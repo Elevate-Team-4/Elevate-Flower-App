@@ -1,31 +1,50 @@
 import { Mulish } from "next/font/google";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
+import { Sarabun } from "next/font/google";
+import { Pinyon_Script } from "next/font/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "./../../components/providers/index";
-import Footer from "../components/footer";
-import Header from "../components/header";
 
 // Fonts
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
-  weight: "100 900",
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
-  weight: "100 900",
 });
-
 const zain = localFont({
   src: "./fonts/Zain-Regular.ttf",
   variable: "--font-zain",
-  weight: "100 900",
+});
+const diwany = localFont({
+  src: "./fonts/FS_Diwany.ttf",
+  variable: "--font-diwany",
+});
+const edwardian = localFont({
+  src: "./fonts/edwardianscriptitc.ttf",
+  variable: "--font-edwardian",
+});
+
+// Sarabun font
+const sarabun = Sarabun({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-sarabun",
+});
+// Pinyon_Script font
+const pinyon = Pinyon_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"],
+  variable: "--font-pinyon",
 });
 const mulish = Mulish({
   subsets: ["latin"],
@@ -54,24 +73,15 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${zain.variable} ${mulish.className} antialiased selection:bg-maroon-600 selection:text-white dark:bg-zinc-800`}
+        className={`${geistSans.variable} ${diwany.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} ${pinyon.variable} ${sarabun.variable}  antialiased`}
       >
         {/* Providers */}
         <Providers>
-          {/* Header  */}
-          <Header />
+          {/* Main children  */}
+          {children}
 
-          {/* Main content */}
-          <main className="font-sarabun container mx-auto  w-full min-h-[calc(100vh-200px)] px-20">
-            {/* Main children components */}
-            {children}
-
-            {/* Toast notifications */}
-            <Toaster />
-          </main>
-
-          {/* Footer */}
-          <Footer />
+          {/* Toast notifications */}
+          <Toaster />
         </Providers>
       </body>
     </html>

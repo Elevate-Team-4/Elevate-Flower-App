@@ -1,8 +1,10 @@
-import Image from "next/image";
+// React & Next.js
 import React from "react";
+import Image from "next/image";
+
+// Icons
 import {
   Bell,
-  ChevronDown,
   ClipboardList,
   Gift,
   Headset,
@@ -13,13 +15,32 @@ import {
   PartyPopper,
   ShoppingCart,
 } from "lucide-react";
-import Link from "next/link";
-import logo from "@assets/logo 1.png";
+
+// Libraries
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/auth";
+
+// Navigation
+import { Link } from "@/i18n/navigation";
+
+// UI Components
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import ToggleLocale from "@/components/layout/header/components/toggle-locale";
 
-export default function Header() {
+// Assets
+import logo from "@assets/logo 1.png";
+
+// Locale Components
+import UserDropdown from "./user-dropdown";
+
+export default async function Header() {
+  // Get user Session
+  const session = await getServerSession(authOptions);
+
+  // User data
+  const user = session?.user;
+
   // Navbar object
   const navbar = [
     {
@@ -53,7 +74,6 @@ export default function Header() {
       icons: <Info className="w-5 h-5" />,
     },
   ];
-
   return (
     <header className="w-full flex flex-col ">
       {/* Main header */}
@@ -82,16 +102,19 @@ export default function Header() {
 
           {/* action */}
           <div className="flex items-center gap-4 p-4">
-            {/* authentication */}
-            <div className="flex-1 border-r pr-4 font-primary">
-              <p className="text-zinc-500 text-sm font-normal whitespace-nowrap ">hello </p>
-              <div className="flex flex-nowrap items-center gap-2">
-                <p className="text-maroon-700 dark:text-soft-pink-200 font-medium text-base">
-                  mahmoud
-                </p>
-                <ChevronDown className="w-5 h-5" />
-              </div>
-            </div>
+            {/* Authentication Section */}
+            {user ? (
+              // User is authenticated - display user dropdown menu
+              <UserDropdown user={user} />
+            ) : (
+              // User is not authenticated - display sign in link
+              <Link
+                href="/auth/login"
+                className="text-maroon-700 dark:text-soft-pink-200 font-medium text-base hover:underline whitespace-nowrap"
+              >
+                Sign In
+              </Link>
+            )}
 
             {/* user data */}
             <div className="flex-1 self-stretch flex items-center gap-2 border-r border-zinc-200 pr-4">
