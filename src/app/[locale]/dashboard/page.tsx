@@ -22,7 +22,7 @@ export default function Page() {
         </p>
 
         {/* Content */}
-        <div className="ms-4 me-6">
+        <div className="flex flex-col gap-6 ms-4 me-6">
           {/* 1st Row */}
           <Suspense fallback={<FstRowSkeleton />}>
             <FirstRow />
