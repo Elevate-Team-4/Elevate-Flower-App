@@ -7,7 +7,7 @@ import { routing } from "./i18n/routing";
 const publicAuthPages = ["/auth/login", "/auth/signup", "/auth/forget-password"];
 const publicPages = ["/", ...publicAuthPages];
 
-// const handleI18nRouting = createMiddleware(routing);
+const handleI18nRouting = createMiddleware(routing);
 
 const authMiddleware = withAuth(
   // Note that this callback is only invoked if
