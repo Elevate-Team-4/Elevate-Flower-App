@@ -8,22 +8,25 @@ export default function Page() {
   const t = useTranslations();
 
   return (
-    <div className="col-span-9 bg-zinc-50">
-      {/* Page title */}
-      <p className="text-gray-500 font-medium py-6 ps-4 mb-6 border border-b-zinc-200">
-        {t("dashboard-title")}
-      </p>
-
+    <div className="grid grid-cols-12">
       {/* Content */}
-      <div className="ms-4 me-6">
-        {/* 1st Row */}
-        <Suspense fallback={<FstRowSkeleton />}>
-          <FirstRow />
-        </Suspense>
+      <div className="col-span-12 bg-zinc-50">
+        {/* Page title */}
+        <p className="text-gray-500 font-medium py-6 ps-4 mb-6 border border-b-zinc-200">
+          {t("dashboard-title")}
+        </p>
 
-        {/* 2nd Row */}
+        {/* Content */}
+        <div className="ms-4 me-6">
+          {/* 1st Row */}
+          <Suspense fallback={<FstRowSkeleton />}>
+            <FirstRow />
+          </Suspense>
 
-        {/* 3rd Row */}
+          {/* 2nd Row */}
+
+          {/* 3rd Row */}
+        </div>
       </div>
     </div>
   );
