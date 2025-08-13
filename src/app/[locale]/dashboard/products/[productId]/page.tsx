@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { ShowImagesDialog } from "@/components/common/show-images-dialog";
 import { getProductDetails } from "@/lib/apis/products.api";
 
@@ -9,22 +11,32 @@ interface ProductIdProbs {
 
 export default async function Page({ params }: ProductIdProbs) {
   const { productId } = params;
+
+  const t = await getTranslations();
+
   // Functions
   const response = await getProductDetails(productId);
 
   if ("error" in response) {
-    return <p>error</p>;
+    notFound();
   }
 
   const { product } = response;
+
   return (
     <div className="flex flex-col">
-      <p>product id : {productId}</p>
       {/* Form */}
 
+      {/* Images dialogs */}
       <div className="flex justify-end gap-3">
-        <ShowImagesDialog cover={product.imgCover} itemType="product" />
-        <ShowImagesDialog gallary={product.images} itemType="product" />
+        <ShowImagesDialog
+          cover={product.imgCover}
+          buttonTitleCoverTranslation={t("product-cover")}
+        />
+        <ShowImagesDialog
+          gallary={product.images}
+          buttonTitleGallaryTranslation={t("product-gallary")}
+        />
       </div>
     </div>
   );

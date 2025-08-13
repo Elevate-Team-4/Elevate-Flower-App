@@ -4,14 +4,10 @@ import FstRowSkeleton from "@/components/skeletons/1st-row/fst-row-skelton";
 import FirstRow from "./_components/1st-row/first-overview-row";
 
 export default function Page() {
-  // Translation
-  // const t = useTranslations();
-
   return (
     <div className="grid grid-cols-12">
       {/* Content */}
       <div className="col-span-12 bg-zinc-50">
-
         {/* Content */}
         <div className="ms-4 me-6">
           {/* 1st Row */}
