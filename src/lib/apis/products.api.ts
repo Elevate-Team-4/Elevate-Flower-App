@@ -5,7 +5,7 @@ export const getProducts = async (params: SearchParamProduct | undefined) => {
   const url = new URL(`${process.env.API}/Products`);
 
   // If no params are given (undefined)
-  if (!params) {
+  if (!params || params === undefined) {
     const response = await fetch(url.toString());
 
     const payload: APIResponse<PaginatedResponse<Products>> = await response.json();

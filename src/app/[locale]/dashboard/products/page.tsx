@@ -17,8 +17,7 @@ export default async function Page({
   // Functions
   const response = await getProducts({
     fields: "title,price,quantity,sold,rateAvg,rateCount",
-    // limit: 10,
-    search: search as string | undefined,
+    ...(search ? { search: search as string } : {}),
   });
 
   if ("error" in response) {
