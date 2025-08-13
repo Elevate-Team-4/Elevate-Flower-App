@@ -1,22 +1,28 @@
+"use client";
 import { useMutation } from "@tanstack/react-query";
+import { useTranslations } from "next-intl";
 import { toast } from "@/hooks/use-toast";
-import { AddCategoryFormType } from "@/lib/schemas/categories/add-categories.schema";
+import { useRouter } from "@/i18n/navigation";
 import { updateCategory } from "../_actions/update-category.action";
 
 export default function useUpdateCategory() {
   // Translations
-  //   const t = useTranslations();
+  const t = useTranslations();
+
+  //Navigation
+  const router = useRouter();
 
   //Mutations
   const { isPending, mutate } = useMutation({
-    mutationFn: async ({ values, id }: { values: AddCategoryFormType; id: string }) => {
-      return await updateCategory({ values, id });
+    mutationFn: async ({ formData, id }: { formData: FormData; id: string }) => {
+      return await updateCategory({ formData, id });
     },
     onSuccess: () => {
       toast({
-        title: "Category updated successfully",
+        title: t("category-updated-successfully"),
         variant: "default",
       });
+      router.push("/dashboard/categories");
     },
     onError: (error) => {
       toast({
@@ -25,6 +31,7 @@ export default function useUpdateCategory() {
       });
     },
   });
+
   return {
     updateCategoryPending: isPending,
     updateCategoryFn: mutate,

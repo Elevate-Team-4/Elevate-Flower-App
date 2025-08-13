@@ -1,20 +1,19 @@
 "use server";
 
-import { JSON_HEADER } from "@/lib/constants/api.constant";
-import { AddCategoryFormType } from "@/lib/schemas/categories/add-categories.schema";
+import { revalidateTag } from "next/cache";
 import { Category } from "@/lib/types/category";
 import { getTokenHeader } from "@/lib/utils/token-header";
 
-export async function updateCategory({ values, id }: { values: AddCategoryFormType; id: string }) {
+export async function updateCategory({ formData, id }: { formData: FormData; id: string }) {
   const token = await getTokenHeader();
 
   const respone = await fetch(`${process.env.API}/categories/${id}`, {
-    method: "PATCH",
+    method: "PUT",
+    body: formData,
     headers: {
-      ...JSON_HEADER,
+      // "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token.token}`,
     },
-    body: JSON.stringify(values),
   });
 
   const payload: APIResponse<Category> = await respone.json();
@@ -22,6 +21,7 @@ export async function updateCategory({ values, id }: { values: AddCategoryFormTy
   if ("error" in payload) {
     throw new Error(payload.error);
   }
+  revalidateTag("categories");
 
   return payload;
 }

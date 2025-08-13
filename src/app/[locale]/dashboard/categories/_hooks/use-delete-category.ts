@@ -1,10 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
+import { useTranslations } from "next-intl";
 import { toast } from "@/hooks/use-toast";
 import { deleteCategory } from "../_actions/delete-category.action";
 
 export default function useDeleteCategory() {
   // Translations
-  //   const t = useTranslations();
+  const t = useTranslations();
 
   //   Mutations
   const { isPending, mutate } = useMutation({
@@ -13,7 +14,7 @@ export default function useDeleteCategory() {
     },
     onSuccess: () => {
       toast({
-        title: "Category deleted successfully",
+        title: t("category-had-been-deleted-successfully"),
         variant: "default",
       });
     },

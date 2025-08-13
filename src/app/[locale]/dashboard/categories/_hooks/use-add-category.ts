@@ -1,18 +1,29 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
-import { AddCategoryFormType } from "@/lib/schemas/categories/add-categories.schema";
+import { useTranslations } from "next-intl";
 import { toast } from "@/hooks/use-toast";
+import { useRouter } from "@/i18n/navigation";
 import { AddCategory } from "../_actions/add-category.action";
 
 export function useAddCategory() {
-  const { mutate, isPending, isError } = useMutation({
-    mutationFn: async ({ values }: { values: AddCategoryFormType }) => {
-      return await AddCategory({ values });
+  // Translations
+  const t = useTranslations();
+
+  //Navigation
+  const router = useRouter();
+
+  // Mutaions
+  const { mutate, isPending, error } = useMutation({
+    mutationFn: async (formData: FormData) => {
+      return await AddCategory(formData);
     },
     onSuccess: () => {
       toast({
-        title: "Category added successfully",
+        title: t("category-added-successfully"),
         variant: "default",
       });
+      router.push("/dashboard/categories");
     },
     onError: (error) => {
       toast({
@@ -21,5 +32,6 @@ export function useAddCategory() {
       });
     },
   });
-  return { AddCategoryFn: mutate, isPending, isError };
+
+  return { addCategoryFn: mutate, addPending: isPending, error };
 }
