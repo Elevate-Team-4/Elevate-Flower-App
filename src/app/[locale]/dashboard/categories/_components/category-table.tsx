@@ -28,7 +28,7 @@ export default async function CategoryTable() {
             <TableCell>{category.productsCount}</TableCell>
             <TableCell className="flex gap-3 justify-end cursor-pointer">
               {/* Btns actions */}
-              <TableBtnActions id={category._id} />
+              <TableBtnActions id={category._id} name={category.name} />
             </TableCell>
           </TableRow>
         ))}

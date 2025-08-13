@@ -31,10 +31,7 @@ export default function BreadCrumb() {
                 )}
               >
                 {/* Capitalize the first letter */}
-                {path
-                  .split("-")
-                  .map((letter) => letter.charAt(0).toUpperCase() + letter.slice(1))
-                  .join(" ")}
+                {path.split("-").map((letter) => letter.charAt(0).toUpperCase() + letter.slice(1))}
               </Link>
             </BreadcrumbItem>
             {/* Spearator not in first and last */}
