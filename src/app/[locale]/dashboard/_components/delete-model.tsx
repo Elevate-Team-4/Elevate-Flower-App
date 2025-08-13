@@ -35,7 +35,7 @@ export default function DeleteModel({
           {t("delete")}
         </div>
       </DialogTrigger>
-      <DialogContent className="w-[500px] h-[373px] ">
+      <DialogContent className="w-[500px] h-[373px] dark:bg-zinc-600 ">
         <DialogHeader>
           <DialogTitle></DialogTitle>
           <DialogDescription></DialogDescription>

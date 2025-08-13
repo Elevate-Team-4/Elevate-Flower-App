@@ -17,7 +17,9 @@ export default function Header() {
   return (
     <section className="space-y-4">
       <section className="flex justify-between">
-        <h2 className="text-2xl font-semibold">{t("all-categories")}</h2>
+        <h2 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-50">
+          {t("all-categories")}
+        </h2>
         <Button
           onClick={() => {
             router.push("/dashboard/categories/add-category");

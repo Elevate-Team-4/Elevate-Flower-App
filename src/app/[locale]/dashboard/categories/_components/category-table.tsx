@@ -1,21 +1,14 @@
 import React from "react";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { AllCategory } from "@/lib/types/category";
 import TableBtnActions from "./actions";
 import CategoryTableHeader from "./category-table-header";
+import { getAllCategories } from "../_apis/all-categories";
 
 export default async function CategoryTable() {
-  const response = await fetch(`${process.env.API}/categories`, {
-    next: {
-      tags: ["categories"],
-    },
-    cache: "no-store",
-  });
-
-  const payload: APIResponse<AllCategory> = await response.json();
-
-  if ("error" in payload) {
-    throw new Error(payload.message);
+  // All categories
+  const payload = await getAllCategories();
+  if (payload === undefined) {
+    return <p>loading........</p>;
   }
 
   return (
@@ -25,7 +18,10 @@ export default async function CategoryTable() {
       {/* Body */}
       <TableBody>
         {payload.categories.map((category) => (
-          <TableRow key={category._id} className=" px-5 hover:bg-maroon-50 ">
+          <TableRow
+            key={category._id}
+            className=" px-5 hover:bg-maroon-50 dark:hover:bg-soft-pink-300 "
+          >
             <TableCell className="font-mediu w-[200px]" colSpan={1}>
               {category.name}
             </TableCell>

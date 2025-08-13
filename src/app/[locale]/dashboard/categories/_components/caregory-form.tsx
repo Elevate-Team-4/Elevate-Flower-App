@@ -58,19 +58,21 @@ export default function CategoryForm({ category }: { category?: Categories }) {
     }
   };
   return (
-    <section className="bg-zinc-50 px-4 pt-4  space-y-6">
+    <section className="bg-zinc-50 px-4 pt-4 dark:bg-zinc-600 space-y-6">
       {category ? (
-        <h2 className="font-bold text-xl text-zinc-800">
+        <h2 className="font-bold text-xl text-zinc-800 dark:text-zinc-50">
           {t("update-category")}: {category.name}
         </h2>
       ) : (
-        <h2 className="font-bold text-xl text-zinc-800">{t("add-a-new-category")}</h2>
+        <h2 className="font-bold text-xl text-zinc-800 dark:text-zinc-50">
+          {t("add-a-new-category")}
+        </h2>
       )}
       {/* Form */}
       <Form {...form}>
         <form
           ref={formRef}
-          className="p-6 rounded-2xl  flex flex-col bg-white gap-32"
+          className="p-6 rounded-2xl  flex flex-col bg-white gap-32 dark:bg-zinc-600 dark:border dark:border-zinc-50 "
           onSubmit={form.handleSubmit(onsubmit)}
         >
           <div className="space-y-5">
@@ -112,14 +114,18 @@ export default function CategoryForm({ category }: { category?: Categories }) {
                     </FormItem>
                   )}
                 />
-                {error && <p className="text-red-600 text-3xl font-semibold ">{error.message}</p>}
+                {error && (
+                  <p className="text-red-600 text-3xl font-semibold dark:text-soft-pink-300">
+                    {error.message}
+                  </p>
+                )}
               </>
             )}
             {category && (
               <div className="flex justify-end">
-                <div className="w-fit flex items-center text-blue-600 gap-1 p-[10px] border rounded-lg border-black/10 ">
+                <div className="w-fit flex items-center text-blue-600 gap-1 dark:text-soft-pink-400 cursor-pointer p-[10px] border rounded-lg border-black/10 ">
                   <Image width={18} height={18} />
-                  <span className="">{t("view-category-image")}</span>
+                  <span>{t("view-category-image")}</span>
                 </div>
               </div>
             )}

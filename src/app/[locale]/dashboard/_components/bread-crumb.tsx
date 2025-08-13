@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 
 export default function BreadCrumb() {
-  // Navigayion
+  // Navigation
   const pathname = usePathname();
 
   // Variables
