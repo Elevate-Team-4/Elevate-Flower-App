@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import CategoriesTableSkeleton from "@/components/skeletons/category/categories-table.skeleton";
+import React from "react";
 import Header from "./_components/header";
 import CategoryTable from "./_components/category-table";
 
@@ -9,9 +8,7 @@ export default async function Page() {
       {/* Page Header */}
       <Header />
       {/* Categories Table */}
-      <Suspense fallback={<CategoriesTableSkeleton />}>
-        <CategoryTable />
-      </Suspense>
+      <CategoryTable />
     </section>
   );
 }

@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidateTag } from "next/cache";
 import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { Category } from "@/lib/types/category";
 import { getTokenHeader } from "@/lib/utils/token-header";
@@ -22,7 +21,6 @@ export async function deleteCategory(id: string) {
   if ("error" in payload) {
     throw new Error(payload.error);
   }
-  revalidateTag("categories");
 
   return payload;
 }

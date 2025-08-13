@@ -1,5 +1,5 @@
 "use client";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { toast } from "@/hooks/use-toast";
 import { useRouter } from "@/i18n/navigation";
@@ -12,6 +12,9 @@ export default function useUpdateCategory() {
   //Navigation
   const router = useRouter();
 
+  // Queries
+  const queryClient = useQueryClient();
+
   //Mutations
   const { isPending, mutate } = useMutation({
     mutationFn: async ({ formData, id }: { formData: FormData; id: string }) => {
@@ -22,6 +25,7 @@ export default function useUpdateCategory() {
         title: t("category-updated-successfully"),
         variant: "default",
       });
+      queryClient.invalidateQueries({ queryKey: ["Categories"] });
       router.push("/dashboard/categories");
     },
     onError: (error) => {

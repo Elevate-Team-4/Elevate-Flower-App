@@ -140,5 +140,6 @@
   "all-categories": "جميع الفئات",
   "search": "بحث......",
   "add-category-name": "قم بإضافة اسم الفئة",
-  "edit": "تعديل"
+  "edit": "تعديل",
+  "no-categories-found": "لم يتم العثور على فئات"
 }

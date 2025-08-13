@@ -1,37 +1,57 @@
+"use client";
+
 import React from "react";
+import { useTranslations } from "next-intl";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import TableBtnActions from "./actions";
+import { useSearchContext } from "@/components/providers/components/search.provider";
+import CategoriesTableSkeleton from "@/components/skeletons/category/categories-table.skeleton";
 import CategoryTableHeader from "./category-table-header";
-import { getAllCategories } from "../_apis/all-categories";
+import { useFetchCategories } from "../_hooks/use-fetch-categories";
+import CategoryTableBody from "./category-table-body";
 
-export default async function CategoryTable() {
-  // All categories
-  const payload = await getAllCategories();
-  if (payload === undefined) {
-    return <p>loading........</p>;
+export default function CategoryTable() {
+  // Context
+  const { searchCategoryList, searchValue } = useSearchContext();
+
+  // Translations
+  const t = useTranslations();
+
+  // Hooks
+  const { categories, isLoading } = useFetchCategories();
+
+  //Check
+  if (isLoading) {
+    return <CategoriesTableSkeleton />;
   }
-
   return (
     <Table className="mt-6 p-5">
       {/* Header */}
       <CategoryTableHeader />
       {/* Body */}
       <TableBody>
-        {payload.categories.map((category) => (
-          <TableRow
-            key={category._id}
-            className=" px-5 hover:bg-maroon-50 dark:hover:bg-soft-pink-300 "
-          >
-            <TableCell className="font-mediu w-[200px]" colSpan={1}>
-              {category.name}
-            </TableCell>
-            <TableCell>{category.productsCount}</TableCell>
-            <TableCell className="flex gap-3 justify-end cursor-pointer">
-              {/* Btns actions */}
-              <TableBtnActions id={category._id} name={category.name} />
-            </TableCell>
-          </TableRow>
-        ))}
+        {/* Categories */}
+        {searchValue ? (
+          searchCategoryList.length > 0 ? (
+            searchCategoryList.map((category) => (
+              <CategoryTableBody key={category._id} category={category} />
+            ))
+          ) : (
+            <TableRow>
+              <TableCell
+                colSpan={5}
+                className="text-center py-4 font-semibold text-4xl dark:text-zinc-50"
+              >
+                {t("no-categories-found")}
+              </TableCell>
+            </TableRow>
+          )
+        ) : categories?.categories.length > 0 ? (
+          categories?.categories.map((category) => (
+            <CategoryTableBody key={category._id} category={category} />
+          ))
+        ) : (
+          ""
+        )}
       </TableBody>
     </Table>
   );

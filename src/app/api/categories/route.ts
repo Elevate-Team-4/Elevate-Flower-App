@@ -5,7 +5,7 @@ export async function GET(req: NextRequest) {
   const searchParams = req.nextUrl.searchParams;
 
   // Declareing Get all categories API
-  const url = new URL(`${process.env.API}/categories`);
+  const url = new URL(`${process.env.API}/categories?limit=16`);
 
   // This handle any given search params
   searchParams.forEach((value, key) => {

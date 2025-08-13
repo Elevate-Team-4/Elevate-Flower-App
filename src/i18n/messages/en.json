@@ -140,5 +140,6 @@
   "add-category": "Add Category",
   "all-categories": "All Categories",
   "search": "search......",
-  "add-category-name": "Add category name"
+  "add-category-name": "Add category name",
+  "no-categories-found": "No categories found"
 }
