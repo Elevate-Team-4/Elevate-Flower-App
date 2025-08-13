@@ -1,27 +1,36 @@
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
 import DashboardHeader from "@/components/common/dashboard-header";
+import DashboardTable from "@/components/common/dashboard-table";
+import { getProducts } from "@/lib/apis/products.api";
 
-export default function Page() {
+export default async function Page() {
   // Translation
-  const t = useTranslations();
+  // const t = useTranslations();
+
+  const response = await getProducts({
+    fields: "title,price,quantity,sold,rateAvg,rateCount,imgCover,images",
+    limit: 2,
+  });
+  if ("error" in response) {
+    return <p>error</p>;
+  }
+
+  const { products } = response;
 
   return (
-    <div className="grid grid-cols-12">
-      {/* Side bar */}
-      <div className="bg-soft-pink-500 col-span-3">Side Bar</div>
-
-      {/* Content */}
-      <div className="col-span-9 bg-zinc-50">
-        {/* Page title */}
-        <p className="text-gray-500 font-medium py-6 ps-4 mb-6 border border-b-zinc-200">
-          {t("dashboard-title")}
-        </p>
-
-        {/* Content */}
-        <div className="ms-4 me-5 mt-5 bg-white rounded-2xl p-6">
-          <DashboardHeader />
-        </div>
-      </div>
+    <div className="ms-4 me-5 mt-5 bg-white rounded-2xl p-6">
+      <DashboardHeader
+        buttonHref="/dashboard/products/add-product"
+        buttonTitle="Add a new product"
+        title="All Products"
+      />
+      <DashboardTable
+        data={products}
+        colHeader={["Name", "Price", "Stock", "Sales", "Ratings"]}
+        colEndPpoint={["title", "price", "quantity", "sold", "rateAvg"]}
+        editHref="products" // Todo: need to be changed
+        itemDeleteType="Product"
+      />
     </div>
   );
 }

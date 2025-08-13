@@ -81,8 +81,8 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
             ref={ref}
             {...props}
           />
-          <span className="absolute start-0 p-2 z-10">
-            <Search className="text-zinc-400 text-[14px] font-normal" />
+          <span className="absolute start-1 p-2 z-10">
+            <Search size={18} className="text-zinc-400 font-normal" />
           </span>
         </label>
       );

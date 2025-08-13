@@ -8,6 +8,7 @@ import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "./../../components/providers/index";
+// import { SidebarProvider } from "@/components/ui/sidebar";
 
 // Fonts
 const geistSans = localFont({
@@ -72,7 +73,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         {/* Providers */}
         <Providers>
           {/* Main children  */}
-          {children}
+          {/* <SidebarProvider> */}
+            <main>{children}</main>
+          {/* </SidebarProvider> */}
 
           {/* Toast notifications */}
           <Toaster />

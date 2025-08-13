@@ -45,7 +45,6 @@ export default async function middleware(req: NextRequest) {
   // Check if the route has "/dashboard"
   if (req.nextUrl.pathname.includes("/dashboard")) {
     const isAllowed = hasPermission("view:dashboard", token?.user?.role as "admin" | "user"); // checks for user role if he has permission to view dashboard
-    console.log(token?.user?.role);
 
     if (!isAllowed) {
       return NextResponse.redirect(new URL("/no-permission", req.url));

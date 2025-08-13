@@ -49,10 +49,7 @@ export const authOptions: NextAuthOptions = {
       if (user) {
         // Add user and token to JWT payload after successful login
         token.token = user.token;
-        token.user = {
-          ...user.user,
-          role: "admin",
-        };
+        token.user = user.user;
       }
       return token;
     },
