@@ -1,4 +1,4 @@
-import { Pencil, Trash2 } from "lucide-react";
+import { Pencil } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -8,43 +8,49 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Link } from "@/i18n/navigation";
+import { occasion } from "@/lib/types/occasions";
+import DeleteDialog from "@/components/common/delete-dialog";
 
-export default function TableOccasionDashboard() {
+export default function TableOccasionDashboard({ occasions }: { occasions: occasion[] }) {
   return (
-    <Table>
-      <TableHeader>
-        <TableRow className="h-10 hover:bg-zinc-50">
-          <TableHead className="w-[160px]">Name</TableHead>
-          <TableHead>Product</TableHead>
-          <TableHead className="text-end"></TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {Array.from({ length: 6 }).map((_, index) => {
-          return (
-            <TableRow key={index}>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell className="text-end">
-                <div className="flex justify-end items-center gap-3">
-                  <Link
-                    href={"/dashboard/occasions/edit"}
-                    className="flex justify-center items-center gap-1 bg-blue-600 bg-opacity-10 w-fit rounded-md px-2 py-1 text-blue-600 font-medium text-xs hover:bg-opacity-100 hover:text-white"
-                  >
-                    <Pencil width={14} height={14} /> Edit
-                  </Link>
-                  {/* Delete */}
+    <div className="h-auto">
+      <Table className="rounded-xl">
+        <TableHeader className="bg-zinc-50">
+          <TableRow className="h-10 hover:bg-zinc-50">
+            <TableHead className="text-zinc-900">Name</TableHead>
+            <TableHead className="text-zinc-900">Product</TableHead>
+            <TableHead className="text-end text-zinc-900"></TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {occasions.map((occasion) => {
+            return (
+              <TableRow key={occasion._id} className="h-[60px] hover:bg-maroon-50">
+                <TableCell className="font-medium ps-5 text-zinc-800">{occasion.name}</TableCell>
+                <TableCell className="text-zinc-800">{occasion.productsCount} Product</TableCell>
+                <TableCell className="text-end text-zinc-800">
+                  <div className="flex justify-end items-center gap-3">
+                    <Link
+                      id={occasion._id}
+                      href={`/dashboard/occasions/${occasion._id}`}
+                      className="flex justify-center items-center gap-1 bg-blue-600 bg-opacity-10 w-fit rounded-md px-2 py-1 text-blue-600 font-medium text-xs hover:bg-opacity-100 hover:text-white"
+                    >
+                      <Pencil size={14} /> Edit
+                    </Link>
+                    {/* Delete */}
 
-                  <button className="flex justify-center items-center gap-1 bg-maroon-500 bg-opacity-10 w-fit rounded-md px-2 py-1 text-maroon-500 font-medium text-xs hover:bg-opacity-100 hover:text-white">
-                    <Trash2 width={14} height={14} />
-                    Delete
-                  </button>
-                </div>
-              </TableCell>
-            </TableRow>
-          );
-        })}
-      </TableBody>
-    </Table>
+                    <DeleteDialog
+                      itemId={occasion._id}
+                      itemDeleteType={"occasion"}
+                      itemDeleteString={"itemDeleteString"}
+                    />
+                  </div>
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </div>
   );
 }

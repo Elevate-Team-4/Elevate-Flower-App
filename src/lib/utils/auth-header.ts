@@ -1,8 +1,8 @@
-import "server-only";
+"use server";
 
+import { decode, JWT } from "next-auth/jwt";
 import { cookies } from "next/headers";
 import { AUTH_COOKIE } from "../constants/api.constant";
-import { decode, JWT } from "next-auth/jwt";
 
 // Returns ready header
 export async function getAuthHeader() {

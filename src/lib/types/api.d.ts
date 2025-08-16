@@ -58,6 +58,7 @@ declare type CommonSearchParams = {
   sort?: string; // Sorting criteria, e.g., 'price,-title'
   fields?: string; // Comma-separated list of fields to include in the response
   keyword?: string; // Search keyword for full-text search
+  search?: string; // Search keyword for chart text search
 };
 
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;
