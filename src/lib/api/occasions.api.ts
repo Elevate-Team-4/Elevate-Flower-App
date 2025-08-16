@@ -1,6 +1,6 @@
 import { occasions, SearchParamOcassion } from "../types/occasions";
 
-export const getOccasions = async (params: SearchParamOcassion | undefined) => {
+export const getOccasions = async (params?: SearchParamOcassion | undefined) => {
   // Declareing occasion API
   const url = new URL(`${process.env.API}/occasions`);
 
@@ -8,8 +8,7 @@ export const getOccasions = async (params: SearchParamOcassion | undefined) => {
   if (!params) {
     const response = await fetch(url.toString());
 
-    const payload: APIResponse<PaginatedResponse<occasions>> =
-      await response.json();
+    const payload: APIResponse<PaginatedResponse<occasions>> = await response.json();
 
     return payload;
   }
@@ -23,8 +22,7 @@ export const getOccasions = async (params: SearchParamOcassion | undefined) => {
   const response = await fetch(url.toString());
 
   // Reaturning the occasion results
-  const payload: APIResponse<PaginatedResponse<occasions>> =
-    await response.json();
+  const payload: APIResponse<PaginatedResponse<occasions>> = await response.json();
 
   return payload;
 };
