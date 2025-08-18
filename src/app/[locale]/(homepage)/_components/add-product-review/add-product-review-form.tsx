@@ -21,19 +21,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "@/i18n/navigation";
 import useAddProductReview from "../../_hooks/use-add-productReview";
 
 type AddProductReviewFormProps = {
   productId: string;
-  setCheckLogin: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function AddProductReviewForm({
-  productId,
-  setCheckLogin,
-}: AddProductReviewFormProps) {
-  // translation
+export default function AddProductReviewForm({ productId }: AddProductReviewFormProps) {
+  // Translation
   const t = useTranslations();
+
+  // Navigation
+  const router = useRouter();
 
   // Schema
   const addProductReviewSchema = useAddProductReviewSchema();
@@ -66,11 +66,9 @@ export default function AddProductReviewForm({
   //   Submit
   const onSubmit: SubmitHandler<ProductReviewField> = (values) => {
     if (session?.user._id) {
-      setCheckLogin(true);
       addProductReviewFn({ values, productId });
       form.reset();
     } else {
-      setCheckLogin(false);
       localStorage.setItem(
         "stoppedReview",
         JSON.stringify({
@@ -78,7 +76,7 @@ export default function AddProductReviewForm({
           values,
         }),
       );
-      //   router.push("/login");
+      router.push("/auth/login");
     }
   };
 
@@ -102,6 +100,7 @@ export default function AddProductReviewForm({
             )}
           />
         </div>
+
         {/* Title Field */}
         <FormField
           name="title"
@@ -119,6 +118,7 @@ export default function AddProductReviewForm({
             </FormItem>
           )}
         />
+
         {/* Review Field */}
         <FormField
           name="comment"
@@ -140,8 +140,10 @@ export default function AddProductReviewForm({
             </FormItem>
           )}
         />
+
         {/* error msg */}
         {error && <p className="text-red-500 text-xl font-medium">{error.message}!</p>}
+
         {/* Button Submit */}
         <Button
           className="w-full"
