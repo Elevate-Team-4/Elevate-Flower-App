@@ -1,12 +1,16 @@
-"useclient";
+"use client";
+
+import React, { useEffect } from "react";
+import { useTranslations } from "next-intl";
+import { useSession } from "next-auth/react";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
+import { Textarea } from "@/components/ui/textarea";
 import {
   ProductReviewField,
   useAddProductReviewSchema,
 } from "@/lib/schema/add-product-review.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect } from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import useAddProductReview from "../../_hooks/use-add-productReview";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -17,16 +21,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
-import { Textarea } from "@/components/ui/textarea";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+import useAddProductReview from "../../_hooks/use-add-productReview";
 
 type AddProductReviewFormProps = {
   productId: string;
   setCheckLogin: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
 export default function AddProductReviewForm({
   productId,
   setCheckLogin,
@@ -39,23 +40,18 @@ export default function AddProductReviewForm({
 
   // Session
   const { data: session } = useSession();
+  const { addProductReviewFn, error, isPending } = useAddProductReview();
 
   // Effects
   useEffect(() => {
     if (session?.user?._id) {
       const storedReview = localStorage.getItem("stoppedReview");
-
       if (storedReview) {
         const { values, productId } = JSON.parse(storedReview);
         addProductReviewFn({ values, productId });
       }
     }
-  }, [session?.user._id]);
-  //   navigation
-  const router = useRouter();
-
-  //   Hooks
-  const { addProductReviewFn, error, isPending } = useAddProductReview();
+  }, [session?.user._id, addProductReviewFn]);
 
   //   Form
   const form = useForm<ProductReviewField>({

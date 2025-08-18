@@ -1,5 +1,5 @@
-import { fetchProductReviews } from "@/lib/apis/product-reviews.api";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { fetchProductReviews } from "@/lib/apis/product-reviews.api";
 
 export function useFetchProductReview({ productId }: { productId: string }) {
   const {

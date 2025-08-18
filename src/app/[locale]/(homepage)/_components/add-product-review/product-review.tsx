@@ -1,11 +1,11 @@
 "use client";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useFormatter, useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ProductReviewSkeleton from "@/components/skeletons/product-reviews/product-review.skeleton";
 import { useFetchProductReview } from "../../_hooks/use-fetch-product-review";
 import AddProductReviewForm from "./add-product-review-form";
 import RateUser from "./rate-user";
-import ProductReviewSkeleton from "@/components/skeletons/product-reviews/product-review.skeleton";
 import Stars from "./stars";
 
 type ProductReviewProps = {
