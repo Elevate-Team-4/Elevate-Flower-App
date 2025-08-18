@@ -137,7 +137,7 @@ export default function ProductReview({ productId, rateCount, rateAvg }: Product
         </h3>
 
         {/* Product Rating */}
-        <div className="space-y-[6px]">
+        <div className="space-y-2">
           <h4 className="text-zinc-800 font-semibold text-xl ">{t("general-rating")}</h4>
           <div className="flex gap-1 items-center">
             <span className="font-bold text-2xl">
@@ -164,6 +164,7 @@ export default function ProductReview({ productId, rateCount, rateAvg }: Product
               </p>
             </div>
           )}
+
           {/* AddProduct Form */}
           <AddProductReviewForm productId={productId} />
         </div>

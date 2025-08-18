@@ -49,6 +49,7 @@ export default function AddProductReviewForm({ productId }: AddProductReviewForm
       if (storedReview) {
         const { values, productId } = JSON.parse(storedReview);
         addProductReviewFn({ values, productId });
+        localStorage.removeItem("stoppedReview");
       }
     }
   }, [session?.user._id, addProductReviewFn]);
@@ -83,7 +84,7 @@ export default function AddProductReviewForm({ productId }: AddProductReviewForm
   return (
     // Form
     <Form {...form}>
-      <form className="flex flex-col gap-[10px]" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="flex flex-col gap-3" onSubmit={form.handleSubmit(onSubmit)}>
         {/* Rating Field */}
         <div className=" flex items-center gap-2">
           <FormLabel>{t("rating-0")}: </FormLabel>
