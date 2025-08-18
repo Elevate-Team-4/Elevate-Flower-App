@@ -13,7 +13,12 @@ const config: Config = {
     extend: {
       fontFamily: {
         primary: ["var(--font-primary)"],
-        sarabun: ["var(--font-sarabun)"],
+        pinyon: ["var(--font-pinyon)"],
+        diwany: ["var(--font-diwany)"],
+        "geist-sans": ["var(--font-geist-sans)"],
+        "geist-mono": ["var(--font-geist-mono)"],
+        edwardian: ["var(--font-edwardian)"],
+        zain: ["var(--font-zain)"],
       },
       keyframes: {
         "caret-blink": {
@@ -80,7 +85,7 @@ const config: Config = {
           50: "#fff1f5",
           100: "#ffe0e7",
           200: "#ffc2d0",
-          300: "#ffa3b9",
+          300: "#FFA3B9",
           400: "#ff85a2",
           500: "#ff668b",
           600: "#e65073",
