@@ -28,10 +28,15 @@ export default getRequestConfig(async ({ requestLocale }) => {
         "percentage-float": {
           style: "percent",
         },
-        "number-format": {
+        "number-base": {
           style: "decimal",
-          maximumFractionDigits: 0,
+          maximumFractionDigits: 1,
+          numberingSystem: locale === "ar" ? "arab" : "latn",
         },
+      },
+      "number-format": {
+        style: "decimal",
+        maximumFractionDigits: 0,
       },
       dateTime: {
         //^ --- SHORT YEAR FORMATS (year: '2-digit') ---

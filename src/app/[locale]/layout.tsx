@@ -5,10 +5,10 @@ import { Pinyon_Script } from "next/font/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { setRequestLocale } from "next-intl/server";
+import { Toaster } from "sonner";
 import { routing } from "@/i18n/routing";
-import { Toaster } from "@/components/ui/toaster";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import Providers from "./../../components/providers/index";
-// import { SidebarProvider } from "@/components/ui/sidebar";
 
 // Fonts
 const geistSans = localFont({
