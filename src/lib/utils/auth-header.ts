@@ -17,8 +17,6 @@ export async function getAuthHeader() {
     void error;
   }
 
-  console.log(JWT?.token);
-
   return {
     Authorization: `Bearer ${JWT?.token}`,
   };
