@@ -38,12 +38,6 @@ const routesRegex = (routes: string[]) => {
       .join("|")})/?$`,
     "i",
   );
-  return RegExp(
-    `^(/(${routing.locales.join("|")}))?(${routes
-      .flatMap((p) => (p === "/" ? ["", "/"] : p))
-      .join("|")})/?$`,
-    "i",
-  );
 };
 
 export default async function middleware(req: NextRequest) {
