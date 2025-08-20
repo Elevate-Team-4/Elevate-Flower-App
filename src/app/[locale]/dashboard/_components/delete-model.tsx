@@ -16,10 +16,12 @@ export default function DeleteModel({
   id,
   deleteFn,
   name,
+  isPending,
 }: {
   id: string;
   deleteFn: (id: string) => void;
   name: string;
+  isPending: boolean;
 }) {
   // Translation
   const t = useTranslations();
@@ -29,18 +31,20 @@ export default function DeleteModel({
 
   return (
     <Dialog onOpenChange={setclose} open={close}>
+      {/* Dialog Trigger */}
       <DialogTrigger asChild>
-        <div className="flex items-center gap-1 rounded-md py-1 px-2 bg-red-600/10 text-red-600 text-[12px] font-medium">
+        <Button className="flex items-center gap-1 rounded-md py-1 px-2 bg-red-600/10 text-red-600 text-[12px] font-medium w-20">
           <Trash2 width={14} height={14} />
           {t("delete")}
-        </div>
+        </Button>
       </DialogTrigger>
       <DialogContent className="w-[500px] h-[373px] dark:bg-zinc-600 ">
+        {/* Dialg Header */}
         <DialogHeader>
           <DialogTitle></DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-
+        {/* Dialog Content */}
         <section className="flex-col justify-between flex h-[276px] ">
           <div className="flex items-center flex-col justify-center gap-6">
             <div className="size-[105px] bg-[#2E2E300D] rounded-full flex items-center justify-center ">
@@ -67,10 +71,11 @@ export default function DeleteModel({
               className="bg-red-600 text-white hover:bg-red-700 w-full"
               onClick={() => {
                 deleteFn(id);
-                setInterval(() => {
+                setTimeout(() => {
                   setclose(false);
-                }, 600);
+                }, 1000);
               }}
+              disabled={isPending}
             >
               {t("confirm")}
             </Button>

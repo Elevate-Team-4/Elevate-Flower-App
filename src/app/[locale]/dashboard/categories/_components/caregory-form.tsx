@@ -115,7 +115,7 @@ export default function CategoryForm({ category }: { category?: Categories }) {
                   )}
                 />
                 {error && (
-                  <p className="text-red-600 text-3xl font-semibold dark:text-soft-pink-300">
+                  <p className="text-red-600 bg-maroon-50 rounded-xl p-2 dark:bg-zinc-800 text-2xl font-semibold dark:text-soft-pink-300 capitalize">
                     {error.message}
                   </p>
                 )}

@@ -45,8 +45,8 @@ export default function CategoryTable() {
               </TableCell>
             </TableRow>
           )
-        ) : categories?.categories.length > 0 ? (
-          categories?.categories.map((category) => (
+        ) : categories?.categories && categories.categories.length > 0 ? (
+          categories.categories.map((category) => (
             <CategoryTableBody key={category._id} category={category} />
           ))
         ) : (
