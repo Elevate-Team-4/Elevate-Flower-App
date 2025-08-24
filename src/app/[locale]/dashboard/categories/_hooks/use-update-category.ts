@@ -1,7 +1,8 @@
 "use client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
-import { toast } from "@/hooks/use-toast";
+
+import { toast } from "sonner";
 import { useRouter } from "@/i18n/navigation";
 import { updateCategory } from "../_actions/update-category.action";
 
@@ -21,18 +22,12 @@ export default function useUpdateCategory() {
       return await updateCategory({ formData, id });
     },
     onSuccess: () => {
-      toast({
-        title: t("category-updated-successfully"),
-        variant: "default",
-      });
+      toast.success(t("category-updated-successfully"));
       queryClient.invalidateQueries({ queryKey: ["Categories"] });
       router.push("/dashboard/categories");
     },
     onError: (error) => {
-      toast({
-        title: error.message,
-        variant: "destructive",
-      });
+      toast.error(error.message);
     },
   });
 
