@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
-import { toast } from "@/hooks/use-toast";
+
+import { toast } from "sonner";
 import { deleteCategory } from "../_actions/delete-category.action";
 
 export default function useDeleteCategory() {
@@ -16,17 +17,11 @@ export default function useDeleteCategory() {
       return await deleteCategory(id);
     },
     onSuccess: () => {
-      toast({
-        title: t("category-had-been-deleted-successfully"),
-        variant: "default",
-      });
+      toast.success(t("category-had-been-deleted-successfully"));
       queryClient.invalidateQueries({ queryKey: ["Categories"] });
     },
     onError: (error) => {
-      toast({
-        title: error.message,
-        variant: "destructive",
-      });
+      toast.error(error.message);
     },
   });
   return {

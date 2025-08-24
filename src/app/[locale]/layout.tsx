@@ -7,7 +7,6 @@ import localFont from "next/font/local";
 import { setRequestLocale } from "next-intl/server";
 import { Toaster } from "sonner";
 import { routing } from "@/i18n/routing";
-import { SidebarProvider } from "@/components/ui/sidebar";
 import Providers from "./../../components/providers/index";
 
 // Fonts
@@ -73,9 +72,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         {/* Providers */}
         <Providers>
           {/* Main children  */}
-          <SidebarProvider>
-            <main>{children}</main>
-          </SidebarProvider>
+          <main>{children}</main>
 
           {/* Toast notifications */}
           <Toaster />
