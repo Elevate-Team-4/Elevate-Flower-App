@@ -121,6 +121,15 @@
   "products-after-number": "products",
   "number-of-products": "{count} products",
   "error-message": "Something Wrong Happened",
+  "register": "register",
+  "2nd-row": {
+    "orders-status": "Orders Status",
+    "revenue": "Revenue",
+    "months": "Months"
+  },
+  "last-2nd-row": {
+    "week": "Last Week"
+  },
   "product-reviews": "Product Reviews",
   "general-rating": "General rating",
   "rating": "rating",

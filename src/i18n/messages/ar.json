@@ -121,6 +121,15 @@
   "products-after-number": "منتجات",
   "number-of-products": "يوجد {count} منتجات ",
   "error-message": "لقد حدث شيء خاطئ",
+  "password_complexity": "كلمة المرور يجب أن تحتوي على حرف كبير واحد على الأقل، وحرف صغير واحد، ورقم واحد، ورمز خاص واحد، وأن تكون 8 أحرف على الأقل",
+  "2nd-row": {
+    "orders-status": "حالة الطلبات",
+    "revenue": "ربح",
+    "months": "شهور"
+  },
+  "last-2nd-row": {
+    "week": "الأسبوع الماضي"
+  },
   "product-reviews": "مراجعات المنتج",
   "general-rating": "التقييم العام",
   "rating": "مراجعات",
