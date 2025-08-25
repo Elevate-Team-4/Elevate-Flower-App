@@ -1,13 +1,14 @@
-import { useTranslations } from "next-intl";
 import React from "react";
+import Header from "./_components/header";
+import CategoryTable from "./_components/category-table";
 
-export default function page() {
-  // Translations
-  const t = useTranslations();
-
+export default async function Page() {
   return (
-    <div className="text-center p-6 text-5xl font-bold text-maroon-600 dark:text-soft-pink-200">
-      <h1>{t("dashboard-categories")}</h1>
-    </div>
+    <section className="rounded-2xl bg-white dark:bg-zinc-700">
+      {/* Page Header */}
+      <Header />
+      {/* Categories Table */}
+      <CategoryTable />
+    </section>
   );
 }

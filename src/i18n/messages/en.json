@@ -120,6 +120,15 @@
   "no-products": "no products",
   "products-after-number": "products",
   "number-of-products": "{count} products",
+  "error-message": "Something Wrong Happened",
+  "2nd-row": {
+    "orders-status": "Orders Status",
+    "revenue": "Revenue",
+    "months": "Months"
+  },
+  "last-2nd-row": {
+    "week": "Last Week"
+  },
   "product-reviews": "Product Reviews",
   "general-rating": "General rating",
   "rating": "rating",
@@ -167,7 +176,6 @@
   "rating-cannot-exceed-5-stars": "Rating cannot exceed 5 stars",
   "title-must-be-at-least-10-characters": "Title must be at least 10 characters",
   "review-must-be-at-least-20-characters": "Review must be at least 20 characters",
-  "error-message": "Something Wrong Happened",
   "table-name": "Name",
   "table-price": "Price",
   "table-stock": "Stock",
@@ -196,5 +204,24 @@
   "header-error": "Oops, something went wrong!",
   "desc-error": "Something unexpected happened, please refresh the page or try again shortly.",
   "header-not-found": "This page does not exist",
-  "desc-not-found": "We couldn’t find the page your are looking for, please make sure you are in the right path."
+  "desc-not-found": "We couldn’t find the page your are looking for, please make sure you are in the right path.",
+  "category": "Category",
+  "edit": "Edit",
+  "deleteConfirmation": "Are you sure you want to delete this {name}?",
+  "name": "Name",
+  "category-updated-successfully": "Category had been updated successfully",
+  "category-added-successfully": "Category had been added successfully",
+  "category-had-been-deleted-successfully": "Category had been deleted successfully",
+  "update-category": "Update category",
+  "names": "Names",
+  "enter-category-name": "Enter category name",
+  "category-image": "Category image",
+  "view-category-image": "View category image",
+  "add-a-new-category": "Add a New category",
+  "add-category": "Add Category",
+  "all-categories": "All Categories",
+  "search": "search......",
+  "add-category-name": "Add category name",
+  "no-categories-found": "No categories found",
+  "products-0": "products"
 }
