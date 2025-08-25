@@ -2,7 +2,7 @@ declare type DataBaseProbs = {
   _id: string;
   createdAt: string;
   updatedAt: string;
-  __v: number;
+  __v?: number;
 };
 declare type ErrorResponse = {
   error: string;
