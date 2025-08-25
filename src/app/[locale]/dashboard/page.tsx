@@ -4,6 +4,7 @@ import FstRowSkeleton from "@/components/skeletons/1st-row/fst-row-skelton";
 import SecondRowSkeleton from "@/components/skeletons/overview-2nd-row/2nd-row-skeleton";
 import FirstRow from "./_components/1st-row/first-overview-row";
 import Overview2ndRow from "./_components/2nd-row/overview-2nd-row";
+import ThirdRow from "./_components/third-row";
 
 export default function Page() {
   // Translation
@@ -30,6 +31,7 @@ export default function Page() {
             <Overview2ndRow />
           </Suspense>
           {/* 3rd Row */}
+          <ThirdRow />
         </div>
       </div>
     </div>
