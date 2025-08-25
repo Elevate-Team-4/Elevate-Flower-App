@@ -21,19 +21,13 @@ const authMiddleware = withAuth(
       authorized: ({ token }) => token !== null,
     },
     pages: {
-      signIn: "/auth/signin",
+      signIn: "/auth/login",
     },
   },
 );
 
 // Function to check if a page is public (reusable for routing)
 const routesRegex = (routes: string[]) => {
-  return RegExp(
-    `^(/(${routing.locales.join("|")}))?(${routes
-      .flatMap((p) => (p === "/" ? ["", "/"] : p))
-      .join("|")})/?$`,
-    "i",
-  );
   return RegExp(
     `^(/(${routing.locales.join("|")}))?(${routes
       .flatMap((p) => (p === "/" ? ["", "/"] : p))

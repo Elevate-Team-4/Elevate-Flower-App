@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import { getRequestConfig } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { routing } from "./routing";
@@ -29,6 +28,11 @@ export default getRequestConfig(async ({ requestLocale }) => {
         },
         "percentage-float": {
           style: "percent",
+        },
+        "number-base": {
+          style: "decimal",
+          maximumFractionDigits: 1,
+          numberingSystem: locale === "ar" ? "arab" : "latn",
         },
       },
       dateTime: {

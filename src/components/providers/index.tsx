@@ -1,8 +1,9 @@
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { NextIntlClientProvider, useLocale, useMessages, useNow, useTimeZone } from "next-intl";
 import ReactQueryProvider from "./components/react-query.provider";
 import SessionClientProvider from "./components/session-client-provider";
 import { ThemeProvider } from "./components/theme-provider";
-import { NextIntlClientProvider, useLocale, useMessages, useNow, useTimeZone } from "next-intl";
+import { CategoryProvider } from "./components/search.provider";
 
 export default function Providers({ children }: ProvidersProps) {
   const locale = useLocale();
@@ -12,17 +13,24 @@ export default function Providers({ children }: ProvidersProps) {
   return (
     <SessionClientProvider>
       <ReactQueryProvider>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <ReactQueryDevtools initialIsOpen={false} />
-          <NextIntlClientProvider locale={locale} messages={messages} timeZone={timeZone} now={now}>
-            {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <CategoryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            <ReactQueryDevtools initialIsOpen={false} />
+            <NextIntlClientProvider
+              locale={locale}
+              messages={messages}
+              timeZone={timeZone}
+              now={now}
+            >
+              {children}
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </CategoryProvider>
       </ReactQueryProvider>
     </SessionClientProvider>
   );
