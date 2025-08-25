@@ -1,9 +1,9 @@
-import type { Product } from "@/lib/types/products";
 import Image from "next/image";
-import { Button } from "../ui/button";
 import { ShoppingCart, Star } from "lucide-react";
+import type { Product } from "@/lib/types/products";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils/cn";
+import { Button } from "../ui/button";
 /**
  * SingleProduct Component
  *
@@ -106,7 +106,7 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
                   <Star fill="#FBA707" size={16} strokeWidth={0} key={i} />
                 ) : (
                   <Star color="#FBA707" size={16} key={i} />
-                )
+                ),
               )}
             </div>
 
@@ -117,9 +117,7 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
             >
               {singleProduct.priceAfterDiscount}.00 EGP{" "}
             </span>
-            <span className="line-through text-zinc-400">
-              {singleProduct.price}.00 EGP
-            </span>
+            <span className="line-through text-zinc-400">{singleProduct.price}.00 EGP</span>
           </div>
 
           {/* Cart Button */}
@@ -139,7 +137,7 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
           variant="destructive"
           className={cn(
             showNew() ? "block" : "hidden",
-            "bg-zinc-100 text-zinc-700 hover:bg-zinc-100 py-1 px-2"
+            "bg-zinc-100 text-zinc-700 hover:bg-zinc-100 py-1 px-2",
           )}
         >
           NEW
@@ -150,7 +148,7 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
           // TODO Change Text / Bg Color
           className={cn(
             showHot() ? "block" : "hidden",
-            "bg-[#FBEAEA] text-[#A6252A] hover:bg-[#FBEAEA] py-1 px-2"
+            "bg-[#FBEAEA] text-[#A6252A] hover:bg-[#FBEAEA] py-1 px-2",
           )}
         >
           HOT
@@ -161,7 +159,7 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
           className={cn(
             showOutOfStock() ? "block" : "hidden",
             // TODO Change Text Color
-            "text-[#FFF1F5] bg-red-600 hover:bg-red-600 py-1 px-2"
+            "text-[#FFF1F5] bg-red-600 hover:bg-red-600 py-1 px-2",
           )}
         >
           OUT OF STOCK
