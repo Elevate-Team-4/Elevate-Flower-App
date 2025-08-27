@@ -23,6 +23,7 @@ export const getOccasions = async (params?: SearchParamOcassion | undefined) => 
 
   // Reaturning the occasion results
   const payload: APIResponse<PaginatedResponse<occasions>> = await response.json();
+  console.log(payload);
 
   return payload;
 };

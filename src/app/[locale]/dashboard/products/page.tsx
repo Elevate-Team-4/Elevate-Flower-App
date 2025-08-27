@@ -33,7 +33,7 @@ export default async function Page({
   return (
     <div className="ms-4 me-5 mt-5 bg-white rounded-2xl p-6">
       <DashboardHeader
-        buttonHref="/dashboard/products/add-product"
+        buttonHref="/dashboard/products/add"
         buttonTitle={t("header-title-dashbord")}
         title={t("all-products-header-dashboard")}
       />

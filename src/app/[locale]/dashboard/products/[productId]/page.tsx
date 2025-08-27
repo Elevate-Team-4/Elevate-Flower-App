@@ -33,14 +33,13 @@ export default async function Page({ params }: ProductIdProbs) {
   return (
     <div className="flex flex-col">
       {/* Form */}
-      <div className="bg-gray-200  p-10">
-        <ProductForm
-          edit
-          product={response.product}
-          occasions={occasions.occasions}
-          categories={categories.categories}
-        />
-      </div>
+      <ProductForm
+        edit
+        product={response.product}
+        occasions={occasions.occasions}
+        categories={categories.categories}
+      />
+
       {/* Images dialogs */}
       <div className="flex justify-end gap-3">
         <ShowImagesDialog
