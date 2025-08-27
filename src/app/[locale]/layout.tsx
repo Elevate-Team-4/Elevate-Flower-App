@@ -1,10 +1,12 @@
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
+import { Sarabun } from "next/font/google";
+import { Pinyon_Script } from "next/font/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { setRequestLocale } from "next-intl/server";
+import { Toaster } from "sonner";
 import { routing } from "@/i18n/routing";
-import { Toaster } from "@/components/ui/toaster";
 import Providers from "./../../components/providers/index";
 
 // Fonts
@@ -16,7 +18,6 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
 });
-
 const zain = localFont({
   src: "./fonts/Zain-Regular.ttf",
   variable: "--font-zain",
@@ -28,6 +29,21 @@ const diwany = localFont({
 const edwardian = localFont({
   src: "./fonts/edwardianscriptitc.ttf",
   variable: "--font-edwardian",
+});
+
+// Sarabun font
+const sarabun = Sarabun({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-sarabun",
+});
+// Pinyon_Script font
+const pinyon = Pinyon_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"],
+  variable: "--font-pinyon",
 });
 
 //Metadata
@@ -51,12 +67,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${diwany.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} antialiased`}
+        className={`${geistSans.variable} ${diwany.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} ${diwany.variable} ${pinyon.variable} ${sarabun.variable} antialiased`}
       >
         {/* Providers */}
         <Providers>
           {/* Main children  */}
-          {children}
+          <main>{children}</main>
 
           {/* Toast notifications */}
           <Toaster />

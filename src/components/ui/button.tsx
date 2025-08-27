@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-maroon-600 text-white shadow hover:bg-maroon-700 dark:bg-soft-pink-300 dark:text-zinc-800 dark:hover:bg-soft-pink-400",
+          "bg-maroon-600 text-white shadow hover:bg-maroon-700 dark:bg-soft-pink-300 dark:text-zinc-800 dark:hover:bg-soft-pink-400 disabled:dark:bg-zinc-700",
         destructive:
           "bg-red-600 text-white shadow hover:bg-red-700 dark:bg-red-500 dark:text-zinc-50 dark:hover:bg-red-600",
         secondary:
@@ -46,6 +46,20 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, isLoading, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
+
+    // When asChild is true, we need to ensure only one child is rendered
+    if (asChild) {
+      return (
+        <Comp
+          className={cn(buttonVariants({ variant, size }), className)}
+          ref={ref}
+          disabled={isLoading || props.disabled}
+          {...props}
+        >
+          {children}
+        </Comp>
+      );
+    }
 
     return (
       <Comp
