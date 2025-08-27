@@ -28,7 +28,7 @@ import {
   DialogFooter,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import useDeleteOccasion from "@/app/[locale]/dashboard/occasions/_hooks/use-delete-product";
+import useDeleteProduct from "@/app/[locale]/dashboard/products/_hooks/use-delete-product";
 
 interface DeletteDialogProbs {
   itemId: string;
@@ -45,7 +45,7 @@ export default function DeleteDialog({
   const t = useTranslations();
 
   // Hooks
-  const productDelete = useDeleteOccasion();
+  const productDelete = useDeleteProduct();
   // const occasionDelete = useDeleteOccasion(); // todo: Examples needs to be handled
   // const categoryDelete = useDeleteCategory(); // todo: Examples needs to be handled
 
