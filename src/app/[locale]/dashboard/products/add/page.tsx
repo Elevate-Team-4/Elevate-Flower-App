@@ -14,9 +14,5 @@ export default async function Page() {
     return;
   }
 
-  return (
-    <div className="bg-gray-200 p-10">
-      <ProductForm occasions={occasions.occasions} categories={categories.categories} />
-    </div>
-  );
+  return <ProductForm occasions={occasions.occasions} categories={categories.categories} />;
 }

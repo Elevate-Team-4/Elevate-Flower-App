@@ -134,7 +134,7 @@ export default function ProductForm({
     }
   };
   return (
-    <div className="space-y-6 bg-white  max-w-4xl w-full mx-auto rounded-xl px-6 py-4">
+    <div className="space-y-6 bg-white  max-w-4xl w-full rounded-xl px-6 py-4">
       <h1 className="text-2xl font-semibold text-foreground">
         {edit ? t("product.edit_title") : t("product.add_title")}
       </h1>
