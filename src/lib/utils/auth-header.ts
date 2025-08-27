@@ -1,7 +1,7 @@
 "use server";
 
-import { decode, JWT } from "next-auth/jwt";
 import { cookies } from "next/headers";
+import { decode, JWT } from "next-auth/jwt";
 import { AUTH_COOKIE } from "../constants/api.constant";
 
 // Returns ready header
@@ -18,6 +18,7 @@ export async function getAuthHeader() {
   }
 
   return {
+    token: JWT?.token || "",
     Authorization: `Bearer ${JWT?.token}`,
   };
 }

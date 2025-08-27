@@ -1,15 +1,14 @@
-import { Products, SearchParamProduct } from "../types/products";
+import { ProductDetails, Products, SearchParamProduct } from "../types/products";
 
 export const getProducts = async (params: SearchParamProduct | undefined) => {
   // Declareing products API
   const url = new URL(`${process.env.API}/Products`);
 
   // If no params are given (undefined)
-  if (!params) {
+  if (!params || params === undefined) {
     const response = await fetch(url.toString());
 
-    const payload: APIResponse<PaginatedResponse<Products>> =
-      await response.json();
+    const payload: APIResponse<PaginatedResponse<Products>> = await response.json();
 
     return payload;
   }
@@ -23,9 +22,21 @@ export const getProducts = async (params: SearchParamProduct | undefined) => {
   const response = await fetch(url.toString());
 
   // Reaturning the products results
-  const payload: APIResponse<PaginatedResponse<Products>> =
-    await response.json();
+  const payload: APIResponse<PaginatedResponse<Products>> = await response.json();
 
   return payload;
 };
 
+// Get product details
+export const getProductDetails = async (productId: string) => {
+  // Declareing product details API
+  const url = new URL(`${process.env.API}/Products/${productId}`);
+
+  // Extracting only the API link
+  const response = await fetch(url.toString());
+
+  // Reaturning the product details results
+  const payload: APIResponse<ProductDetails> = await response.json();
+
+  return payload;
+};

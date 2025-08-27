@@ -6,7 +6,7 @@ export type Product = {
   slug: string;
   description: string;
   imgCover: string;
-  images: string;
+  images: string[];
   price: number;
   priceAfterDiscount: number;
   quantity: number;
@@ -51,3 +51,8 @@ export type SearchParamProduct = {
   "sold[lte]"?: number; // Filter: sold quantity less than or equal to
   "quantity[lte]"?: number; // Filter: quantity less than or equal to
 } & CommonSearchParams;
+
+// Product details
+export type ProductDetails = {
+  product: Product;
+};
