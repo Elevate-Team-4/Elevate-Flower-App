@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { ShowImagesDialog } from "@/components/common/show-images-dialog";
-import { getProductDetails } from "@/lib/apis/products.api";
 import { getOccasions } from "@/lib/api/occasions.api";
 import { getAllCategory } from "@/lib/api/category";
 import { getProductById } from "@/lib/api/products.api";
+import ProductForm from "../_components/product-form";
 
 interface ProductIdProbs {
   params: {
@@ -13,12 +13,11 @@ interface ProductIdProbs {
 }
 
 export default async function Page({ params }: ProductIdProbs) {
-  // Variables
-  const { productId } = params;
-
   // Translations
   const t = await getTranslations();
 
+  // Variables
+  const { productId } = params;
   // Functions
   const [occasions, categories, response] = await Promise.all([
     getOccasions(),
@@ -34,15 +33,22 @@ export default async function Page({ params }: ProductIdProbs) {
   return (
     <div className="flex flex-col">
       {/* Form */}
-
+      <div className="bg-gray-200  p-10">
+        <ProductForm
+          edit
+          product={response.product}
+          occasions={occasions.occasions}
+          categories={categories.categories}
+        />
+      </div>
       {/* Images dialogs */}
       <div className="flex justify-end gap-3">
         <ShowImagesDialog
-          cover={product.imgCover}
+          cover={response.product.imgCover}
           buttonTitleCoverTranslation={t("product-cover")}
         />
         <ShowImagesDialog
-          gallary={product.images}
+          gallary={response.product.images}
           buttonTitleGallaryTranslation={t("product-gallary")}
         />
       </div>
