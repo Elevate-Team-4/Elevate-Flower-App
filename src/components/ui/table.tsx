@@ -1,6 +1,5 @@
 import * as React from "react";
-
-import { cn } from "@/lib/utils/cn.ts";
+import { cn } from "@/lib/cn";
 
 interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   containerClassname?: string;
@@ -13,7 +12,6 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     </div>
   ),
 );
-
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<
