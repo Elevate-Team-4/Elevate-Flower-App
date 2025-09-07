@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { useAddToCart } from "../hooks/use-add-to-cart";
-import { addToCartLocalStorage } from "../_actoins/local-cart.actoin";
+import { addToCartLocalStorage } from "../_actions/local-cart.actoin";
 
 interface AddToCartButtonProps {
   productId: string;

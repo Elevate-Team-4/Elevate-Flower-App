@@ -1,10 +1,10 @@
+import { Suspense } from "react";
+import { getTranslations } from "next-intl/server";
 import BarTitle from "@/components/common/bar-title";
 import { getProductDetails } from "@/lib/apis/products.api";
+import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
 import { RealatedProductsCarousel } from "./_components/related-products-carousel";
 import ProductThumbnail from "./_components/product-thumbnail";
-import { Suspense } from "react";
-import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
-import { getTranslations } from "next-intl/server";
 
 interface ProductDetailsProbs {
   params: {
@@ -23,7 +23,7 @@ export default async function Page({ params }: ProductDetailsProbs) {
   const response = await getProductDetails(productId);
 
   if ("error" in response) {
-    return <p>error</p>;
+    return <p className="text-center text-red-500">error</p>;
   }
 
   const { product } = response;
