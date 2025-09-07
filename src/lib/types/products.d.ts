@@ -67,5 +67,9 @@ export type RelatedProducts = {
     price: number;
     priceAfterDiscount: number;
     similarityScore: number;
-  }[];
+  };
+}[];
+// Product details
+export type ProductDetails = {
+  product: Product;
 };
