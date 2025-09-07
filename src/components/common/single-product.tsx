@@ -3,6 +3,7 @@ import { ShoppingCart, Star } from "lucide-react";
 import type { Product } from "@/lib/types/products";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils/cn";
+import { Link } from "@/i18n/navigation";
 import { Button } from "../ui/button";
 /**
  * SingleProduct Component
@@ -76,14 +77,16 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
       {/* Cover & title */}
       <div>
         {/* Product cover */}
-        <Image
-          src={singleProduct.imgCover}
-          width={302}
-          height={0}
-          style={{ objectFit: "cover" }}
-          alt="Product Cover Image"
-          className="h-72 w-80 rounded-xl"
-        ></Image>
+        <Link href={`/products/${singleProduct._id}`}>
+          <Image
+            src={singleProduct.imgCover}
+            width={302}
+            height={0}
+            style={{ objectFit: "cover" }}
+            alt={singleProduct.title}
+            className="h-72 w-80 rounded-xl"
+          ></Image>
+        </Link>
 
         {/* product title */}
         <h3
@@ -118,6 +121,7 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
               {singleProduct.priceAfterDiscount}.00 EGP{" "}
             </span>
             <span className="line-through text-zinc-400">{singleProduct.price}.00 EGP</span>
+            <span className="line-through text-zinc-400">{singleProduct.price}.00 EGP</span>
           </div>
 
           {/* Cart Button */}
@@ -134,9 +138,9 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
       {/* Badges */}
       <div className="absolute top-0 flex end-0 gap-2 p-2">
         <Badge
-          variant="destructive"
           className={cn(
             showNew() ? "block" : "hidden",
+            "bg-zinc-100 text-zinc-700 hover:bg-zinc-100 py-1 px-2",
             "bg-zinc-100 text-zinc-700 hover:bg-zinc-100 py-1 px-2",
           )}
         >
@@ -144,10 +148,10 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
         </Badge>
 
         <Badge
-          variant="destructive"
           // TODO Change Text / Bg Color
           className={cn(
             showHot() ? "block" : "hidden",
+            "bg-[#FBEAEA] text-[#A6252A] hover:bg-[#FBEAEA] py-1 px-2",
             "bg-[#FBEAEA] text-[#A6252A] hover:bg-[#FBEAEA] py-1 px-2",
           )}
         >
@@ -155,10 +159,10 @@ export default function SingleProduct({ singleProduct }: SingleProduct) {
         </Badge>
 
         <Badge
-          variant="destructive"
           className={cn(
             showOutOfStock() ? "block" : "hidden",
             // TODO Change Text Color
+            "text-[#FFF1F5] bg-red-600 hover:bg-red-600 py-1 px-2",
             "text-[#FFF1F5] bg-red-600 hover:bg-red-600 py-1 px-2",
           )}
         >

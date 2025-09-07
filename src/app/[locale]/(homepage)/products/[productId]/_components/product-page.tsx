@@ -3,9 +3,9 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
 import { Product } from "@/lib/types/products";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import AddToWishlist from "./add-wishlist";
-import { checkWishlistAction } from "../_actoins/wishlist.actoin";
-import AddToCartButton from "./add-to-cart-button";
+import AddToWishlist from "../../[productId]/_components/add-wishlist";
+import { checkWishlistAction } from "../_actions/wishlist.actoin";
+import AddToCartButton from "../../[productId]/_components/add-to-cart-button";
 
 function getCurrencyParts(
   locale: string,

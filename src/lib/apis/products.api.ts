@@ -1,6 +1,7 @@
-import { ProductDetails, Products, SearchParamProduct } from "../types/products";
+import { ProductDetails, Products, RelatedProducts, SearchParamProduct } from "../types/products";
 
-export const getProducts = async (params: SearchParamProduct | undefined) => {
+// Get all products
+export const getProducts = async (params?: SearchParamProduct | undefined) => {
   // Declareing products API
   const url = new URL(`${process.env.API}/Products`);
 
@@ -18,7 +19,7 @@ export const getProducts = async (params: SearchParamProduct | undefined) => {
     url.searchParams.append(param[0].toString(), param[1].toString());
   });
 
-  // Extracting only the aPI link
+  // Extracting only the API link
   const response = await fetch(url.toString());
 
   // Reaturning the products results
@@ -37,6 +38,20 @@ export const getProductDetails = async (productId: string) => {
 
   // Reaturning the product details results
   const payload: APIResponse<ProductDetails> = await response.json();
+
+  return payload;
+};
+
+// Get related products
+export const getRelatedProduct = async (productId: string) => {
+  // Declareing related products API
+  const url = new URL(`${process.env.API}/related/similar/${productId}`);
+
+  // Extracting only the API link
+  const response = await fetch(url.toString());
+
+  // Reaturning the related products results
+  const payload: APIResponse<RelatedProducts> = await response.json();
 
   return payload;
 };

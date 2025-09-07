@@ -1,6 +1,6 @@
 // Libraries
 import { useMutation } from "@tanstack/react-query";
-import { removeFromWishlist } from "../_actoins/wishlist.actoin";
+import { removeFromWishlist } from "../_actions/wishlist.actoin";
 
 // Actions
 

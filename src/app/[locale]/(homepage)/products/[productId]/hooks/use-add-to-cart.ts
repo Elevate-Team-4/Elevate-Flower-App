@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
 
 // Actions
-import { addToCartAction } from "../_actoins/cart.actoin";
+import { addToCartAction } from "../_actions/cart.actoin";
 
 export function useAddToCart() {
   // Mutation

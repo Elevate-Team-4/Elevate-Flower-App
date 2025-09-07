@@ -1,9 +1,9 @@
 "use client";
 
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ForgetPasswordFields, forgetPasswordSchema } from "@/lib/schemes/forget-password.schema";
-import useForgetPassword from "../../_hooks/use-forget-password";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import { ForgetPasswordFields, forgetPasswordSchema } from "@/lib/schemes/forget-password.schema";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import useForgetPassword from "../../_hooks/use-forget-password";
 
 // Probs type
 interface ForgetPasswordProps {

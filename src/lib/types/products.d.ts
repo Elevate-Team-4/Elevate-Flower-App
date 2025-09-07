@@ -17,6 +17,11 @@ export type Product = {
   id: string;
 } & DataBaseProbs;
 
+// Product details
+export type ProductDetails = {
+  product: Product;
+};
+
 // Array of Products
 export type Products = {
   products: Product[];
@@ -52,6 +57,18 @@ export type SearchParamProduct = {
   "quantity[lte]"?: number; // Filter: quantity less than or equal to
 } & CommonSearchParams;
 
+// Related products
+export type RelatedProducts = {
+  count: number;
+  similarProducts: {
+    _id: string;
+    title: string;
+    imgCover: string;
+    price: number;
+    priceAfterDiscount: number;
+    similarityScore: number;
+  };
+}[];
 // Product details
 export type ProductDetails = {
   product: Product;
