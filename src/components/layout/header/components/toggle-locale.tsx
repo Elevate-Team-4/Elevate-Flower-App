@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { useSearchParams } from "next/navigation";
+import { useLocale } from "next-intl";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,8 +12,6 @@ import {
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { Link, usePathname } from "@/i18n/navigation";
-import { useSearchParams } from "next/navigation";
-import { useLocale } from "next-intl";
 
 export default function ToggleLocale() {
   // Navigation
