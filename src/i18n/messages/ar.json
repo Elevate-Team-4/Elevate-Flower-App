@@ -166,6 +166,19 @@
   "products-after-number": "منتجات",
   "number-of-products": "يوجد {count} منتجات ",
   "error-message": "لقد حدث شيء خاطئ",
+  "home-carousel-badge": "بدءا من {price, number, currency-base}",
+  "Products": {
+    "product": {
+      "to": "الي",
+      "from": "من"
+    }
+  },
+  "error-message": "حدث خطأ ما!",
+  "reset": "إعادة ضبط",
+  "product": {
+    "occasion": "مناسبة",
+    "price": "سعر"
+  },
   "password_complexity": "كلمة المرور يجب أن تحتوي على حرف كبير واحد على الأقل، وحرف صغير واحد، ورقم واحد، ورمز خاص واحد، وأن تكون 8 أحرف على الأقل",
   "2nd-row": {
     "orders-status": "حالة الطلبات",
