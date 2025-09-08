@@ -1,8 +1,8 @@
-import "server-only";
+"use server";
 
 import { cookies } from "next/headers";
-import { AUTH_COOKIE } from "../constants/api.constant";
 import { decode, JWT } from "next-auth/jwt";
+import { AUTH_COOKIE } from "../constants/api.constant";
 
 // Returns ready header
 export async function getAuthHeader() {
@@ -18,6 +18,7 @@ export async function getAuthHeader() {
   }
 
   return {
+    token: JWT?.token || "",
     Authorization: `Bearer ${JWT?.token}`,
   };
 }

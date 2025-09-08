@@ -242,7 +242,7 @@ export default function RegisterForm() {
         <p className="font-primary font-medium text-sm text-center">
           {t("already-have-an-account")}
           <span className="text-maroon-500 font-bold">
-            <Link href={"auth/login"}>{t("login")}</Link>
+            <Link href={"/auth/login"}>{t("login")}</Link>
           </span>
           {/* we use Link from next-intl when we marge github code */}
         </p>

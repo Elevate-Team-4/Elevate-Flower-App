@@ -1,9 +1,9 @@
+import { Suspense } from "react";
 import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { getOccasions } from "@/lib/apis/occasions.api";
-import ProductsByOccasion from "./product-by-occasion";
 import BarTitle from "@/components/common/bar-title";
-import { Suspense } from "react";
 import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
+import ProductsByOccasion from "./product-by-occasion";
 import TabsTitle from "./tabs-title";
 
 export default async function MostPopular({

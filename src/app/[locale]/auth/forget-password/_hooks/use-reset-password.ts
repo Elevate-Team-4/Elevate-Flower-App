@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
-import resetPasswordAction from "../_actions/reset-password.action";
-import { ResetPassword } from "@/lib/types/rest-password";
 import { useTranslations } from "next-intl";
+import { ResetPassword } from "@/lib/types/rest-password";
 import { toast } from "@/hooks/use-toast";
+import resetPasswordAction from "../_actions/reset-password.action";
 
 export default function useResetPassword() {
   // Translation
