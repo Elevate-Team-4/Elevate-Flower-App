@@ -9,16 +9,16 @@ import {
   Heart,
   House,
   Info,
-  LocationEdit,
   PartyPopper,
   ShoppingCart,
 } from "lucide-react";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 import logo from "@assets/logo 1.png";
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { authOptions } from "@/auth";
 import LocationHeader from "./location-header";
-import { getServerSession } from "next-auth";
 
 export default async function Header() {
   // Navbar object
@@ -56,7 +56,7 @@ export default async function Header() {
   ];
 
   // Session
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
 
   return (
     <header className="w-full flex flex-col ">

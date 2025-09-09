@@ -1,5 +1,6 @@
 import { LocationEdit, PenLine, Phone, Trash2 } from "lucide-react";
 import React from "react";
+import { useTranslations } from "next-intl";
 import {
   Dialog,
   DialogContent,
@@ -12,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import AddressDeleteModel from "./address-delete-model";
 import AdrdessForm from "./address-form";
 import FormSteps from "./form-steps";
-import { useTranslations } from "next-intl";
 
 export default function Addresscard({
   steps,

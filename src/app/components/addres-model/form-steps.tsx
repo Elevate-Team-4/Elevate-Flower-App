@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
 import { useFormatter, useTranslations } from "next-intl";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 export default function FormSteps({ steps, address }: { steps: number; address?: Address }) {
   // Translations
@@ -42,9 +42,9 @@ export default function FormSteps({ steps, address }: { steps: number; address?:
             {/* step two */}
             <div
               className={cn(
-                `w-8 h-8 absolute top-0`,
+                "w-8 h-8 absolute top-0",
                 "start-0 rtl:translate-x-1/2 -translate-x-1/2",
-                `-translate-y-1/2 rounded-full flex items-center text-black justify-center`,
+                "-translate-y-1/2 rounded-full flex items-center text-black justify-center",
                 steps === 2 ? "bg-maroon-600 dark:bg-soft-pink-300 text-white" : "bg-gray-100",
               )}
             >

@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { DialogClose } from "@/components/ui/dialog";
-import useDeleteAddress from "@/hooks/address/use-delete-address";
 import { Trash } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React from "react";
+import { Button } from "@/components/ui/button";
+import { DialogClose } from "@/components/ui/dialog";
+import useDeleteAddress from "@/hooks/address/use-delete-address";
 
 export default function AddressDeleteModel({ id }: { id: string }) {
   // Hooks
