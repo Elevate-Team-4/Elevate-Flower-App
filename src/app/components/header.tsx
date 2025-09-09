@@ -11,10 +11,11 @@ import {
   Heart,
   House,
   Info,
-  LocationEdit,
   PartyPopper,
   ShoppingCart,
 } from "lucide-react";
+
+import logo from "@assets/logo 1.png";
 
 // Libraries
 import { getServerSession } from "next-auth";
@@ -29,43 +30,37 @@ import { ModeToggle } from "@/components/ui/mode-toggle";
 import ToggleLocale from "@/components/layout/header/components/toggle-locale";
 
 // Assets
-import logo from "@assets/logo 1.png";
+import LocationHeader from "./location-header";
 
 // Locale Components
 import UserDropdown from "./user-dropdown";
 
 export default async function Header() {
-  // Get user Session
-  const session = await getServerSession(authOptions);
-
-  // User data
-  const user = session?.user;
-
   // Navbar object
   const navbar = [
     {
       name: "Home",
-      href: "/en",
+      href: "/",
       icons: <House className="w-4 h-4" />,
     },
     {
       name: "Products",
-      href: "/en/products",
+      href: "/products",
       icons: <Gift className="w-5 h-5" />,
     },
     {
       name: "Categories",
-      href: "/en/categories",
+      href: "/categories",
       icons: <ClipboardList className="w-5 h-5" />,
     },
     {
       name: "Occasions",
-      href: "/en/occasions",
+      href: "/occasions",
       icons: <PartyPopper className="w-5 h-5" />,
     },
     {
       name: "Contact",
-      href: "/en/contact",
+      href: "/contact",
       icons: <Headset className="w-5 h-5" />,
     },
     {
@@ -74,6 +69,11 @@ export default async function Header() {
       icons: <Info className="w-5 h-5" />,
     },
   ];
+
+  // Session
+  const session = await getServerSession(authOptions);
+  const user = session?.user;
+
   return (
     <header className="w-full flex flex-col ">
       {/* Main header */}
@@ -83,15 +83,7 @@ export default async function Header() {
           <Image src={logo} alt="Logo" className="w-[85px] h-[85px]" />
 
           {/* address */}
-          <div className="flex-1 text-center gap-2 flex flex-col items-center justify-center">
-            <p className="text-zinc-500 text-sm font-normal whitespace-nowrap font-primary">
-              Deliver to:
-            </p>
-            <div className="text-maroon-700 dark:text-soft-pink-200 flex flex-nowrap items-center gap-2 justify-center">
-              <LocationEdit size={"20px"} />
-              <p className=" font-medium text-base font-primary">Cairo</p>
-            </div>
-          </div>
+          {session && <LocationHeader />}
 
           {/* input search */}
           <Input

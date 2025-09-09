@@ -1,7 +1,7 @@
 "use server";
 
 import { JSON_HEADER } from "@/lib/constants/api.constant";
-import { Occasions } from "@/lib/types/occasions";
+import { occasions } from "@/lib/types/occasions";
 
 export const getOccasions = async (page: number = 1, limit: number = 6) => {
   try {
@@ -12,7 +12,7 @@ export const getOccasions = async (page: number = 1, limit: number = 6) => {
       },
     });
 
-    const payload: APIResponse<Occasions> = await response.json();
+    const payload: APIResponse<PaginatedResponse<occasions>> = await response.json();
 
     if ("error" in payload) throw new Error(payload.error);
 

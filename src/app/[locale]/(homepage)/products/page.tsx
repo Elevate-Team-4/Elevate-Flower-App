@@ -1,41 +1,29 @@
-import OccasionFilter from "./_components/occasion-filter";
-import PriceFilter from "./_components/price-filter";
-// Remove useSearchParams import, not needed in server components
+import { Suspense } from "react";
+import { SearchParamProduct } from "@/lib/types/products";
+import SingleProductSkeleton from "@/components/skeletons/single-product/single-product.skeleton";
+import Filter from "./_components/filter";
+import ProductList from "./_components/product-list";
 
-export default async function products() {
+export default function Page({ searchParams }: { searchParams?: SearchParamProduct }) {
   return (
-    <div className="flex flex-nowrap gap-4 p-6">
-      {/* sidebar */}
-      <div className="w-[301px] flex flex-col pr-6 border-r-[1px] border-zinc-100">
-        {/* Categories filter */}
-        <div className="mb-6">
-          <h2 className="text-xl font-bold mb-4">Categories</h2>
-          {/* Add your Categories filter content  here */}
-        </div>
+    <div className="grid grid-cols-12 gap-6 mb-32 mt-16">
+      {/* Filters */}
+      <Filter />
 
-        {/* Occasion filter */}
-        <OccasionFilter />
-
-        {/* Rating filter  */}
-        <div className="mb-6 border-b-[1px] border-zinc-100 pb-6">
-          <h3 className="font-semibold text-lg font-primary">Rating</h3>
-          {/* Add your Rating filter content here */}
-          <div className="flex gap-2 mt-4">
-            {/* Example rating buttons */}
-            <button className="px-3 py-1 bg-gray-200 rounded">1 Star</button>
-            <button className="px-3 py-1 bg-gray-200 rounded">2 Stars</button>
-            <button className="px-3 py-1 bg-gray-200 rounded">3 Stars</button>
-            <button className="px-3 py-1 bg-gray-200 rounded">4 Stars</button>
-            <button className="px-3 py-1 bg-gray-200 rounded">5 Stars</button>
-          </div>
-        </div>
-
-        {/* Price filter */}
-        <PriceFilter />
-      </div>
-
-      {/* Products grid */}
-      {/* add your product list */}
+      {/* Porduct list */}
+      <Suspense
+        fallback={
+          <SingleProductSkeleton
+            count={6}
+            containerColSpan={9}
+            containerGridCols={9}
+            skeletonColSpan={3}
+          />
+        }
+        key={searchParams?._id}
+      >
+        <ProductList searchParams={searchParams} />
+      </Suspense>
     </div>
   );
 }

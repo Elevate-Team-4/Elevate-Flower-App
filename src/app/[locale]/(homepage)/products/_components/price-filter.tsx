@@ -1,7 +1,9 @@
 "use client";
+
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import ResetComponent from "@/components/common/reset-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,6 +17,7 @@ type PriceForm = {
 
 export default function PriceFilter() {
   // Hooks
+  const t = useTranslations();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -47,10 +50,10 @@ export default function PriceFilter() {
   }, [priceFrom, priceTo, pathname, router, searchParams]);
 
   return (
-    <div className="mb-6 border-b-[1px] border-zinc-100 pb-6">
+    <div className="mb-6 border-b-2 border-zinc-100 dark:border-zinc-700 pb-6">
       {/* header occasion filter */}
       <div className="flex justify-between ">
-        <h3 className="font-semibold text-lg font-primary">Price</h3>
+        <h3 className="font-semibold text-lg font-primary">{t("product.price")}</h3>
         <ResetComponent
           paramKey={["price[gt]", "price[lt]"]}
           onResetFormValues={() => reset({ priceFrom: "", priceTo: "" })}

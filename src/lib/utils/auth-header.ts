@@ -17,6 +17,7 @@ export async function getAuthHeader() {
   }
 
   return {
+    token: JWT?.token || "",
     Authorization: `Bearer ${JWT?.token}`,
   };
 }

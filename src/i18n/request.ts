@@ -16,6 +16,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
           style: "currency",
           currency: "EGP",
           maximumFractionDigits: 0,
+          numberingSystem: locale === "ar" ? "arab" : "latn",
         },
         "currency-float": {
           style: "currency",
@@ -29,10 +30,15 @@ export default getRequestConfig(async ({ requestLocale }) => {
         "percentage-float": {
           style: "percent",
         },
-        "number-format": {
+        "number-base": {
           style: "decimal",
-          maximumFractionDigits: 0,
+          maximumFractionDigits: 1,
+          numberingSystem: locale === "ar" ? "arab" : "latn",
         },
+      },
+      "number-format": {
+        style: "decimal",
+        maximumFractionDigits: 0,
       },
       dateTime: {
         //^ --- SHORT YEAR FORMATS (year: '2-digit') ---
@@ -112,6 +118,16 @@ export default getRequestConfig(async ({ requestLocale }) => {
         //~ Monday, 9 June 2025 at 2:30 PM
         "full-date-time": {
           weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        },
+
+        //~ 9 June 2025 at 2:30 PM
+        "full-date-time-no-day": {
           day: "numeric",
           month: "long",
           year: "numeric",
