@@ -1,6 +1,6 @@
+import { getTranslations } from "next-intl/server";
 import { getOrders } from "@/lib/apis/orders.api";
 import OrderCard from "./_components/order-card";
-import { getTranslations } from "next-intl/server";
 
 export default async function Page() {
   // Translations
@@ -26,7 +26,9 @@ export default async function Page() {
   return (
     <>
       {/* Heading */}
-      <h2 className="text-5xl mt-16 font-bold text-zinc-800 mb-6 dark:text-zinc-100">{t('orders-page-title')}</h2>
+      <h2 className="text-5xl mt-16 font-bold text-zinc-800 mb-6 dark:text-zinc-100">
+        {t("orders-page-title")}
+      </h2>
 
       {/* Order card */}
       <div className="flex flex-col gap-4 mb-16">

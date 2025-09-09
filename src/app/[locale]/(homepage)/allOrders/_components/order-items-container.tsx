@@ -1,12 +1,12 @@
 "use client";
 
-import { OrderItemType } from "@/lib/types/orders";
-import OrderItemCard from "./order-items-card";
-import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/utils/cn";
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils/cn";
+import { Button } from "@/components/ui/button";
+import { OrderItemType } from "@/lib/types/orders";
+import OrderItemCard from "./order-items-card";
 
 interface OrderItemContaienrParams {
   orderItems: OrderItemType[];

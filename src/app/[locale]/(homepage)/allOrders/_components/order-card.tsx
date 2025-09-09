@@ -1,8 +1,8 @@
+import { Banknote, Check, CheckCheck, CreditCard, TriangleAlert, Truck } from "lucide-react";
+import { useFormatter, useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { Order } from "@/lib/types/orders";
-import { Banknote, Check, CheckCheck, CreditCard, TriangleAlert, Truck } from "lucide-react";
 import OrderItemsContainer from "./order-items-container";
-import { useFormatter, useTranslations } from "next-intl";
 
 interface orderCardProps {
   order: Order;
