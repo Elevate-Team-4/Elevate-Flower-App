@@ -1,8 +1,8 @@
-import { Link } from "@/i18n/navigation";
-import { OrderItemType } from "@/lib/types/orders";
 import { Star } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import Image from "next/image";
+import { OrderItemType } from "@/lib/types/orders";
+import { Link } from "@/i18n/navigation";
 
 interface OrderItemParams {
   orderItem: OrderItemType;
