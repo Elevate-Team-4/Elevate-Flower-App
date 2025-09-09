@@ -1,4 +1,5 @@
 import AboutUs from "./_components/about-us-section";
+import ProductReview from "./_components/add-product-review/product-review";
 import BestSelling from "./_components/best-selling/best-selling";
 import CarouselSection from "./_components/carousel-section";
 import CompaniesSection from "./_components/companies-section";
@@ -35,6 +36,7 @@ export default function Home({
       <Gallery />
 
       <CompaniesSection />
+      {/* <ProductReview /> */}
     </main>
   );
 }

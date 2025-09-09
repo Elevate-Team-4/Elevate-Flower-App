@@ -1,3 +1,4 @@
+import { Mulish } from "next/font/google";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { Sarabun } from "next/font/google";
@@ -5,8 +6,8 @@ import { Pinyon_Script } from "next/font/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { setRequestLocale } from "next-intl/server";
+import { Toaster } from "sonner";
 import { routing } from "@/i18n/routing";
-import { Toaster } from "@/components/ui/toaster";
 import Providers from "./../../components/providers/index";
 
 // Fonts
@@ -45,6 +46,11 @@ const pinyon = Pinyon_Script({
   style: ["normal"],
   variable: "--font-pinyon",
 });
+const mulish = Mulish({
+  subsets: ["latin"],
+  variable: "--font-mulish",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 //Metadata
 export const metadata: Metadata = {
@@ -67,12 +73,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${diwany.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} ${diwany.variable} ${pinyon.variable} ${sarabun.variable} antialiased`}
+        className={`${geistSans.variable} ${diwany.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} ${pinyon.variable} ${sarabun.variable}  antialiased`}
       >
         {/* Providers */}
         <Providers>
           {/* Main children  */}
-          {children}
+          <main>{children}</main>
 
           {/* Toast notifications */}
           <Toaster />

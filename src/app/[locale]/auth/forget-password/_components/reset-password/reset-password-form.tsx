@@ -3,6 +3,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,10 +15,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import useResetPassword from "../../_hooks/use-reset-password";
 import { ResetPasswordFields, resetPasswordSchema } from "@/lib/schemes/reset-password.schema";
-import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
+import useResetPassword from "../../_hooks/use-reset-password";
 
 interface ResetPasswordProps {
   email: string;
