@@ -1,7 +1,7 @@
 declare type SearchParams = string | string[] | undefined;
 
 declare type RouteProps = {
-  params: { locale: Locale; productSlug: string };
+  params: { locale: Locale; productSlug: string; productId: string };
   searchParams: SearchParams;
 };
 
