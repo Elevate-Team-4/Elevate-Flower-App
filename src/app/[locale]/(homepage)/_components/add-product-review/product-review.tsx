@@ -2,8 +2,8 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useFormatter, useTranslations } from "next-intl";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 import ProductReviewSkeleton from "@/components/skeletons/product-reviews/product-review.skeleton";
-import { useFetchProductReview } from "../../_hooks/use-fetch-product-review";
 import AddProductReviewForm from "./add-product-review-form";
 import RateUser from "./rate-user";
 import Stars from "./stars";
@@ -13,6 +13,7 @@ type ProductReviewProps = {
   rateAvg: number;
   rateCount: number;
 };
+
 export default function ProductReview({ productId, rateCount, rateAvg }: ProductReviewProps) {
   // Translation
   const format = useFormatter();
@@ -102,8 +103,10 @@ export default function ProductReview({ productId, rateCount, rateAvg }: Product
     },
   ];
 
+  // Sessions
+  const { data: session } = useSession();
+
   // State
-  const [checkLogin, setCheckLogin] = useState(true);
   const [reviews, setReviews] = useState(dummyReviews.slice(0, 1));
   const [hasMore, setHasMore] = useState(true);
 
@@ -121,18 +124,20 @@ export default function ProductReview({ productId, rateCount, rateAvg }: Product
   };
 
   // Hooks
-  const { fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, payload } =
-    useFetchProductReview({ productId });
+  //! until fix backend
+  // const { fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, payload } =
+  // useFetchProductReview({ productId });
 
   return (
     <main>
-      <div className="space-y-[10px] my-4">
+      <div className="space-y-3 my-4">
         {/* Title */}
         <h3 className="relative w-fit text-4xl font-bold text-maroon-700 before:absolute before:bottom-0 before:h-[1px] before:w-[30%] before:bg-maroon-400  after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-1/2 after:w-[60%] after:rounded-e-full after:bg-maroon-100  dark:text-softpink-200 before:dark:bg-maroon-200 after:dark:bg-zinc-700 after:rtl:right-0">
           {t("product-reviews")}
         </h3>
+
         {/* Product Rating */}
-        <div className="space-y-[6px]">
+        <div className="space-y-2">
           <h4 className="text-zinc-800 font-semibold text-xl ">{t("general-rating")}</h4>
           <div className="flex gap-1 items-center">
             <span className="font-bold text-2xl">
@@ -148,19 +153,22 @@ export default function ProductReview({ productId, rateCount, rateAvg }: Product
           </div>
         </div>
       </div>
+
       <section className="grid grid-cols-2 border-t-2 pt-4 ">
         <div className="col-span-1 border-e-2 p-5 relative  ">
           {/* Check if user or not */}
-          {checkLogin || (
+          {!session && (
             <div className="inset-0 absolute bg-white bg-opacity-50 flex items-center justify-center">
               <p className="font-semibold text-zinc-800 text-base">
                 {t("please-login-to-be-able-to-review-the-product")}
               </p>
             </div>
           )}
+
           {/* AddProduct Form */}
-          <AddProductReviewForm productId={productId} setCheckLogin={setCheckLogin} />
+          <AddProductReviewForm productId={productId} />
         </div>
+
         {/* Infinite Scroll */}
         <div className="col-span-1  max-h-[367px] overflow-y-scroll  ">
           <InfiniteScroll
