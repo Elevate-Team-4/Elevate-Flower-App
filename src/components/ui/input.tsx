@@ -1,9 +1,15 @@
+"use client";
 import * as React from "react";
 import { Search, Upload } from "lucide-react";
+import { useState } from "react";
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { cn } from "@/lib/utils/cn";
+import { Button } from "./button";
 
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, ...props }, ref) => {
+    const [showPassword, setShowPassword] = useState(false);
+
     // File Input
     if (type === "file") {
       return (
@@ -30,6 +36,37 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
         </div>
       );
     }
+    if (type === "password") {
+      return (
+        <div className="relative">
+          {/* Input */}
+          <input
+            type={showPassword ? "text" : "password"}
+            className={cn(
+              "flex h-12 w-full rounded-[10px] border border-zinc-300 bg-[#FFFFFF] p-4 text-[14px] shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-zinc-950 placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400 disabled:cursor-not-allowed disabled:bg-zinc-100 md:text-sm dark:border-zinc-600 dark:bg-zinc-700  dark:file:text-zinc-50 dark:placeholder:text-zinc-400 dark:focus-visible:ring-zinc-500",
+              className,
+            )}
+            ref={ref}
+            {...props}
+          />
+          {/* Toggle visibility */}
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="absolute right-0 rtl:right-auto rtl:left-0 top-0  h-full px-3"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? (
+              <VscEyeClosed size={45} color="#949BA5" />
+            ) : (
+              <VscEye size={45} color="#949BA5" />
+            )}
+            <span className="sr-only">{showPassword ? "Hide password" : "Show password"}</span>
+          </Button>
+        </div>
+      );
+    }
     // Search Input
     else if (type === "search") {
       return (
@@ -44,8 +81,8 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
             ref={ref}
             {...props}
           />
-          <span className="absolute start-0 p-2 z-10">
-            <Search className="text-zinc-400 text-[14px] font-normal" />
+          <span className="absolute start-1 p-2 z-10">
+            <Search size={18} className="text-zinc-400 font-normal" />
           </span>
         </label>
       );
