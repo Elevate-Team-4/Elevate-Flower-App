@@ -2,7 +2,7 @@ import "server-only";
 
 import { decode, JWT } from "next-auth/jwt";
 import { cookies } from "next/headers";
-import { AUTH_COOKIE } from "../constants/api.constant";
+import { AUTH_COOKIE } from "../constants/auth.constant";
 
 export async function getTokenHeader() {
   const tokenCookie = cookies().get(AUTH_COOKIE)?.value;
