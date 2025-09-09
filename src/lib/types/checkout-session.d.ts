@@ -1,0 +1,64 @@
+export interface CheckoutSessionTS {
+  message: string;
+  session: Session;
+}
+
+export interface Session {
+  id: string;
+  object: string;
+  adaptive_pricing: AdaptivePricing;
+  after_expiration: unknown;
+  allow_promotion_codes: unknown;
+  amount_subtotal: number;
+  amount_total: number;
+  automatic_tax: AutomaticTax;
+  billing_address_collection: unknown;
+  cancel_url: string;
+  client_reference_id: string;
+  client_secret: unknown;
+  collected_information: CollectedInformation;
+  consent: unknown;
+  consent_collection: unknown;
+  created: number;
+  currency: string;
+  currency_conversion: unknown;
+  custom_fields: unknown[];
+  custom_text: CustomText;
+  customer: unknown;
+  customer_creation: string;
+  customer_details: CustomerDetails;
+  customer_email: string;
+  discounts: unknown[];
+  expires_at: number;
+  invoice: unknown;
+  invoice_creation: InvoiceCreation;
+  livemode: boolean;
+  locale: unknown;
+  metadata: Metadata2;
+  mode: string;
+  origin_context: unknown;
+  payment_intent: unknown;
+  payment_link: unknown;
+  payment_method_collection: string;
+  payment_method_configuration_details: PaymentMethodConfigurationDetails;
+  payment_method_options: PaymentMethodOptions;
+  payment_method_types: string[];
+  payment_status: string;
+  permissions: unknown;
+  phone_number_collection: PhoneNumberCollection;
+  recovered_from: unknown;
+  saved_payment_method_options: unknown;
+  setup_intent: unknown;
+  shipping_address_collection: unknown;
+  shipping_cost: unknown;
+  shipping_details: unknown;
+  shipping_options: unknown[];
+  status: string;
+  submit_type: unknown;
+  subscription: unknown;
+  success_url: string;
+  total_details: TotalDetails;
+  ui_mode: string;
+  url: string;
+  wallet_options: unknown;
+}
