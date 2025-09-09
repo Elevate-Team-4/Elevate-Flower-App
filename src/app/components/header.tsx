@@ -15,10 +15,10 @@ import {
   ShoppingCart,
 } from "lucide-react";
 
+import { getServerSession } from "next-auth";
 import logo from "@assets/logo 1.png";
 
 // Libraries
-import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
 
 // Navigation
@@ -34,7 +34,6 @@ import LocationHeader from "./location-header";
 
 // Locale Components
 import UserDropdown from "./user-dropdown";
-import ToggleLocale from "../[locale]/(homepage)/_components/toggle-locale";
 
 export default async function Header() {
   // Navbar object
