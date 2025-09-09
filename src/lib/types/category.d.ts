@@ -10,3 +10,7 @@ type Categories = {
   isSuperAdmin: true;
   productsCount: number;
 } & DataBaseProbs;
+
+declare type Category = {
+  category: Categories;
+};

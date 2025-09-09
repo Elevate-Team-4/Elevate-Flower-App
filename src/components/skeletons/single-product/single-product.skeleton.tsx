@@ -1,18 +1,34 @@
 import { Skeleton } from "@/components/ui/skeleton";
+
 /**
+ * SingleProductSkeleton Component
  *
+ * Displays a customizable grid of skeleton loaders,
  *
- * Single skeleton component inside a grid
- * Pass numbers of skeleton ui you want to use
- *
+ * Props:
+ * - count: Number of skeleton product cards to render (default: 4)
+ * - containerColSpan: Tailwind col-span for the outer container (default: 12)
+ * - containerGridCols: Number of grid columns in the container (default: 12)
+ * - skeletonColSpan: Tailwind col-span for each individual skeleton card (default: 3)
  */
-export default function SingleProductSkeleton({ count = 4 }) {
+
+export default function SingleProductSkeleton({
+  count = 4,
+  containerColSpan = 12,
+  containerGridCols = 12,
+  skeletonColSpan = 3,
+}) {
   return (
-    <div className="grid grid-cols-12 gap-6">
+    // Outer container with responsive column span and grid layout
+    <div className={`my-3 col-span-${containerColSpan} grid grid-cols-${containerGridCols} gap-6`}>
       {Array.from({ length: count }, (_, i) => (
-        <div key={i} className="col-span-3">
-          <div className="flex flex-col space-y-3 gap-4">
+        // Individual skeleton product card
+        <div key={i} className={`col-span-${skeletonColSpan}`}>
+          <div className="flex flex-col space-y-3 gap-5">
+            {/* Image placeholder */}
             <Skeleton className="h-72 w-72 rounded-xl" />
+
+            {/* Text lines placeholder */}
             <div className="space-y-2">
               <Skeleton className="h-4 w-64" />
               <Skeleton className="h-4 w-52" />
