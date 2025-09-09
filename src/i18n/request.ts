@@ -124,6 +124,16 @@ export default getRequestConfig(async ({ requestLocale }) => {
           minute: "numeric",
           hour12: true,
         },
+
+        //~ 9 June 2025 at 2:30 PM
+        "full-date-time-no-day": {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        },
       },
       list: {
         conjunction: {
