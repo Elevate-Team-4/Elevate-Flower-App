@@ -93,6 +93,7 @@
   "home-features-item-four-title": "24/7 Support",
   "home-features-item-four-desc": "Contact us at any time",
   "home-features-item-one-desc": "For orders above {price, number, currency-no-digits}",
+  "mahmoued": "mahmoued",
   "home-carousel-badge": "Starting from {price, number, currency-base}",
   "work": "Work",
   "are-you-sure-you-want-to-delete-this-address": "Are you sure you want to delete this address?",
@@ -210,6 +211,31 @@
   "from": "from",
   "to": "to",
   "reset": "Reset",
+  "count": "This is <important><very>very</very> important</important>)",
+  "checkout": {
+    "shipping-address": "Shipping Address",
+    "or": "OR",
+    "add-new-address": "Add a New Address",
+    "next": "Next",
+    "back": "Back",
+    "payment-method": "Payment Method",
+    "cash-delivery": "Cash on Delivery",
+    "cash-title": "You'll pay in cash when your order is delivered.",
+    "credit-card": "Credit Card",
+    "credit-title": "You'll be securely redirected to Stripe to complete your payment.",
+    "checkout": "Checkout"
+  },
+  "summary": {
+    "summary": "Summary",
+    "apply-coupon": "Apply Coupon",
+    "coupon-code": "Coupon Code",
+    "no-coupons-applied": "No coupons applied",
+    "subtotal": "Subtotal",
+    "discount": "{number} Discount",
+    "total": "Total"
+  },
+  "number-discount": "{price} Discount",
+  "price-number-currency-discount": "{price , number , percentage-int} Discount",
   "product": {
     "occasion": "Occasion",
     "price": "Price"

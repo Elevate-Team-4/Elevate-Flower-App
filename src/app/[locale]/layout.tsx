@@ -1,3 +1,4 @@
+import { Mulish } from "next/font/google";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { Sarabun } from "next/font/google";
@@ -45,6 +46,11 @@ const pinyon = Pinyon_Script({
   style: ["normal"],
   variable: "--font-pinyon",
 });
+const mulish = Mulish({
+  subsets: ["latin"],
+  variable: "--font-mulish",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 //Metadata
 export const metadata: Metadata = {
@@ -67,7 +73,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${diwany.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} ${diwany.variable} ${pinyon.variable} ${sarabun.variable} antialiased`}
+        className={`${geistSans.variable} ${diwany.variable} ${edwardian.variable} ${geistMono.variable} ${zain.variable} ${pinyon.variable} ${sarabun.variable}  antialiased`}
       >
         {/* Providers */}
         <Providers>

@@ -27,6 +27,9 @@ import { Link } from "@/i18n/navigation";
 // UI Components
 import { Input } from "@/components/ui/input";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import ToggleLocale from "@/components/layout/header/components/toggle-locale";
+
+// Assets
 import LocationHeader from "./location-header";
 
 // Locale Components
@@ -135,7 +138,7 @@ export default async function Header() {
 
             {/* language */}
             <div className="text-zinc-700 dark:text-white text-base font-normal">
-              <p>العربيه</p>
+              <ToggleLocale />
             </div>
           </div>
         </div>

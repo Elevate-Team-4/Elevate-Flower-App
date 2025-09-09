@@ -25,6 +25,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
         "percentage-int": {
           style: "percent",
           maximumFractionDigits: 0,
+          numberingSystem: locale === "ar" ? "arab" : "latn",
         },
         "percentage-float": {
           style: "percent",
