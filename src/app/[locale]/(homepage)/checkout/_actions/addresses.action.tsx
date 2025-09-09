@@ -4,9 +4,10 @@ import { Addresses } from "@/lib/types/addresses";
 import { getAuthHeader } from "@/lib/utils/auth-header";
 
 export default async function getAddresses() {
-  const respones = await fetch(`${process.env.NEXT_PUBLIC_API}/addresses`, {
+  const token = await getAuthHeader();
+  const respones = await fetch(`${process.env.NEXT_PUBLIC_API}/get-addresses`, {
     headers: {
-      ...(await getAuthHeader()),
+      Authorization: `Bearer ${token.token}`,
     },
   });
 

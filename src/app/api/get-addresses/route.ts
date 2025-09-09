@@ -1,6 +1,6 @@
-import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
+import { JSON_HEADER } from "@/lib/constants/api.constant";
 
 export async function GET(req: NextRequest) {
   const token = await getToken({ req });
