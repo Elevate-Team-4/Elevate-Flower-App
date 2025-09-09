@@ -29,8 +29,11 @@ export const authOptions: NextAuthOptions = {
         const payload: APIResponse<LoginResponse> = await response.json();
 
         // Validate credentials before API request to avoid unnecessary network calls
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error("Email and password are required.");
+        if (!credentials?.email) {
+          throw new Error("email is not allowed to be empty");
+        }
+        if (!credentials?.password) {
+          throw new Error("password is not allowed to be empty");
         }
 
         if ("error" in payload) {
