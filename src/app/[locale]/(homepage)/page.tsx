@@ -15,7 +15,7 @@ export default function Home({
   searchParams?: { occasion?: string };
 }) {
   return (
-    <main className="py-10">
+    <main className="py-10 container">
       {/* Carousel section */}
       <CarouselSection />
 
