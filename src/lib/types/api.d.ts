@@ -2,7 +2,7 @@ declare type DataBaseProbs = {
   _id: string;
   createdAt: string;
   updatedAt: string;
-  __v: number;
+  __v?: number;
 };
 declare type ErrorResponse = {
   error: string;
@@ -58,6 +58,7 @@ declare type CommonSearchParams = {
   sort?: string; // Sorting criteria, e.g., 'price,-title'
   fields?: string; // Comma-separated list of fields to include in the response
   keyword?: string; // Search keyword for full-text search
+  search?: string; // for searching
 };
 
 declare type APIResponse<T> = SuccessfulResponse<T> | ErrorResponse;

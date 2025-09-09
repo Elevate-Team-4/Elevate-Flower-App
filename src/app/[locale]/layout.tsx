@@ -1,3 +1,4 @@
+import { Mulish } from "next/font/google";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { Sarabun } from "next/font/google";
@@ -5,10 +6,9 @@ import { Pinyon_Script } from "next/font/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { setRequestLocale } from "next-intl/server";
+import { Toaster } from "sonner";
 import { routing } from "@/i18n/routing";
-import { Toaster } from "@/components/ui/toaster";
 import Providers from "./../../components/providers/index";
-import { SidebarProvider } from "@/components/ui/sidebar";
 
 // Fonts
 const geistSans = localFont({
@@ -46,6 +46,11 @@ const pinyon = Pinyon_Script({
   style: ["normal"],
   variable: "--font-pinyon",
 });
+const mulish = Mulish({
+  subsets: ["latin"],
+  variable: "--font-mulish",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 //Metadata
 export const metadata: Metadata = {
@@ -73,9 +78,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         {/* Providers */}
         <Providers>
           {/* Main children  */}
-          <SidebarProvider>
-            <main className="w-full">{children}</main>
-          </SidebarProvider>
+          <main>{children}</main>
 
           {/* Toast notifications */}
           <Toaster />

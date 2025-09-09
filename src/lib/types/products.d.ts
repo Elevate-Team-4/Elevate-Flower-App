@@ -6,7 +6,7 @@ export type Product = {
   slug: string;
   description: string;
   imgCover: string;
-  images: string;
+  images: string[];
   price: number;
   priceAfterDiscount: number;
   quantity: number;
@@ -16,6 +16,11 @@ export type Product = {
   sold?: number;
   id: string;
 } & DataBaseProbs;
+
+// Product details
+export type ProductDetails = {
+  product: Product;
+};
 
 // Array of Products
 export type Products = {
@@ -51,3 +56,20 @@ export type SearchParamProduct = {
   "sold[lte]"?: number; // Filter: sold quantity less than or equal to
   "quantity[lte]"?: number; // Filter: quantity less than or equal to
 } & CommonSearchParams;
+
+// Related products
+export type RelatedProducts = {
+  count: number;
+  similarProducts: {
+    _id: string;
+    title: string;
+    imgCover: string;
+    price: number;
+    priceAfterDiscount: number;
+    similarityScore: number;
+  };
+}[];
+// Product details
+export type ProductDetails = {
+  product: Product;
+};

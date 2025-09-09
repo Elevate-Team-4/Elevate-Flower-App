@@ -1,6 +1,10 @@
 "use client";
 
 import { CalendarHeart, ClipboardList, Flower, LayoutDashboard, Package } from "lucide-react";
+import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -12,12 +16,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import Image from "next/image";
-import logo from "../../../../../public/assets/Images/logo 1.png";
-import { Link, usePathname } from "@/i18n/navigation";
-import { useSession } from "next-auth/react";
-import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import logo from "../../../../../public/assets/Images/logo 1.png";
 import FooterSidebar from "./footer-sidebar";
 
 export function AppSidebar() {
@@ -59,12 +59,15 @@ export function AppSidebar() {
   const pathName = usePathname();
 
   return (
-    <Sidebar side={locale === "ar" ? "right" : "left"} className="w-80 p-6 dark:bg-zinc-800  ">
+    <Sidebar
+      side={locale === "ar" ? "right" : "left"}
+      className="w-[360px] p-6 dark:bg-zinc-800 dark:border-zinc-600 border-none"
+    >
       <SidebarContent className="bg-white dark:bg-zinc-800">
         <SidebarHeader className=" justify-center items-center">
           {/* Logo */}
           <Link className="size-28" href="/">
-            <Image alt="rose app logo" src={logo} width={120} height={0} className="w-full" />
+            <Image alt="rose app logo" src={logo} width={120} className="w-full" />
           </Link>
           {/* Go to home Btn */}
           <Link
@@ -86,7 +89,7 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <Link
                       className={cn(
-                        `flex gap-[10px] font-bold text-lg space-x-2`,
+                        "flex gap-[10px] font-bold text-lg space-x-2",
                         pathName === item.url ? "bg-maroon-50 text-maroon-600" : "",
                       )}
                       href={item.url}
@@ -102,7 +105,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t bg-white dark:bg-zinc-800 py-4">
+      <SidebarFooter className="border-t bg-white dark:bg-zinc-800 py-4 dark:border-t-zinc-600">
         <FooterSidebar
           email={session?.user.email ?? "user123@gmail.com"}
           firstName={firstName ?? "user"}
