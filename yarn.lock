@@ -731,14 +731,6 @@
   version "5.87.1"
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.87.1.tgz#9b8b9331714749d505a7ceb0ae52b6ad6ae8a461"
   integrity sha512-HOFHVvhOCprrWvtccSzc7+RNqpnLlZ5R6lTmngb8aq7b4rc2/jDT0w+vLdQ4lD9bNtQ+/A4GsFXy030Gk4ollA==
-"@tanstack/query-core@5.79.0":
-  version "5.79.0"
-  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.79.0.tgz#947e13c409555a8ca0a17abdf3dff9eb77af45e6"
-  integrity sha512-s+epTqqLM0/TbJzMAK7OEhZIzh63P9sWz5HEFc5XHL4FvKQXQkcjI8F3nee+H/xVVn7mrP610nVXwOytTSYd0w==
-"@tanstack/query-core@5.83.1":
-  version "5.83.1"
-  resolved "https://registry.npmjs.org/@tanstack/query-core/-/query-core-5.83.1.tgz"
-  integrity sha512-OG69LQgT7jSp+5pPuCfzltq/+7l2xoweggjme9vlbCPa/d7D7zaqv5vN/S82SzSYZ4EDLTxNO1PWrv49RAS64Q==
 
 "@tanstack/query-devtools@5.87.3":
   version "5.87.3"
@@ -752,17 +744,12 @@
   dependencies:
     "@tanstack/query-devtools" "5.87.3"
 
-"@tanstack/react-query@^5.79.0":
-  version "5.79.0"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.79.0.tgz#91a41d92dcd92b2cd544bafdcc2c2bd7d06396c6"
-  integrity sha512-DjC4JIYZnYzxaTzbg3osOU63VNLP67dOrWet2cZvXgmgwAXNxfS52AMq86M5++ILuzW+BqTUEVMTjhrZ7/XBuA==
 "@tanstack/react-query@^5.84.1":
   version "5.87.1"
   resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.87.1.tgz#074bd2238173f49ef8804a9b6d94f63374828a78"
   integrity sha512-YKauf8jfMowgAqcxj96AHs+Ux3m3bWT1oSVKamaRPXSnW2HqSznnTCEkAVqctF1e/W9R/mPcyzzINIgpOH94qg==
   dependencies:
     "@tanstack/query-core" "5.87.1"
-    "@tanstack/query-core" "5.79.0"
 
 "@tybys/wasm-util@^0.10.0":
   version "0.10.0"
@@ -2138,9 +2125,9 @@ fast-levenshtein@^2.0.6:
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
 
 fast-uri@^3.0.1:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.0.6.tgz#88f130b77cfaea2378d56bf970dea21257a68748"
-  integrity sha512-Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.1.0.tgz#66eecff6c764c0df9b762e62ca7edcfb53b4edfa"
+  integrity sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==
 
 fastq@^1.6.0:
   version "1.19.1"
@@ -2874,10 +2861,6 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lucide-react@^0.525.0:
-  version "0.525.0"
-  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.525.0.tgz#5f7bcecd65e4f9b2b5b6b5d295e3376df032d5e3"
-  integrity sha512-Tm1txJ2OkymCGkvwoHt33Y2JpN5xucVq1slHcgE6Lk0WjDfjgKWor5CdVER8U6DvcfMwh4M8XxmpTiyzfmfDYQ==
 lucide-react@^0.536.0:
   version "0.536.0"
   resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.536.0.tgz#0c15c0ec67b6b0b3f0d6eb65df559bb72ed9c81d"
@@ -3358,9 +3341,6 @@ react-dom@^18:
     scheduler "^0.23.2"
 
 react-hook-form@^7.60.0:
-  version "7.60.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.60.0.tgz#cc4bfa2952d602fc8f1dcf2d4929fcb6d9cdc782"
-  integrity sha512-SBrYOvMbDB7cV8ZfNpaiLcgjH/a1c7aK0lK+aNigpf4xWLO8q+o4tcvVurv3c4EOyzn/3dCsYt4GKD42VvJ/+A==
   version "7.62.0"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.62.0.tgz#2d81e13c2c6b6d636548e440818341ca753218d0"
   integrity sha512-7KWFejc98xqG/F4bAxpL41NB3o1nnvQO1RWZT3TqRZYL8RryQETGfEdVnJN2fy1crCiBLLjkRBVK05j24FxJGA==
@@ -3373,7 +3353,6 @@ react-icons@^5.5.0:
 react-infinite-scroll-component@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-infinite-scroll-component/-/react-infinite-scroll-component-6.1.0.tgz#7e511e7aa0f728ac3e51f64a38a6079ac522407f"
-  resolved "https://registry.npmjs.org/react-infinite-scroll-component/-/react-infinite-scroll-component-6.1.0.tgz"
   integrity sha512-SQu5nCqy8DxQWpnUVLx7V7b7LcA37aM7tvoWjTLZp1dk6EJibM5/4EJKzOnl07/BsM1Y40sKLuqjCwwH/xV0TQ==
   dependencies:
     throttle-debounce "^2.1.0"
@@ -3698,7 +3677,6 @@ signal-exit@^4.0.1:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
   integrity sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==
 
-sonner@^2.0.5:
 slice-ansi@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-4.0.0.tgz#500e8dd0fd55b05815086255b3195adf2a45fe6b"
@@ -3972,7 +3950,6 @@ thenify-all@^1.0.0:
 throttle-debounce@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-2.3.0.tgz#fd31865e66502071e411817e241465b3e9c372e2"
-  resolved "https://registry.npmjs.org/throttle-debounce/-/throttle-debounce-2.3.0.tgz"
   integrity sha512-H7oLPV0P7+jgvrk+6mwwwBDmxTaxnu9HMXmloNLXwnNO0ZxZ31Orah2n8lU1eMPvsaowP2CX+USCgyovXfdOFQ==
 
 tiny-invariant@^1.3.1:
@@ -4296,7 +4273,6 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zod@^3.25.67:
 zod@^3.25.74:
   version "3.25.76"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
