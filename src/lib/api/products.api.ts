@@ -46,6 +46,7 @@ export const getProductById = async (productId: string) => {
 
     return payload;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching product:", error);
     throw error;
   }

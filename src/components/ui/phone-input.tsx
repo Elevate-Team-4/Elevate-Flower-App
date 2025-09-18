@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils/cn";
 
 type PhoneInputProps = Omit<React.ComponentProps<"input">, "onChange" | "value" | "ref"> &
   Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> & {
+    // eslint-disable-next-line no-unused-vars
     onChange?: (value: RPNInput.Value) => void;
   };
 
@@ -66,6 +67,7 @@ type CountrySelectProps = {
   disabled?: boolean;
   value: RPNInput.Country;
   options: CountryEntry[];
+  // eslint-disable-next-line no-unused-vars
   onChange: (country: RPNInput.Country) => void;
 };
 
@@ -147,6 +149,7 @@ const CountrySelect = ({
 
 interface CountrySelectOptionProps extends RPNInput.FlagProps {
   selectedCountry: RPNInput.Country;
+  // eslint-disable-next-line no-unused-vars
   onChange: (country: RPNInput.Country) => void;
   onSelectComplete: () => void;
 }

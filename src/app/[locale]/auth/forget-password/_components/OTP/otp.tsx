@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 
 interface OTPProps {
+  // eslint-disable-next-line no-unused-vars
   setStep: (step: number) => void;
   email: string;
 }

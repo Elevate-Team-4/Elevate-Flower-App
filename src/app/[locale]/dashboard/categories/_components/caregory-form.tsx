@@ -124,6 +124,7 @@ export default function CategoryForm({ category }: { category?: Categories }) {
             {category && (
               <div className="flex justify-end">
                 <div className="w-fit flex items-center text-blue-600 gap-1 dark:text-soft-pink-400 cursor-pointer p-[10px] border rounded-lg border-black/10 ">
+                  {/*  eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image width={18} height={18} />
                   <span>{t("view-category-image")}</span>
                 </div>
