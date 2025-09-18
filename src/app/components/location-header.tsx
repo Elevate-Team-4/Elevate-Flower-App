@@ -42,7 +42,7 @@ export default function LocationHeader() {
           <div className="text-maroon-700 dark:text-soft-pink-200 flex flex-nowrap items-center gap-2 justify-center">
             <LocationEdit size={"20px"} />
             <p className=" font-medium text-base font-primary">
-              {payload?.addresses[0].city || t("set-delivery-address")}
+              {payload?.addresses?.[0]?.city || t("set-delivery-address")}
             </p>
           </div>
         </Button>
@@ -89,7 +89,7 @@ export default function LocationHeader() {
               <p className="text-2xl font-semibold text-zinc-800">{t("no-addresses-to-show")}</p>
             </div>
           ) : (
-            payload?.addresses.map((address) => (
+            payload?.addresses?.map((address) => (
               <Addresscard
                 key={address._id}
                 address={address}
