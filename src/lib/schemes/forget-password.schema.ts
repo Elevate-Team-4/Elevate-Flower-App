@@ -1,16 +1,16 @@
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-export const forgetPasswordSchema = () => {
+export const useForgetPasswordSchema = () => {
   // Translation
   const t = useTranslations();
 
   return z.object({
     email: z
-      .string({ required_error: t("email-required") })
-      .email(t("email-invalid"))
-      .min(1, t("email-zod-error")),
+      .string()
+      .min(1, { message: t("email-required") })
+      .email({ message: t("email-invalid") }),
   });
 };
 
-export type ForgetPasswordFields = z.infer<ReturnType<typeof forgetPasswordSchema>>;
+export type ForgetPasswordFields = z.infer<ReturnType<typeof useForgetPasswordSchema>>;

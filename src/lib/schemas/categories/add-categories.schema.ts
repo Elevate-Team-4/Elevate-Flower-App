@@ -6,10 +6,9 @@ export const useAddCategoryFormSchema = () => {
   const t = useTranslations();
 
   return z.object({
-    name: z
-      .string({ required_error: t("add-category-name") })
-      .min(1, { message: t("add-category-name") }),
+    name: z.string().min(1, { message: t("add-category-name") }),
     image: z.any(),
   });
 };
+
 export type AddCategoryFormType = z.infer<ReturnType<typeof useAddCategoryFormSchema>>;

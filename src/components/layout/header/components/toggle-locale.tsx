@@ -18,21 +18,25 @@ export default function ToggleLocale() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentLocale = useLocale();
-  // Dropdown Menu languages
-  const languages: (typeof routing)["locales"][number] = {
+
+  // Dropdown Menu languages - إصلاح النوع
+  const languages: Record<(typeof routing)["locales"][number], string> = {
     en: "English",
     ar: "العربية",
   };
+
   return (
     <DropdownMenu>
       {/* // Trigger */}
-      <DropdownMenuTrigger>{languages[currentLocale]}</DropdownMenuTrigger>
+      <DropdownMenuTrigger>
+        {languages[currentLocale as keyof typeof languages]}
+      </DropdownMenuTrigger>
 
       {/* // Content */}
       <DropdownMenuContent>
         {routing.locales.map((locale) => (
           <Link key={locale} locale={locale} href={`${pathname}?${searchParams.toString()}`}>
-            <DropdownMenuItem className={cn(locale == "ar" ? "font-zain" : "", " text-zinc-700")}>
+            <DropdownMenuItem className={cn(locale === "ar" ? "font-zain" : "", " text-zinc-700")}>
               {languages[locale]}
             </DropdownMenuItem>
           </Link>

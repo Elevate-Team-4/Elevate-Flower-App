@@ -19,7 +19,14 @@ export async function RealatedProductsCarousel({ productId }: ProductDetailsProb
   if ("error" in response) {
     return <p>error</p>;
   }
-  const { similarProducts } = response;
+
+  // استخراج similarProducts من كل عنصر في المصفوفة
+  const similarProducts = response.map((item) => item.similarProducts);
+
+  // التأكد من أن المصفوفة ليست فارغة
+  if (!Array.isArray(similarProducts) || similarProducts.length === 0) {
+    return <p>No similar products found</p>;
+  }
 
   // This functions gets the full info of the related products (can be changed to getting products by same category)
   const relatedProductsDetails = await Promise.all(

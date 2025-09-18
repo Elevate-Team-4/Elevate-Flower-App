@@ -14,7 +14,8 @@ export const useInfiniteProducts = (
     string[],
     number
   >({
-    queryKey: [...queryKey, params?.sort],
+    // إصلاح queryKey - فلترة القيم undefined
+    queryKey: [...queryKey, ...(params?.sort ? [params.sort] : [])],
     queryFn: async ({ pageParam = 1 }) => {
       const query = new URLSearchParams({
         ...Object.fromEntries(Object.entries(params || {})),

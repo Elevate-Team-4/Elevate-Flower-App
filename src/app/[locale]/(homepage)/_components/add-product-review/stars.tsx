@@ -12,13 +12,13 @@ export default function Stars({ rating }: StarsProps) {
 
   return (
     <>
-      {!Number.isInteger(rating) && locale == "ar" && (
+      {!Number.isInteger(rating) && locale === "ar" && (
         <StarHalf fill="orange" className="text-orange-400" width={20} hanging={20} />
       )}
       {Array.from({ length: Math.floor(rating) }).map((_, i) => (
         <Star key={i} fill="orange" className="text-orange-400" width={20} hanging={20} />
       ))}
-      {!Number.isInteger(rating) && locale == "en" && (
+      {!Number.isInteger(rating) && locale === "en" && (
         <StarHalf fill="orange" className="text-orange-400" width={20} hanging={20} />
       )}
     </>

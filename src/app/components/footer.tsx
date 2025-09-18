@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import logo from "@assets/logo 1.png";
+import logo from "@assets/logo.png";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 

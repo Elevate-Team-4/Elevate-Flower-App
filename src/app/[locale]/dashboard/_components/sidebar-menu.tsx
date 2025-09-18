@@ -1,17 +1,15 @@
-import { Button } from "@/components/ui/button";
+import { EllipsisVertical, LogOut, User } from "lucide-react";
+import { signOut } from "next-auth/react";
+import { useLocale, useTranslations } from "next-intl";
+import React from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-
-import { EllipsisVertical, LogOut, User } from "lucide-react";
-import { signOut } from "next-auth/react";
-import { useLocale, useTranslations } from "next-intl";
-import React from "react";
-
 export default function MenuItem({ fullName }: { fullName: string }) {
   // Translations
   const t = useTranslations();

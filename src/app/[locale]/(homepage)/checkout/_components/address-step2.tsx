@@ -138,7 +138,7 @@ export default function AddressStep2({ step, address, setStep }: AddressStep1Pro
                     if ("error" in response) {
                     } else {
                       toast({
-                        variant: "success",
+                        variant: "default",
                         title: "Order Placed",
                         description: "Your order has been placed successfully.",
                       });

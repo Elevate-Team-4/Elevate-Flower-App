@@ -17,7 +17,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import logo from "../../../../../public/assets/Images/logo 1.png";
+import logo from "../../../../../public/assets/Images/logo.png";
 import FooterSidebar from "./footer-sidebar";
 
 export function AppSidebar() {
