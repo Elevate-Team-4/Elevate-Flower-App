@@ -7,6 +7,7 @@ import { Categories } from "@/lib/types/category";
 type CategoryContextType = {
   searchCategoryList: Categories[];
   setSearchCategoryList: React.Dispatch<React.SetStateAction<Categories[]>>;
+  // eslint-disable-next-line no-unused-vars
   searchCategory: (searchValue: string) => Promise<Categories[]>;
   searchValue: string | null;
   setSearchValue: React.Dispatch<React.SetStateAction<string | null>>;

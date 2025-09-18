@@ -21,6 +21,7 @@ export default function useUpdateAddress() {
       });
       queryClient.invalidateQueries({ queryKey: ["user-addresses"] });
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError: (error: any) => {
       toast({
         title: error.message,
