@@ -16,7 +16,26 @@ export default function TopSellingProducts() {
 
   const tFormat = useFormatter();
 
-  const products: Product[] = data?.pages.flatMap((page) => page.products) ?? [];
+  // Get products with type-safe access
+  const products: Product[] = (() => {
+    if (!data) return [];
+
+    // Type assertion to check for infinite query structure
+    const infiniteData = data as any;
+
+    // إذا كان infinite query (يحتوي على pages)
+    if (infiniteData.pages && Array.isArray(infiniteData.pages)) {
+      return infiniteData.pages.flatMap((page: any) => page.products || []);
+    }
+
+    // إذا كان paginated response عادي (يحتوي على products مباشرة)
+    const paginatedData = data as any;
+    if (paginatedData.products && Array.isArray(paginatedData.products)) {
+      return paginatedData.products;
+    }
+
+    return [];
+  })();
 
   const gradientStyles = [
     {

@@ -1,5 +1,5 @@
-import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { NextRequest, NextResponse } from "next/server";
+import { JSON_HEADER } from "@/lib/constants/api.constant";
 
 export async function GET(req: NextRequest, { params }: { params: { productId: string } }) {
   const { searchParams } = new URL(req.url);

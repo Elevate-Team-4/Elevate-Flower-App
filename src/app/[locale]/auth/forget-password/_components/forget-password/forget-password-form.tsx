@@ -3,7 +3,10 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { ForgetPasswordFields, forgetPasswordSchema } from "@/lib/schemes/forget-password.schema";
+import {
+  ForgetPasswordFields,
+  useForgetPasswordSchema,
+} from "@/lib/schemes/forget-password.schema";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -18,7 +21,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import useForgetPassword from "../../_hooks/use-forget-password";
 
-// Probs type
+// Props type
 interface ForgetPasswordProps {
   setStep: React.Dispatch<React.SetStateAction<number>>;
   setEmail: React.Dispatch<React.SetStateAction<string>>;
@@ -32,7 +35,7 @@ export default function ForgetPasswordForm({ setStep, setEmail }: ForgetPassword
   const t = useTranslations();
 
   // Initializing react hook form
-  const schema = forgetPasswordSchema();
+  const schema = useForgetPasswordSchema();
   const form = useForm<ForgetPasswordFields>({
     resolver: zodResolver(schema),
     defaultValues: {

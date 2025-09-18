@@ -13,8 +13,9 @@ export default function LowStockProducts() {
     },
   );
 
-  // Get products from current pages
-  const products: Product[] = data?.pages.flatMap((page) => page.products) ?? [];
+  // Get products from current pages - مع إصلاح النوع
+  const products: Product[] =
+    (data as any)?.pages?.flatMap((page: any) => page.products) ?? data?.products ?? [];
 
   // Skeleton Loader
   const SkeletonList = () => (

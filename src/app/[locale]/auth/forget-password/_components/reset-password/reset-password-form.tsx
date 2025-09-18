@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { ResetPasswordFields, resetPasswordSchema } from "@/lib/schemes/reset-password.schema";
+import { ResetPasswordFields, useResetPasswordSchema } from "@/lib/schemes/reset-password.schema";
 import { cn } from "@/lib/utils/cn";
 import useResetPassword from "../../_hooks/use-reset-password";
 
@@ -32,7 +32,7 @@ export default function ResetPasswordForm({ email }: ResetPasswordProps) {
   const t = useTranslations();
 
   // Initializing react hook form
-  const schema = resetPasswordSchema();
+  const schema = useResetPasswordSchema();
   const form = useForm<ResetPasswordFields>({
     resolver: zodResolver(schema),
     defaultValues: {

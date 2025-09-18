@@ -1,9 +1,9 @@
 "use client";
 
-import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/cn";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 // Probs
 interface ThumbnailImagesProbs {

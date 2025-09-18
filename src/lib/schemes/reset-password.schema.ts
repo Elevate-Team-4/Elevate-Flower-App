@@ -1,21 +1,22 @@
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-export const resetPasswordSchema = () => {
+export const useResetPasswordSchema = () => {
   // Translation
   const t = useTranslations();
   return z
     .object({
       newPassword: z
-        .string({ required_error: t("password-requred-reset-password") })
-        .min(8, t("password-min"))
-        .max(50, t("password-max"))
-        .regex(/[A-Z]/, t("password-upercase"))
-        .regex(/[a-z]/, t("password-lowercase"))
-        .regex(/[0-9]/, t("password-number"))
-        .regex(/[^A-Za-z0-9]/, t("password-special")),
+        .string()
+        .min(1, { message: t("password-requred-reset-password") })
+        .min(8, { message: t("password-min") })
+        .max(50, { message: t("password-max") })
+        .regex(/[A-Z]/, { message: t("password-upercase") })
+        .regex(/[a-z]/, { message: t("password-lowercase") })
+        .regex(/[0-9]/, { message: t("password-number") })
+        .regex(/[^A-Za-z0-9]/, { message: t("password-special") }),
 
-      newRePassword: z.string({ required_error: t("confirm-password-required") }),
+      newRePassword: z.string().min(1, { message: t("confirm-password-required") }),
     })
     .refine((data) => data.newPassword === data.newRePassword, {
       message: t("password-mismatch"),
@@ -23,4 +24,4 @@ export const resetPasswordSchema = () => {
     });
 };
 
-export type ResetPasswordFields = z.infer<ReturnType<typeof resetPasswordSchema>>;
+export type ResetPasswordFields = z.infer<ReturnType<typeof useResetPasswordSchema>>;
