@@ -21,11 +21,16 @@ type RatingContextValue = {
   hoverValue: number | null;
   focusedStar: number | null;
   handleValueChange: (
+    // eslint-disable-next-line no-unused-vars
     event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
+    // eslint-disable-next-line no-unused-vars
     value: number,
   ) => void;
+  // eslint-disable-next-line no-unused-vars
   handleKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => void;
+  // eslint-disable-next-line no-unused-vars
   setHoverValue: (value: number | null) => void;
+  // eslint-disable-next-line no-unused-vars
   setFocusedStar: (value: number | null) => void;
 };
 
@@ -103,9 +108,12 @@ export type RatingProps = {
   defaultValue?: number;
   value?: number;
   onChange?: (
+    // eslint-disable-next-line no-unused-vars
     event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>,
+    // eslint-disable-next-line no-unused-vars
     value: number,
   ) => void;
+  // eslint-disable-next-line no-unused-vars
   onValueChange?: (value: number) => void;
   readOnly?: boolean;
   className?: string;

@@ -23,7 +23,7 @@ export default function ProductThumbnail({ thumbnailImages }: ThumbnailImagesPro
 
     setSelectedIndex(mainCarouselAPI.selectedScrollSnap());
     secondaryCarouselAPI.scrollTo(mainCarouselAPI.selectedScrollSnap());
-  }, [mainCarouselAPI, secondaryCarouselAPI, selectedIndex]);
+  }, [mainCarouselAPI, secondaryCarouselAPI]);
 
   // Scroll to for the main carousel on click on the secondary carousel
   const scrollTo = useCallback(
@@ -45,7 +45,7 @@ export default function ProductThumbnail({ thumbnailImages }: ThumbnailImagesPro
     onSelect();
 
     mainCarouselAPI.on("select", onSelect).on("reInit", onSelect);
-  }, [mainCarouselAPI, onSelect]);
+  }, [mainCarouselAPI, onSelect, secondaryCarouselAPI]);
 
   return (
     <div>

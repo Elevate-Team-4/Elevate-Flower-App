@@ -21,6 +21,7 @@ import { Button } from "../ui/button";
  */
 
 // Params Single Product Type
+// eslint-disable-next-line no-unused-vars
 interface SingleProduct {
   singleProduct: Product;
 }

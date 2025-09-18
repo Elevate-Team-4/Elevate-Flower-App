@@ -48,6 +48,7 @@ export default function EditOccasion({ occasionId }: { occasionId: string }) {
     });
 
     const result = await res.json();
+    // eslint-disable-next-line no-console
     console.log(result);
   };
 

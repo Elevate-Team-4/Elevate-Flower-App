@@ -21,14 +21,17 @@ export default function TopSellingProducts() {
     if (!data) return [];
 
     // Type assertion to check for infinite query structure
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const infiniteData = data as any;
 
     // إذا كان infinite query (يحتوي على pages)
     if (infiniteData.pages && Array.isArray(infiniteData.pages)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return infiniteData.pages.flatMap((page: any) => page.products || []);
     }
 
     // إذا كان paginated response عادي (يحتوي على products مباشرة)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const paginatedData = data as any;
     if (paginatedData.products && Array.isArray(paginatedData.products)) {
       return paginatedData.products;

@@ -19,6 +19,7 @@ export default function DeleteModel({
   isPending,
 }: {
   id: string;
+  // eslint-disable-next-line no-unused-vars
   deleteFn: (id: string) => void;
   name: string;
   isPending: boolean;

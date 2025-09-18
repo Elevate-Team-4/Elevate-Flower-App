@@ -33,7 +33,7 @@ export default function Header() {
       debounce((value: string) => {
         searchCategory(value);
       }, 100),
-    [],
+    [searchCategory],
   );
 
   return (

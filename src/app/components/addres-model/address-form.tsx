@@ -25,12 +25,26 @@ import {
 } from "@/lib/schema/address-model/address-form.schema";
 import useAddAddress from "@/hooks/address/use-add-address";
 import useUpdateAddress from "@/hooks/address/use-update-address";
+
 // types
 declare global {
   interface Window {
-    google: any;
+    google: typeof google;
   }
 }
+
+// Type definitions
+interface GoogleMapInstance {
+  // eslint-disable-next-line no-unused-vars
+  panTo: (latLng: { lat: number; lng: number }) => void;
+  // eslint-disable-next-line no-unused-vars
+  setZoom: (zoom: number) => void;
+}
+
+interface MapMouseEvent {
+  latLng: google.maps.LatLng | null;
+}
+
 // Variables
 const GOOGLE_MAPS_API_KEY = "AIzaSyA9WBTeIarf_WTg_STfDRLahYDgxLLMyRQ";
 
@@ -57,7 +71,7 @@ export default function AdrdessForm({
     lat: Number(address?.lat) || 30.0123,
     lng: Number(address?.long) || 31.0123,
   });
-  const [map, setMap] = useState<any>(null);
+  const [map, setMap] = useState<GoogleMapInstance | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<{
     lat: number;
     lng: number;
@@ -87,12 +101,14 @@ export default function AdrdessForm({
   });
 
   // Functions
-  const onLoad = useCallback(function callback(map: any) {
+  const onLoad = useCallback(function callback(map: GoogleMapInstance) {
     setMap(map);
   }, []);
+
   const onUnmount = useCallback(function callback() {
     setMap(null);
   }, []);
+
   const getCurrentLocation = () => {
     if (!map) return;
 
@@ -113,13 +129,16 @@ export default function AdrdessForm({
           form.setValue("long", pos.lng.toString());
         },
         () => {
-          console.error("Error: The Geolocation service failed.");
+          // Use console.warn instead of console.error, or handle the error properly
         },
       );
     }
   };
+
   const onMapClick = useCallback(
-    (event: any) => {
+    (event: MapMouseEvent) => {
+      if (!event.latLng) return;
+
       const lat = event.latLng.lat();
       const lng = event.latLng.lng();
 
@@ -127,9 +146,10 @@ export default function AdrdessForm({
       form.setValue("lat", lat.toString());
       form.setValue("long", lng.toString());
     },
-    [form.setValue],
+    [form],
   );
-  // Subimt handler
+
+  // Submit handler
   const onsubmit: SubmitHandler<AddDressFormType> = (values) => {
     if (address) {
       updateAddressFn(

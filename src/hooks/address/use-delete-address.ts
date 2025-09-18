@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { toast } from "../use-toast";
-import { deleteAddress } from "@/lib/actions/address/delete-address";
 import { useTranslations } from "next-intl";
+import { deleteAddress } from "@/lib/actions/address/delete-address";
+import { toast } from "../use-toast";
 
 export default function useDeleteAddress() {
   // Translations

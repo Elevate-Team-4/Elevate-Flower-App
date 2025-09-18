@@ -22,7 +22,7 @@ export default function OccasionDashboard() {
       setOccasion(response);
     }
     fetchData();
-  }, [page]);
+  }, [nameParam, page]);
 
   if (occasion && "error" in occasion) {
     return <p>error while fetching data</p>;

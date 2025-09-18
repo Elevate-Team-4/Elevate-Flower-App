@@ -51,6 +51,7 @@ export default function DeleteDialog({
 
   // Variables
   let isPending = false;
+  // eslint-disable-next-line no-unused-vars
   let deleteFn: (id: string) => void = () => {};
 
   // Statements
